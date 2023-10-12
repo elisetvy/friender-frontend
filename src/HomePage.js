@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-function HomePage({handleSave}){
+function HomePage({handleSave, currUser}){
 
   // const navigate = useNavigate;
 
@@ -161,6 +161,7 @@ function HomePage({handleSave}){
         </div>
         <button>Submit Photo</button>
       </form>
+      {currUser && <img alt="our user" src={currUser.profilePic} />}
     </div>
 
   )

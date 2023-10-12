@@ -47,10 +47,8 @@ class FrienderApi{
       body: formSubmission,
     });
 
-
-    // const response = await this.request('register', Object.fromEntries(formSubmission), "POST")
-    console.log(response, "RESPONSE IN API")
-    return response;
+    const data = await response.json();
+    return data;
   }
 }
 
