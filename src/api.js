@@ -6,16 +6,16 @@ class FrienderApi{
 
   static async request(endpoint, data = {}, method = "GET") {
     const url = new URL(`${BASE_API_URL}/${endpoint}`);
-    // const headers = {
-    //   "content-type": "application/json",
-    // };
+    const headers = {
+      "content-type": "application/json",
+    };
 
     url.search = method === "GET" ? new URLSearchParams(data).toString() : "";
 
     // Set to undefined since the body property cannot exist on a GET method
     const body = method !== "GET" ? JSON.stringify(data) : undefined;
 
-    const resp = await fetch(url, { method, body });
+    const resp = await fetch(url, { method, body, headers });
 
     // Fetch API does not throw an error, have to dig into the resp for msgs
     if (!resp.ok) {
@@ -48,7 +48,15 @@ class FrienderApi{
     });
 
     const data = await response.json();
+
     return data;
+  }
+
+  /** Get all users. */
+  static async getCats() {
+    const response = await this.request('allcats');
+
+    return response;
   }
 }
 

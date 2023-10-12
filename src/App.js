@@ -1,14 +1,16 @@
 
 import './App.css';
+import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './HomePage';
+import RegisterForm from './RegisterForm';
 import CatPage from './CatPage';
 import FrienderApi from './api'
-import { useState } from 'react';
 
 function App() {
 
   const [currUser, setCurrUser] = useState(null);
+  const [allUsers, setAllUsers] = useState(null);
 
   async function handleSave(formData){
     console.log(formData, "IN HANDLE SAVE")
@@ -16,13 +18,22 @@ function App() {
     setCurrUser(userData);
   }
 
+  useEffect(function getAllCatsOnMount() {
+    async function getAllCats() {
+      const cats = await FrienderApi.getCats();
+      setAllUsers(cats);
+    }
+
+    getAllCats();
+  }, [])
 
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage handleSave={handleSave} currUser={currUser}/>} />
-          <Route path="/cats" element={<CatPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/register" element={<RegisterForm handleSave={handleSave} />} />
+          { allUsers && <Route path="/cats" element={<CatPage cats={allUsers} currUser={currUser} />} /> }
           <Route path="*" element={<p>Hmmm. I can't seem to find what you want.</p>} />
         </Routes>
       </BrowserRouter>

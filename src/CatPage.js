@@ -1,7 +1,13 @@
+import Cat from "./Cat";
 
+function CatPage({ cats, currUser }) {
 
-function CatPage(){
-
+  return (
+    <>
+    <Cat cat={currUser} />
+    {cats.map(cat => <Cat cat={cat} />)}
+    </>
+  )
 }
 
 export default CatPage;
