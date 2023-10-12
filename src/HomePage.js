@@ -6,19 +6,19 @@ function HomePage({handleSave}){
 
   // const navigate = useNavigate;
 
-  // const initialFormData = {username: null,
-  //                         password: null,
-  //                         firstName: null,
-  //                         lastName: null,
-  //                         email: null,
-  //                         zipcode: null,
-  //                         friendRadius: null,
-  //                         hobbies: null,
-  //                         interests: null,
-  //                         photoProfile: null
-  //                         }
+  const initialFormData = {username: null,
+                          password: null,
+                          firstName: null,
+                          lastName: null,
+                          email: null,
+                          zipcode: null,
+                          friendRadius: null,
+                          hobbies: null,
+                          interests: null,
+                          photoProfile: null
+                          }
 
-  const [formData, setFormData]= useState({interests: null, photoProfile:null});
+  const [formData, setFormData]= useState(initialFormData);
 
   function handleChange(evt){
     const {name, value, files} = evt.target;
@@ -32,17 +32,18 @@ function HomePage({handleSave}){
 
   async function handleSubmit(evt){
     evt.preventDefault();
+    console.log(formData.username)
 
     await handleSave(formData);
     // console.log(formData);
     // console.log(formData.photoProfile);
-    setFormData({photoProfile:null});
+    setFormData(initialFormData);
     // navigate("/cats");
   }
 
   return(
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div>
           <label>Username</label>
           <div>

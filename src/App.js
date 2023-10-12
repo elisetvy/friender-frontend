@@ -3,11 +3,13 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './HomePage';
 import CatPage from './CatPage';
+import FrienderApi from './api'
 
 function App() {
 
-  function handleSave(formData){
-
+  async function handleSave(formData){
+    console.log(formData, "IN HANDLE SAVE")
+    await FrienderApi.addCat(formData);
   }
 
 
