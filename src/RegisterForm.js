@@ -19,6 +19,7 @@ function RegisterForm({ handleSave }){
                           }
 
   const [formData, setFormData]= useState(initialFormData);
+  const [error, setError] = useState(null);
 
   function handleChange(evt){
     const {name, value, files} = evt.target;
@@ -32,9 +33,13 @@ function RegisterForm({ handleSave }){
 
   async function handleSubmit(evt){
     evt.preventDefault();
-    await handleSave(formData);;
-    setFormData(initialFormData);
-    navigate("/cats");
+    try {
+      await handleSave(formData);;
+      setFormData(initialFormData);
+      navigate("/cats");
+    } catch(err) {
+      setError("Invalid input(s)")
+    }
   }
 
   return(
@@ -110,6 +115,7 @@ function RegisterForm({ handleSave }){
               value={formData.zipcode}
               onChange={handleChange}
               type="text"
+              pattern="[0-9]{5}"
               minLength={5}
               maxLength={5}
               />
@@ -155,6 +161,7 @@ function RegisterForm({ handleSave }){
               />
           </div>
         </div>
+        {error && <p>{error}</p>}
         <button>Submit Photo</button>
       </form>
     </div>

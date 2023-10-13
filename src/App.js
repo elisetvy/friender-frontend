@@ -21,26 +21,35 @@ function App() {
   }
 
   async function handleLogin(loginData) {
+      const username = await FrienderApi.loginCat(loginData);
+      const foundCat = (allCats.filter(cat => cat.username === username))[0];
 
-    const username = await FrienderApi.loginCat(loginData);
+      setCurrCat(foundCat);
+      localStorage.setItem("currentCat", JSON.stringify(foundCat));
 
-    const foundCat = (allCats.filter(cat => cat.username === username))[0];
-    setCurrCat(foundCat);
-    localStorage.setItem("currentCat", JSON.stringify(foundCat));
-
-    const newAllUsers = allCats.filter(cat => cat.username !== username);
-    setAllCats(newAllUsers);
+      const newAllCats = allCats.filter(cat => cat.username !== username);
+      setAllCats(newAllCats);
   }
 
-  function logOut(){
+  async function logOut(){
     localStorage.clear();
+
+    const cats = await FrienderApi.getCats();
+    setAllCats(cats);
+
     setCurrCat(null);
   }
 
   useEffect(function getAllCatsOnMount() {
     async function getAllCats() {
       const cats = await FrienderApi.getCats();
-      setAllCats(cats);
+
+      if (currCat === null) {
+        setAllCats(cats);
+      } else {
+        const newAllCats = cats.filter(cat => cat.username !== currCat.username);
+        setAllCats(newAllCats);
+      }
     }
 
     getAllCats();
@@ -50,12 +59,12 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} />
-          <Route path="/register" element={<RegisterForm handleSave={handleSave} />} />
+          <Route path="/" element={<HomePage currCat={currCat}/>} />
+          { !currCat && <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} /> }
+          { !currCat && <Route path="/register" element={<RegisterForm handleSave={handleSave} />} /> }
           {allCats && currCat && <Route path="/cats" element={<CatPage cats={allCats}
             currCat={currCat} logOut={logOut} />} />}
-          <Route path="*" element={<p>Hmmm can't find what you were looking for</p>} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
     </div>

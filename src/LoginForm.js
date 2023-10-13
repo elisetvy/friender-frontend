@@ -11,6 +11,7 @@ function LoginForm({ handleLogin }) {
   };
 
   const [loginData, setLoginData] = useState(initialLoginData);
+  const [error, setError] = useState(null);
 
   function handleChange(evt) {
     const { name, value } = evt.target;
@@ -20,9 +21,14 @@ function LoginForm({ handleLogin }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    await handleLogin(loginData);
-    setLoginData(initialLoginData);
-    navigate("/cats");
+
+    try {
+      await handleLogin(loginData);
+      setLoginData(initialLoginData);
+      navigate("/cats");
+    } catch (err) {
+      setError(err[0].message);
+    }
   }
 
   return (
@@ -53,6 +59,7 @@ function LoginForm({ handleLogin }) {
             />
           </div>
         </div>
+        {error && <p>{error}</p>}
         <button>Login</button>
       </form>
     </div>

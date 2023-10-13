@@ -1,0 +1,6 @@
+.CatPage-catList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5vw;
+  margin: 0 10vw;
+}

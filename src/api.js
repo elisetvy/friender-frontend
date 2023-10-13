@@ -45,6 +45,12 @@ class FrienderApi{
       body: formSubmission,
     });
 
+    if (!response.ok) {
+      console.error("API Error:", response.statusText, response.status);
+      const { error } = await response.json();
+      throw Array.isArray(error) ? error : [error];
+    }
+
     const data = await response.json();
 
     return data;
