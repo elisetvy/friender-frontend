@@ -60,6 +60,7 @@ function RegisterForm({ handleSave }){
               value={formData.password}
               onChange={handleChange}
               type="password"
+              autoComplete="off"
               minLength={5}
               maxLength={20}
               />

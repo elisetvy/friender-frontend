@@ -31,16 +31,14 @@ class FrienderApi{
   static async addCat(formData){
     const formSubmission = new FormData();
 
-    formSubmission.append("username", formData.username);
-    formSubmission.append("password", formData.password);
-    formSubmission.append("firstName", formData.firstName);
-    formSubmission.append("lastName", formData.lastName);
-    formSubmission.append("email", formData.email);
-    formSubmission.append("zipcode", formData.zipcode);
-    formSubmission.append("friendRadius", Number(formData.friendRadius));
-    formSubmission.append("hobbies", formData.hobbies);
-    formSubmission.append("interests", formData.interests);
-    formSubmission.append("file", formData.photoProfile);
+
+    for (let key in formData){
+      if (key !== "photoProfile"){
+        formSubmission.append(key, formData[key]);
+      }else{
+        formSubmission.append("file", formData[key]);
+      }
+    }
 
     const response = await fetch(`${BASE_API_URL}/register`, {
       method: "POST",
