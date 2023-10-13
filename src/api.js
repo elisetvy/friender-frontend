@@ -52,6 +52,11 @@ class FrienderApi{
     return data;
   }
 
+  static async loginCat(loginData){
+    const response = await this.request('logincat', loginData, "POST" );
+    return response;
+  }
+
   /** Get all users. */
   static async getCats() {
     const response = await this.request('allcats');
