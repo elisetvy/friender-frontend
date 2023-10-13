@@ -8,10 +8,13 @@
   background: none;
 }
 
-.Cat button:before {
-
-}
 
 .heart {
   color: rgb(230, 71, 97);
+}
+
+.Cat{
+  border: 1px solid black;
+  height:400px;
+  width: 400px;
 }

@@ -2,7 +2,8 @@ import './Cat.css';
 import { useState } from 'react';
 
 function Cat({ cat }) {
-  const [heart, setHeart] = useState("bi-heart")
+  const [heart, setHeart] = useState("bi-heart");
+  const currCat = JSON.parse(localStorage.getItem("currentCat"));
 
   function toggleFill() {
     heart === "bi-heart" ? setHeart("bi-heart-fill") : setHeart("bi-heart");
@@ -14,7 +15,8 @@ function Cat({ cat }) {
       <img width="200px" src={cat.profilePic} alt={cat.firstName} />
       <p><b>Hobbies:</b> {cat.hobbies || "none"}</p>
       <p><b>Interests:</b> {cat.interests || "none"}</p>
-      <button onClick={toggleFill}><i className={`${heart} heart`}></i></button>
+      {cat.username !== currCat.username &&
+      <button onClick={toggleFill}><i className={`${heart} heart`}></i></button>}
     </div>
   )
 }

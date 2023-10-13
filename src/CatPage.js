@@ -11,13 +11,15 @@ function CatPage({ cats, currCat, logOut }) {
   }
 
   return (
-    <>
-    <button onClick={handleClick}>Click to logout</button>
-    <Cat cat={currCat} />
-    <div className="CatPage-catList">
-    {cats.map(cat => <Cat key={cat.username}cat={cat} />)}
+    <div className='catPage'>
+      <button onClick={handleClick} className="btn btn-primary">Click to logout</button>
+      <div className='userCat'>
+      <Cat cat={currCat} />
+      </div>
+      <div className="CatPage-catList">
+      {cats.map(cat => <Cat key={cat.username}cat={cat} />)}
+      </div>
     </div>
-    </>
   )
 }
 

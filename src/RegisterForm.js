@@ -162,7 +162,7 @@ function RegisterForm({ handleSave }){
           </div>
         </div>
         {error && <p>{error}</p>}
-        <button>Submit Photo</button>
+        <button className="btn btn-primary">Submit Photo</button>
       </form>
     </div>
 

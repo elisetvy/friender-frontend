@@ -1,6 +1,18 @@
 .CatPage-catList {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 5vw;
   margin: 0 10vw;
+}
+
+.catPage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userCat{
+  margin-bottom: 80px;
+  margin-top: 40px;
 }
