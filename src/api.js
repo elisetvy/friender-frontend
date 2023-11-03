@@ -27,8 +27,8 @@ class FrienderApi{
     return await resp.json();
   }
 
-  /** Register a new cat. */
-  static async addCat(formData){
+  /** Register a new user. */
+  static async register(formData){
     const formSubmission = new FormData();
 
 
@@ -56,13 +56,13 @@ class FrienderApi{
     return data;
   }
 
-  static async loginCat(loginData){
-    const response = await this.request('logincat', loginData, "POST" );
+  static async login(formData){
+    const response = await this.request('logincat', formData, "POST" );
     return response;
   }
 
   /** Get all users. */
-  static async getCats() {
+  static async getUsers() {
     const response = await this.request('allcats');
 
     return response;

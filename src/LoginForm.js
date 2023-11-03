@@ -25,9 +25,10 @@ function LoginForm({ handleLogin }) {
     try {
       await handleLogin(loginData);
       setLoginData(initialLoginData);
-      navigate("/cats");
+      navigate("/users");
     } catch (err) {
-      setError(err[0].message);
+      setError('Error');
+      // setError(err[0].message);
     }
   }
 

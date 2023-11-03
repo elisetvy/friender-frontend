@@ -1,69 +1,67 @@
-
-import './App.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './HomePage';
 import RegisterForm from './RegisterForm';
-import CatPage from './CatPage';
+import Users from './Users';
 import LoginForm from './LoginForm';
 import FrienderApi from './api';
 
 function App() {
 
-  const [currCat, setCurrCat] = useState(JSON.parse(localStorage.getItem("currentCat")));
-  const [allCats, setAllCats] = useState(null);
+  const [currUser, setCurrUser] = useState(JSON.parse(localStorage.getItem("currUser")));
+  const [allUsers, setAllUsers] = useState(null);
 
   async function handleSave(formData) {
 
-    const userData = await FrienderApi.addCat(formData);
-    setCurrCat(userData);
-    localStorage.setItem("currentCat", JSON.stringify(userData));
+    const userData = await FrienderApi.register(formData);
+    setCurrUser(userData);
+    localStorage.setItem("currUser", JSON.stringify(userData));
   }
 
-  async function handleLogin(loginData) {
-      const username = await FrienderApi.loginCat(loginData);
-      const foundCat = (allCats.filter(cat => cat.username === username))[0];
+  async function handleLogin(formData) {
+      const username = await FrienderApi.login(formData);
+      const found = (allUsers.filter(user => user.username === username))[0];
 
-      setCurrCat(foundCat);
-      localStorage.setItem("currentCat", JSON.stringify(foundCat));
+      setCurrUser(found);
+      localStorage.setItem("currUser", JSON.stringify(found));
 
-      const newAllCats = allCats.filter(cat => cat.username !== username);
-      setAllCats(newAllCats);
+      const updatedUsers = allUsers.filter(user => user.username !== username);
+      setAllUsers(updatedUsers);
   }
 
   async function logOut(){
     localStorage.clear();
 
-    const cats = await FrienderApi.getCats();
-    setAllCats(cats);
+    const users = await FrienderApi.getUsers();
+    setAllUsers(users);
 
-    setCurrCat(null);
+    setCurrUser(null);
   }
 
-  useEffect(function getAllCatsOnMount() {
-    async function getAllCats() {
-      const cats = await FrienderApi.getCats();
+  useEffect(function getAllUsersOnMount() {
+    async function getAllUsers() {
+      const users = await FrienderApi.getUsers();
 
-      if (currCat === null) {
-        setAllCats(cats);
+      if (currUser === null) {
+        setAllUsers(users);
       } else {
-        const newAllCats = cats.filter(cat => cat.username !== currCat.username);
-        setAllCats(newAllCats);
+        const updatedUsers = users.filter(user => user.username !== currUser.username);
+        setAllUsers(updatedUsers);
       }
     }
 
-    getAllCats();
+    getAllUsers();
   }, []);
 
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage currCat={currCat}/>} />
-          { !currCat && <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} /> }
-          { !currCat && <Route path="/register" element={<RegisterForm handleSave={handleSave} />} /> }
-          {allCats && currCat && <Route path="/cats" element={<CatPage cats={allCats}
-            currCat={currCat} logOut={logOut} />} />}
+          <Route path="/" element={<HomePage currUser={currUser}/>} />
+          { !currUser && <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} /> }
+          { !currUser && <Route path="/register" element={<RegisterForm handleSave={handleSave} />} /> }
+          {allUsers && currUser && <Route path="/users" element={<Users users={allUsers}
+            currUser={currUser} logOut={logOut} />} />}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>

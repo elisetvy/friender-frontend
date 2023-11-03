@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
-import './HomePage.css'
 
-function HomePage({ currCat }) {
+function HomePage({ currUser }) {
 
-  if (currCat) {
+  if (currUser) {
     return (
       <div>
-        <h1>Welcome back, {currCat.firstName}!</h1>
-        <Link to="/cats">
-        <button>See all cats!</button>
+        <h1>Welcome back, {currUser.firstName}!</h1>
+        <Link to="/users">
+        <button>See all users!</button>
         </Link>
     </div>
     )
@@ -16,7 +15,7 @@ function HomePage({ currCat }) {
 
   return (
     <div>
-      <h1>Welcome to Clowder!</h1>
+      <h1>Welcome to Friender!</h1>
       <div className="homepage-button">
       <Link to="/register">
         <button className="btn btn-primary">Register Today!</button>

@@ -36,7 +36,7 @@ function RegisterForm({ handleSave }){
     try {
       await handleSave(formData);;
       setFormData(initialFormData);
-      navigate("/cats");
+      navigate("/users");
     } catch(err) {
       setError("Invalid input(s)")
     }
