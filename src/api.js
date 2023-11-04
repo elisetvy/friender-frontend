@@ -33,9 +33,9 @@ class FrienderApi{
 
 
     for (let key in formData){
-      if (key !== "photoProfile"){
+      if (key !== "photo"){
         formSubmission.append(key, formData[key]);
-      }else{
+      }else {
         formSubmission.append("file", formData[key]);
       }
     }
@@ -57,13 +57,13 @@ class FrienderApi{
   }
 
   static async login(formData){
-    const response = await this.request('logincat', formData, "POST" );
+    const response = await this.request('login', formData, "POST" );
     return response;
   }
 
   /** Get all users. */
   static async getUsers() {
-    const response = await this.request('allcats');
+    const response = await this.request('users');
 
     return response;
   }

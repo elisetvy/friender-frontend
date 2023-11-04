@@ -8,14 +8,13 @@ function RegisterForm({ handleSave }){
 
   const initialFormData = {username: "",
                           password: "",
-                          firstName: "",
-                          lastName: "",
+                          fname: "",
+                          lname: "",
                           email: "",
-                          zipcode: "",
-                          friendRadius: "",
-                          hobbies: "",
-                          interests: "",
-                          photoProfile: ""
+                          photo: "",
+                          zip: "",
+                          radius: "",
+                          bio: "",
                           }
 
   const [formData, setFormData]= useState(initialFormData);
@@ -23,7 +22,7 @@ function RegisterForm({ handleSave }){
 
   function handleChange(evt){
     const {name, value, files} = evt.target;
-    if(name !== "photoProfile"){
+    if(name !== "photo"){
       setFormData( f => ({...f, [name]:value}));
     }else{
       setFormData( f => ({...f, [name]:files[0]}));
@@ -74,9 +73,9 @@ function RegisterForm({ handleSave }){
         <div>
           <label>First Name</label>
           <div>
-            <input name="firstName"
+            <input name="fname"
               required
-              value={formData.firstName}
+              value={formData.fname}
               onChange={handleChange}
               type="text"
               maxLength={20}
@@ -86,9 +85,9 @@ function RegisterForm({ handleSave }){
         <div>
           <label>Last Name</label>
           <div>
-            <input name="lastName"
+            <input name="lname"
               required
-              value={formData.lastName}
+              value={formData.lname}
               onChange={handleChange}
               type="text"
               maxLength={20}
@@ -108,11 +107,20 @@ function RegisterForm({ handleSave }){
           </div>
         </div>
         <div>
-          <label>Zipcode</label>
+          <label>Profile Photo</label>
           <div>
-            <input name="zipcode"
+            <input name="photo"
+              onChange={handleChange}
+              type="file"
+              />
+          </div>
+        </div>
+        <div>
+          <label>ZIP Code</label>
+          <div>
+            <input name="zip"
               required
-              value={formData.zipcode}
+              value={formData.zip}
               onChange={handleChange}
               type="text"
               pattern="[0-9]{5}"
@@ -124,40 +132,21 @@ function RegisterForm({ handleSave }){
         <div>
           <label>Friend Radius</label>
           <div>
-            <input name="friendRadius"
+            <input name="radius"
               required
-              value={formData.friendRadius}
+              value={formData.radius}
               onChange={handleChange}
               type="text"
               />
           </div>
         </div>
         <div>
-          <label>Hobbies</label>
+          <label>Bio</label>
           <div>
-            <input name="hobbies"
-              value={formData.hobbies}
+            <input name="bio"
+              value={formData.bio}
               onChange={handleChange}
               type="text"
-              />
-          </div>
-        </div>
-        <div>
-          <label>Interests</label>
-          <div>
-            <input name="interests"
-              value={formData.interests}
-              onChange={handleChange}
-              type="text"
-              />
-          </div>
-        </div>
-        <div>
-          <label>Profile Photo</label>
-          <div>
-            <input name="photoProfile"
-              onChange={handleChange}
-              type="file"
               />
           </div>
         </div>
