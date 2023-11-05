@@ -61,7 +61,7 @@ function LoginForm({ handleLogin }) {
           </div>
         </div>
         {error && <p>{error}</p>}
-        <button className="btn btn-primary">Login</button>
+        <button className="">Login</button>
       </form>
     </div>
 

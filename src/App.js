@@ -54,7 +54,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="font-mono">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage currUser={currUser}/>} />
