@@ -11,6 +11,7 @@ function RegisterForm({ handleSave }){
                           fname: "",
                           lname: "",
                           email: "",
+                          dob: "",
                           photo: "",
                           zip: "",
                           radius: "",
@@ -32,6 +33,11 @@ function RegisterForm({ handleSave }){
 
   async function handleSubmit(evt){
     evt.preventDefault();
+
+    if (Number(evt.target.dob.value.slice(0,4)) > 2004) {
+      setError("You must be at least 18 years old to register!")
+    }
+
     try {
       await handleSave(formData);;
       setFormData(initialFormData);
@@ -106,6 +112,19 @@ function RegisterForm({ handleSave }){
               value={formData.email}
               onChange={handleChange}
               type="email"
+              maxLength={30}
+              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
+              />
+          </div>
+        </div>
+        <div>
+          <label className="mb-1">Date of Birth</label>
+          <div>
+            <input name="dob"
+              required
+              value={formData.dpb}
+              onChange={handleChange}
+              type="date"
               maxLength={30}
               className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
