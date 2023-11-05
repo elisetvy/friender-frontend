@@ -121,7 +121,7 @@ function RegisterForm({ handleSave }){
           <div>
             <input name="dob"
               required
-              value={formData.dpb}
+              value={formData.dob}
               onChange={handleChange}
               type="date"
               className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
