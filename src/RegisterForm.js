@@ -23,12 +23,11 @@ function RegisterForm({ handleSave }){
 
   function handleChange(evt){
     const {name, value, files} = evt.target;
-    if(name !== "photo"){
-      setFormData( f => ({...f, [name]:value}));
-    }else{
-      setFormData( f => ({...f, [name]:files[0]}));
+    if (name !== "photo"){
+      setFormData( f => ({...f, [name]: value}));
+    } else {
+      setFormData( f => ({...f, [name]: files[0]}));
     }
-
   }
 
   async function handleSubmit(evt){
@@ -73,7 +72,7 @@ function RegisterForm({ handleSave }){
               type="password"
               autoComplete="off"
               minLength={5}
-              maxLength={20}
+              maxLength={100}
               className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>
@@ -112,7 +111,7 @@ function RegisterForm({ handleSave }){
               value={formData.email}
               onChange={handleChange}
               type="email"
-              maxLength={30}
+              maxLength={50}
               className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>
@@ -125,7 +124,6 @@ function RegisterForm({ handleSave }){
               value={formData.dpb}
               onChange={handleChange}
               type="date"
-              maxLength={30}
               className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>
@@ -159,7 +157,6 @@ function RegisterForm({ handleSave }){
           <label className="mb-1">Friend Radius</label>
           <div>
             <input name="radius"
-              required
               value={formData.radius}
               onChange={handleChange}
               type="text"
