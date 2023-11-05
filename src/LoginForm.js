@@ -27,16 +27,15 @@ function LoginForm({ handleLogin }) {
       setLoginData(initialLoginData);
       navigate("/users");
     } catch (err) {
-      setError('Error');
-      // setError(err[0].message);
+      setError(err[0].message);
     }
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="text-center pt-10">
+      <form onSubmit={handleSubmit} className="bg-emerald-100 w-fit ml-auto mr-auto px-4 py-4 rounded-lg">
         <div>
-          <label>Username</label>
+          <label className="mb-1">Username</label>
           <div>
             <input name="username"
               required
@@ -44,11 +43,12 @@ function LoginForm({ handleLogin }) {
               onChange={handleChange}
               type="text"
               maxLength={20}
+              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
             />
           </div>
         </div>
         <div>
-          <label>Password</label>
+          <label className="mb-1">Password</label>
           <div>
             <input name="password"
               required
@@ -57,11 +57,12 @@ function LoginForm({ handleLogin }) {
               type="password"
               minLength={5}
               maxLength={20}
+              className="bg-emerald-300 rounded-lg px-2 py-1"
             />
           </div>
         </div>
-        {error && <p>{error}</p>}
-        <button className="">Login</button>
+        {error && <p className="mt-4 text-red-400 font-bold">{error}</p>}
+        <button className="bg-emerald-300 mt-4 px-3 py-1 rounded-lg">Login</button>
       </form>
     </div>
 

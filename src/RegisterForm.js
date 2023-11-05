@@ -42,10 +42,10 @@ function RegisterForm({ handleSave }){
   }
 
   return(
-    <div>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+    <div className="text-center pt-10">
+      <form onSubmit={handleSubmit} encType="multipart/form-data" className="bg-emerald-100 w-fit ml-auto mr-auto px-4 py-4 rounded-lg">
         <div>
-          <label>Username</label>
+          <label className="mb-1">Username</label>
           <div>
             <input name="username"
               required
@@ -53,11 +53,12 @@ function RegisterForm({ handleSave }){
               onChange={handleChange}
               type="text"
               maxLength={20}
+              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>
         </div>
         <div>
-          <label>Password</label>
+          <label className="mb-1">Password</label>
           <div>
             <input name="password"
               required
@@ -67,11 +68,12 @@ function RegisterForm({ handleSave }){
               autoComplete="off"
               minLength={5}
               maxLength={20}
+              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>
         </div>
         <div>
-          <label>First Name</label>
+          <label className="mb-1">First Name</label>
           <div>
             <input name="fname"
               required
@@ -79,11 +81,12 @@ function RegisterForm({ handleSave }){
               onChange={handleChange}
               type="text"
               maxLength={20}
+              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>
         </div>
         <div>
-          <label>Last Name</label>
+          <label className="mb-1">Last Name</label>
           <div>
             <input name="lname"
               required
@@ -91,11 +94,12 @@ function RegisterForm({ handleSave }){
               onChange={handleChange}
               type="text"
               maxLength={20}
+              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>
         </div>
         <div>
-          <label>Email</label>
+          <label className="mb-1">Email</label>
           <div>
             <input name="email"
               required
@@ -103,20 +107,22 @@ function RegisterForm({ handleSave }){
               onChange={handleChange}
               type="email"
               maxLength={30}
+              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>
         </div>
         <div>
-          <label>Profile Photo</label>
+          <label className="mb-1">Profile Photo</label>
           <div>
             <input name="photo"
               onChange={handleChange}
               type="file"
+              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>
         </div>
         <div>
-          <label>ZIP Code</label>
+          <label className="mb-1">ZIP Code</label>
           <div>
             <input name="zip"
               required
@@ -126,32 +132,35 @@ function RegisterForm({ handleSave }){
               pattern="[0-9]{5}"
               minLength={5}
               maxLength={5}
+              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>
         </div>
         <div>
-          <label>Friend Radius</label>
+          <label className="mb-1">Friend Radius</label>
           <div>
             <input name="radius"
               required
               value={formData.radius}
               onChange={handleChange}
               type="text"
+              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>
         </div>
         <div>
-          <label>Bio</label>
+          <label className="mb-1">Bio</label>
           <div>
             <input name="bio"
               value={formData.bio}
               onChange={handleChange}
               type="text"
+              className="bg-emerald-300 rounded-lg px-2 py-1"
               />
           </div>
         </div>
-        {error && <p>{error}</p>}
-        <button className="">Submit Photo</button>
+        {error && <p className="mt-4 text-red-400 font-bold">{error}</p>}
+        <button className="bg-emerald-300 mt-4 px-3 py-1 rounded-lg">Register</button>
       </form>
     </div>
 

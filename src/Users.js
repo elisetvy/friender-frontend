@@ -10,12 +10,12 @@ function Users({ users, currUser, logOut }) {
   }
 
   return (
-    <div className=''>
-      <button onClick={handleClick} className="btn btn-primary">Click to logout</button>
-      <div className=''>
+    <div className="text-center mt-10 mb-10">
+      <button onClick={handleClick} className="bg-emerald-300 px-3 py-1 rounded-lg mb-10">Log Out</button>
+      <div className="flex justify-center mb-4">
       <User user={currUser} />
       </div>
-      <div className="">
+      <div className="flex justify-center gap-4">
       {users.map(user => <User key={user.username} user={user} />)}
       </div>
     </div>
