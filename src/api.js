@@ -1,6 +1,7 @@
 const BASE_API_URL = "http://localhost:3001";
 
 class FrienderApi{
+  static token = null;
 
   /** Formats requests. */
 
@@ -53,19 +54,26 @@ class FrienderApi{
 
     const data = await response.json();
 
-    return data;
+    return data.token;
   }
 
   static async login(formData){
     const response = await this.request('login', formData, "POST" );
-    return response;
+    return response.token;
   }
 
   /** Get all users. */
   static async getUsers() {
-    const response = await this.request('users');
+    const response = await this.request('users'); // array of objects
 
     return response;
+  }
+
+  /** Get a users. */
+  static async getUser(username) {
+    const response = await this.request(`users/${username}`); // array of objects
+
+    return response.user;
   }
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { jwtDecode } from "jwt-decode";
 import HomePage from './HomePage';
 import RegisterForm from './RegisterForm';
 import Users from './Users';
@@ -7,51 +8,74 @@ import LoginForm from './LoginForm';
 import FrienderApi from './api';
 
 function App() {
-
-  const [currUser, setCurrUser] = useState(JSON.parse(localStorage.getItem("currUser")));
+  const [currToken, setCurrToken] = useState(localStorage.getItem("currToken"));
+  const [currUser, setCurrUser] = useState();
   const [allUsers, setAllUsers] = useState(null);
+  const [loadingUser, setLoadingUser] = useState(true);
+
+  /** Update currUser when currToken changes. */
+  useEffect(
+    function getAllUsers() {
+      async function getUsers() {
+      FrienderApi.token = currToken;
+        const { username } = jwtDecode(currToken);
+        const user = await FrienderApi.getUser(username);
+
+        let users = await FrienderApi.getUsers();
+        users = users.filter(user => user.username !== username);
+
+        setLoadingUser(false);
+        setCurrUser(user);
+        setAllUsers(users);
+      }
+
+      if (currToken) {
+        getUsers();
+      } else {
+        setLoadingUser(false);
+      }
+    },
+    [currToken]
+  );
 
   async function handleSave(formData) {
+    const token = await FrienderApi.register(formData);
+    setLoadingUser(true);
+    setCurrToken(token);
+    localStorage.setItem("currToken", token);
 
-    const userData = await FrienderApi.register(formData);
-    setCurrUser(userData);
-    localStorage.setItem("currUser", JSON.stringify(userData));
+    const { username } = jwtDecode(currToken);
+    const user = await FrienderApi.getUser(username);
+    setCurrUser(user);
+
+    const users = allUsers.filter(user => user.username !== username);
+    setAllUsers(users);
   }
 
   async function handleLogin(formData) {
-      const username = await FrienderApi.login(formData);
-      const found = (allUsers.filter(user => user.username === username))[0];
+      const token = await FrienderApi.login(formData);
+      setLoadingUser(true);
+      setCurrToken(token)
+      localStorage.setItem("currToken", token);
 
-      setCurrUser(found);
-      localStorage.setItem("currUser", JSON.stringify(found));
+      const { username } = jwtDecode(currToken);
+      const user = await FrienderApi.getUser(username);
+      setCurrUser(user);
 
-      const updatedUsers = allUsers.filter(user => user.username !== username);
-      setAllUsers(updatedUsers);
+      const users = allUsers.filter(user => user.username !== username);
+      setAllUsers(users);
   }
 
   async function logOut(){
-    localStorage.clear();
-
-    const users = await FrienderApi.getUsers();
-    setAllUsers(users);
-
+    localStorage.removeItem("currToken");
+    setCurrToken(null);
     setCurrUser(null);
+    FrienderApi.token = null;
   }
 
-  useEffect(function getAllUsersOnMount() {
-    async function getAllUsers() {
-      const users = await FrienderApi.getUsers();
-
-      if (currUser === null) {
-        setAllUsers(users);
-      } else {
-        const updatedUsers = users.filter(user => user.username !== currUser.username);
-        setAllUsers(updatedUsers);
-      }
-    }
-
-    getAllUsers();
-  }, []);
+  if (loadingUser === true) {
+    return <p>Loading...</p>
+  }
 
   return (
     <div className="font-mono">
