@@ -24,9 +24,9 @@ function App() {
         let users = await FrienderApi.getUsers();
         users = users.filter(user => user.username !== username);
 
-        setLoadingUser(false);
         setCurrUser(user);
         setAllUsers(users);
+        setLoadingUser(false);
       }
 
       if (currToken) {
@@ -38,17 +38,10 @@ function App() {
     [currToken]
   );
 
-  async function handleSave(formData) {
+  async function register(formData) {
     const token = await FrienderApi.register(formData);
-    setLoadingUser(false);
     setCurrToken(token);
     localStorage.setItem("currToken", token);
-
-    const user = await FrienderApi.getUser(formData.username);
-    setCurrUser(user);
-
-    const users = allUsers.filter(user => user.username !== formData.username);
-    setAllUsers(users);
   }
 
   async function handleLogin(formData) {
@@ -56,14 +49,6 @@ function App() {
       const token = await FrienderApi.login(formData);
       setCurrToken(token)
       localStorage.setItem("currToken", token);
-
-      const user = await FrienderApi.getUser(formData.username);
-      setCurrUser(user);
-
-      let users = await FrienderApi.getUsers();
-      users = users.filter(user => user.username !== formData.username);
-      setAllUsers(users);
-      setLoadingUser(false);
   }
 
   async function logOut(){
@@ -83,7 +68,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage currUser={currUser}/>} />
           { !currUser && <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} /> }
-          { !currUser && <Route path="/register" element={<RegisterForm handleSave={handleSave} />} /> }
+          { !currUser && <Route path="/register" element={<RegisterForm handleSave={register} />} /> }
           {allUsers && currUser && <Route path="/users" element={<Users users={allUsers}
             currUser={currUser} logOut={logOut} />} />}
           <Route path="*" element={<Navigate to="/" />} />

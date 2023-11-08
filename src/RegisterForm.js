@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-function RegisterForm({ handleSave }){
+function RegisterForm({ register }){
 
   const navigate = useNavigate();
 
@@ -38,11 +38,10 @@ function RegisterForm({ handleSave }){
     }
 
     try {
-      await handleSave(formData);;
-      setFormData(initialFormData);
+      await register(formData);;
       navigate("/users");
     } catch(err) {
-      setError("Invalid input(s)")
+      setError(err)
     }
   }
 
