@@ -80,7 +80,7 @@ function App() {
     <div className="font-mono">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage currUser={currUser}/>} />
+          { !currUser ? <Route path="/" element={<HomePage />} /> : <Route path="*" element={<Navigate to="/users" />} /> }
           { !currUser && <Route path="/login" element={<LoginForm login={login} />} /> }
           { !currUser && <Route path="/register" element={<RegisterForm register={register} />} /> }
           {allUsers && currUser && <Route path="/users" element={<Users users={allUsers}

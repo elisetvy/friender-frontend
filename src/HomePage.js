@@ -1,17 +1,7 @@
 import { Link } from "react-router-dom";
 
-function HomePage({ currUser }) {
 
-  if (currUser) {
-    return (
-      <div>
-        <h1>Welcome back, {currUser.fname}!</h1>
-        <Link to="/users">
-        <button>See all users!</button>
-        </Link>
-    </div>
-    )
-  }
+function HomePage({ currUser }) {
 
   return (
     <div className="text-center pt-10">
