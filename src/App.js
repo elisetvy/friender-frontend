@@ -59,8 +59,7 @@ function App() {
     localStorage.setItem("currToken", token);
   }
 
-  async function handleLogin(formData) {
-      setLoadingUser(true);
+  async function login(formData) {
       const token = await FrienderApi.login(formData);
       setCurrToken(token)
       localStorage.setItem("currToken", token);
@@ -82,7 +81,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage currUser={currUser}/>} />
-          { !currUser && <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} /> }
+          { !currUser && <Route path="/login" element={<LoginForm login={login} />} /> }
           { !currUser && <Route path="/register" element={<RegisterForm register={register} />} /> }
           {allUsers && currUser && <Route path="/users" element={<Users users={allUsers}
             currUser={currUser} logOut={logOut} />} />}

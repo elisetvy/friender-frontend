@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function LoginForm({ handleLogin }) {
+function LoginForm({ login }) {
 
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ function LoginForm({ handleLogin }) {
     evt.preventDefault();
 
     try {
-      await handleLogin(loginData);
+      await login(loginData);
       setLoginData(initialLoginData);
       navigate("/users");
     } catch (err) {
