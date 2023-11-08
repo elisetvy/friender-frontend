@@ -39,7 +39,7 @@ function App() {
           u.distance = distance;
           return distance <= user.radius
         });
-        console.log(users)
+
         setAllUsers(users);
         setLoadingUser(false);
       }
