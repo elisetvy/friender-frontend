@@ -6,6 +6,7 @@ import haversineDistance from 'haversine-distance';
 import HomePage from './HomePage';
 import RegisterForm from './RegisterForm';
 import Users from './Users';
+import UserDetail from './UserDetail';
 import LoginForm from './LoginForm';
 import FrienderApi from './api';
 
@@ -85,6 +86,7 @@ function App() {
           { !currUser && <Route path="/register" element={<RegisterForm register={register} />} /> }
           {allUsers && currUser && <Route path="/users" element={<Users users={allUsers}
             currUser={currUser} logOut={logOut} />} />}
+          {allUsers && currUser && <Route path="/users/:username" element={<UserDetail currUser={currUser} />} />}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
