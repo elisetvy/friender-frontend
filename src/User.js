@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
-function User({ user }) {
+function User({ user, currUser }) {
   const [heart, setHeart] = useState("bi-heart");
-  const currUser = JSON.parse(localStorage.getItem("currUser"));
 
   function toggleFill() {
     heart === "bi-heart" ? setHeart("bi-heart-fill") : setHeart("bi-heart");

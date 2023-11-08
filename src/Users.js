@@ -13,10 +13,10 @@ function Users({ users, currUser, logOut }) {
     <div className="text-center mt-10 mb-10">
       <button onClick={handleClick} className="bg-emerald-300 px-3 py-1 rounded-lg mb-10">Log Out</button>
       <div className="flex justify-center mb-4">
-      <User user={currUser} />
+      <User user={currUser} currUser={currUser} />
       </div>
       <div className="flex justify-center gap-4">
-      {users.map(user => <User key={user.username} user={user} />)}
+      {users.map(user => <User key={user.username} user={user} currUser={currUser} />)}
       </div>
     </div>
   )

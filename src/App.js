@@ -8,8 +8,8 @@ import LoginForm from './LoginForm';
 import FrienderApi from './api';
 
 function App() {
-  const [currToken, setCurrToken] = useState(localStorage.getItem("currToken"));
-  const [currUser, setCurrUser] = useState();
+  const [currToken, setCurrToken] = useState(localStorage.getItem("currToken") || null);
+  const [currUser, setCurrUser] = useState(null);
   const [allUsers, setAllUsers] = useState(null);
   const [loadingUser, setLoadingUser] = useState(true);
 
@@ -17,7 +17,7 @@ function App() {
   useEffect(
     function getAllUsers() {
       async function getUsers() {
-      FrienderApi.token = currToken;
+        FrienderApi.token = currToken;
         const { username } = jwtDecode(currToken);
         const user = await FrienderApi.getUser(username);
 
@@ -40,7 +40,7 @@ function App() {
 
   async function handleSave(formData) {
     const token = await FrienderApi.register(formData);
-    setLoadingUser(true);
+    setLoadingUser(false);
     setCurrToken(token);
     localStorage.setItem("currToken", token);
 
@@ -58,12 +58,13 @@ function App() {
       setCurrToken(token)
       localStorage.setItem("currToken", token);
 
-      const { username } = jwtDecode(currToken);
-      const user = await FrienderApi.getUser(username);
+      const user = await FrienderApi.getUser(formData.username);
       setCurrUser(user);
 
-      const users = allUsers.filter(user => user.username !== username);
+      let users = await FrienderApi.getUsers();
+      users = users.filter(user => user.username !== formData.username);
       setAllUsers(users);
+      setLoadingUser(false);
   }
 
   async function logOut(){
