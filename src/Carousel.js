@@ -18,10 +18,11 @@ function Carousel({ users, currUser }) {
   }
 
   return (
-    <div className="flex justify-center items-center gap-3">
-      <button className={`${index === 0 ? "invisible" : "visible"} h-fit bg-emerald-300 px-3 py-1 rounded-lg hover:text-black hover:scale-105`} onClick={unswipe}>Unswipe</button>
+    <div className="flex justify-center items-center gap-4">
+      <button className={`${index === 0 ? "invisible" : "visible"} h-fit hover:scale-105`} onClick={unswipe}><i className="bi bi-x-circle-fill text-3xl text-emerald-300"></i>
+</button>
         <User className="z-0" user={currU} currUser={currUser}/>
-      <button className={`${index === users.length - 1 ? "invisible" : "visible"} h-fit bg-emerald-300 px-3 py-1 rounded-lg hover:text-black hover:scale-105`} onClick={swipe}>Swipe</button>
+      <button className={`${index === users.length - 1 ? "invisible" : "visible"} h-fit hover:scale-105`} onClick={swipe}><i className="bi-heart-fill text-3xl text-red-300"></i></button>
     </div>
   )
 
