@@ -39,7 +39,6 @@ function App() {
   );
 
   async function register(formData) {
-    console.log("IN HERE", formData)
     const token = await FrienderApi.register(formData);
     setCurrToken(token);
     localStorage.setItem("currToken", token);

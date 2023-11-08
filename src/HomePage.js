@@ -5,7 +5,7 @@ function HomePage({ currUser }) {
   if (currUser) {
     return (
       <div>
-        <h1>Welcome back, {currUser.firstName}!</h1>
+        <h1>Welcome back, {currUser.fname}!</h1>
         <Link to="/users">
         <button>See all users!</button>
         </Link>
