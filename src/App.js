@@ -39,6 +39,7 @@ function App() {
   );
 
   async function register(formData) {
+    console.log("IN HERE", formData)
     const token = await FrienderApi.register(formData);
     setCurrToken(token);
     localStorage.setItem("currToken", token);
@@ -68,7 +69,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage currUser={currUser}/>} />
           { !currUser && <Route path="/login" element={<LoginForm handleLogin={handleLogin} />} /> }
-          { !currUser && <Route path="/register" element={<RegisterForm handleSave={register} />} /> }
+          { !currUser && <Route path="/register" element={<RegisterForm register={register} />} /> }
           {allUsers && currUser && <Route path="/users" element={<Users users={allUsers}
             currUser={currUser} logOut={logOut} />} />}
           <Route path="*" element={<Navigate to="/" />} />

@@ -34,14 +34,15 @@ function RegisterForm({ register }){
     evt.preventDefault();
 
     if (Number(evt.target.dob.value.slice(0,4)) > 2004) {
-      setError("You must be at least 18 years old to register!")
+      setError("You must be at least 18 years old to register!");
+      return;
     }
 
     try {
-      await register(formData);;
+      await register(formData);
       navigate("/users");
     } catch(err) {
-      setError(err)
+      setError(err[0].message)
     }
   }
 
