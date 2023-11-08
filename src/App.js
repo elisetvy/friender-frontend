@@ -44,17 +44,16 @@ function App() {
     setCurrToken(token);
     localStorage.setItem("currToken", token);
 
-    const { username } = jwtDecode(currToken);
-    const user = await FrienderApi.getUser(username);
+    const user = await FrienderApi.getUser(formData.username);
     setCurrUser(user);
 
-    const users = allUsers.filter(user => user.username !== username);
+    const users = allUsers.filter(user => user.username !== formData.username);
     setAllUsers(users);
   }
 
   async function handleLogin(formData) {
-      const token = await FrienderApi.login(formData);
       setLoadingUser(true);
+      const token = await FrienderApi.login(formData);
       setCurrToken(token)
       localStorage.setItem("currToken", token);
 

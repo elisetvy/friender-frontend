@@ -59,6 +59,7 @@ class FrienderApi{
 
   static async login(formData){
     const response = await this.request('login', formData, "POST" );
+
     return response.token;
   }
 
