@@ -35,11 +35,11 @@ function App() {
             latitude: u.latlng.split(',')[0],
             longitude: u.latlng.split(',')[1]
           }
-          const distance = haversineDistance(currUserCoords, userCoords) * 0.00062137; // convert meters to miles
-
+          const distance = Math.floor(haversineDistance(currUserCoords, userCoords) * 0.00062137); // convert meters to miles
+          u.distance = distance;
           return distance <= user.radius
         });
-
+        console.log(users)
         setAllUsers(users);
         setLoadingUser(false);
       }
