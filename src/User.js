@@ -14,7 +14,7 @@ function User({ user, currUser }) {
       <p className="mt-2">{user?.bio}</p>
       {user.username !== currUser.username && (
         <>
-        <small className="font-bold">{user.distance.toLocaleString('en-US')} miles away</small>
+        <small className="font-bold">{user.distance < 1 ? "Less than 1 mile away" : user.distance === 1 ? "1 mile away" : `${user.distance.toLocaleString('en-US')} miles away`}</small>
         <button onClick={toggleFill}><i className={`${heart} heart text-red-300`}></i></button>
         </>
       )}
