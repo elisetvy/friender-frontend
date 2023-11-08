@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
+import haversineDistance from 'haversine-distance';
+
 import HomePage from './HomePage';
 import RegisterForm from './RegisterForm';
 import Users from './Users';
@@ -20,11 +22,24 @@ function App() {
         FrienderApi.token = currToken;
         const { username } = jwtDecode(currToken);
         const user = await FrienderApi.getUser(username);
+        setCurrUser(user);
 
         let users = await FrienderApi.getUsers();
-        users = users.filter(user => user.username !== username);
+        users = users.filter(u => u.username !== username);
+        users = users.filter(u => {
+          const currUserCoords = {
+            latitude: user.latlng.split(',')[0],
+            longitude: user.latlng.split(',')[1]
+          }
+          const userCoords = {
+            latitude: u.latlng.split(',')[0],
+            longitude: u.latlng.split(',')[1]
+          }
+          const distance = haversineDistance(currUserCoords, userCoords) * 0.00062137; // convert meters to miles
 
-        setCurrUser(user);
+          return distance <= user.radius
+        });
+
         setAllUsers(users);
         setLoadingUser(false);
       }
