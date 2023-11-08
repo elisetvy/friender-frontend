@@ -36,7 +36,7 @@ class FrienderApi{
     for (let key in formData){
       if (key !== "photo"){
         formSubmission.append(key, formData[key]);
-      }else {
+      } else {
         formSubmission.append("file", formData[key]);
       }
     }
