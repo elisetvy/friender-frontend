@@ -16,9 +16,10 @@ function Users({ users, currUser, logOut }) {
       <div className="flex justify-center mb-4">
       <User user={currUser} currUser={currUser} />
       </div>
+      {users.length !== 0 &&
       <div className="">
-      <Carousel users={users} currUser={currUser} />
-      </div>
+        <Carousel users={users} currUser={currUser} />
+      </div>}
     </div>
   )
 }
