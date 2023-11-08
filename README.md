@@ -1,13 +1,11 @@
 ### Current features
-- Can log in/register
-- Can upload a photo
-- Can view all users
+- Authentication with JWTs
+- Image storage with AWS S3
+- Location-based matching
+- Light age verification
 
 ### Features to be implemented
 - Split sign up into 2 parts
-- Age input/requirement
-- JWTs for authentication
-- Show users within radius
 - Like/dislike a user
 - Edit profile
 - Messaging
