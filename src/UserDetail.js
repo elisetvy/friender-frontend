@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import haversineDistance from 'haversine-distance';
 
 import FrienderApi from "./api";
 import User from "./User";
@@ -10,12 +11,32 @@ function UserDetail({ currUser }) {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const navigate = useNavigate();
+
   /** Loads user data on mount.  */
   useEffect(function getUserOnRender() {
     async function getUser() {
-      const userData = await FrienderApi.getUser(username);
-      setUser(userData);
-      setIsLoading(false);
+      let u;
+
+      try {
+        u = await FrienderApi.getUser(username);
+
+        const currUserCoords = {
+          latitude: currUser.latlng.split(',')[0],
+          longitude: currUser.latlng.split(',')[1]
+        }
+        const uCoords = {
+          latitude: u.latlng.split(',')[0],
+          longitude: u.latlng.split(',')[1]
+        }
+        const distance = Math.floor(haversineDistance(currUserCoords, uCoords) * 0.00062137); // convert meters to miles
+        u.distance = distance;
+
+        setUser(u);
+        setIsLoading(false);
+      } catch(err) {
+        navigate("/users");
+      }
     }
     getUser();
   }, []);
