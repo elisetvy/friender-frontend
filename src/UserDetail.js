@@ -54,7 +54,7 @@ function UserDetail({ currUser }) {
       <div className="border-1 border-solid border-emerald-400 bg-emerald-100 h-36 w-52 rounded-xl absolute top-96 left-1/5"></div>
       <div className="border-1 border-solid border-emerald-400 bg-emerald-100 h-40 w-72 rounded-xl absolute top-72 right-32"></div>
       <div className="border-1 border-solid border-emerald-400 bg-emerald-100 h-64 w-64 rounded-xl absolute top-24 right-96 overflow-hidden">
-        <img src={user.photo} alt={user.username}/>
+        <img className="object-cover h-full w-full" src={user.photo} alt={user.username}/>
       </div>
     </div>
   )
