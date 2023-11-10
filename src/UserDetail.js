@@ -9,14 +9,27 @@ function UserDetail({ currUser }) {
 
   const [user, setUser] = useState(null);
   const [fname, setFname] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const navigate = useNavigate();
+
+  function handleClick(e) {
+    e.preventDefault();
+
+    setIsEditing(true);
+  }
 
   function handleChange(e) {
     e.preventDefault();
 
     setFname(e.target.value);
+  }
+
+  function handleSave(e) {
+    e.preventDefault();
+
+    setIsEditing(false);
   }
 
   /** Loads user data on mount.  */
@@ -57,9 +70,9 @@ function UserDetail({ currUser }) {
       <div className="bg-emerald-300 h-3/4 w-3/4 rounded-xl"></div>
       <div className="border-1 border-solid border-emerald-400 bg-emerald-100 h-28 w-72 rounded-xl absolute top-56 left-96"></div>
       <div className="border-1 border-solid border-emerald-400 bg-red-100 h-40 w-72 rounded-xl absolute top-28 left-32 flex justify-center items-center">
-        <form className="flex flex-col gap-2 items-center">
-          <input onChange={handleChange} value={fname} type="text" className="text-center bg-transparent" />
-          <button className="bg-blue-300 px-3 py-1 rounded-xl text-xs w-fit">Submit</button>
+        <form className="flex flex-col gap-3 items-center">
+          <input onChange={handleChange} onClick={handleClick} value={fname} type="text" className="text-center bg-transparent" />
+          {isEditing && <button onClick={handleSave} className="bg-blue-300 px-3 py-1 rounded-xl text-xs w-fit">Save</button>}
         </form>
       </div>
       <div className="border-1 border-solid border-emerald-400 bg-emerald-100 h-28 w-72 rounded-xl absolute top-96 left-56"></div>

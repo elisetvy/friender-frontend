@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import User from "./User";
+import Nav from "./Nav"
 import Carousel from "./Carousel";
+import User from "./User";
 
 function Users({ users, currUser, logOut }) {
   const navigate = useNavigate();
@@ -11,16 +12,18 @@ function Users({ users, currUser, logOut }) {
   }
 
   return (
-    <div className="text-center m-10">
-      <button onClick={handleClick} className="bg-emerald-300 px-3 py-1 rounded-lg mb-10 hover:scale-105">Log Out</button>
-      <div className="flex justify-center mb-4">
-      <User user={currUser} currUser={currUser} />
+    <>
+      <Nav logOut={logOut} currUser={currUser}></Nav>
+      <div className="text-center m-10">
+        <div className="flex justify-center mb-4">
+        <User user={currUser} currUser={currUser} />
+        </div>
+        {users.length !== 0 &&
+        <div className="">
+          <Carousel users={users} currUser={currUser} />
+        </div>}
       </div>
-      {users.length !== 0 &&
-      <div className="">
-        <Carousel users={users} currUser={currUser} />
-      </div>}
-    </div>
+    </>
   )
 }
 
