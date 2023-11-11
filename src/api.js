@@ -41,7 +41,7 @@ class FrienderApi{
       }
     }
 
-    const response = await fetch(`${BASE_API_URL}/register`, {
+    const response = await fetch(`${BASE_API_URL}/auth/register`, {
       method: "POST",
       body: formSubmission,
     });
@@ -58,7 +58,7 @@ class FrienderApi{
   }
 
   static async login(formData){
-    const response = await this.request('login', formData, "POST" );
+    const response = await this.request('auth/login', formData, "POST" );
 
     return response.token;
   }

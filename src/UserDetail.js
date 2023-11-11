@@ -8,7 +8,7 @@ function UserDetail({ currUser }) {
   const { username } = useParams();
 
   const [user, setUser] = useState(null);
-  const [fname, setFname] = useState(null);
+  const [name, setName] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -23,7 +23,7 @@ function UserDetail({ currUser }) {
   function handleChange(e) {
     e.preventDefault();
 
-    setFname(e.target.value);
+    setName(e.target.value);
   }
 
   function handleSave(e) {
@@ -52,7 +52,7 @@ function UserDetail({ currUser }) {
         u.distance = distance;
 
         setUser(u);
-        setFname(u.fname);
+        setName(u.name);
         setIsLoading(false);
       } catch(err) {
         navigate("/users");
@@ -71,7 +71,7 @@ function UserDetail({ currUser }) {
       <div className="border-1 border-solid border-emerald-400 bg-emerald-100 h-28 w-72 rounded-xl absolute top-56 left-96"></div>
       <div className="border-1 border-solid border-emerald-400 bg-red-100 h-40 w-72 rounded-xl absolute top-28 left-32 flex justify-center items-center">
         <form className="flex flex-col gap-3 items-center">
-          <input onChange={handleChange} onClick={handleClick} value={fname} type="text" className="text-center bg-transparent" />
+          <input onChange={handleChange} onClick={handleClick} value={name} type="text" className="text-center bg-transparent" />
           {isEditing && <button onClick={handleSave} className="bg-blue-300 px-3 py-1 rounded-xl text-xs w-fit">Save</button>}
         </form>
       </div>

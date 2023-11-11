@@ -8,7 +8,7 @@ function RegisterForm({ register }){
 
   const initialFormData = {username: "",
                           password: "",
-                          fname: "",
+                          name: "",
                           email: "",
                           dob: "",
                           photo: "",
@@ -79,9 +79,9 @@ function RegisterForm({ register }){
         <div>
           <label className="mb-1">First Name</label>
           <div>
-            <input name="fname"
+            <input name="name"
               required
-              value={formData.fname}
+              value={formData.name}
               onChange={handleChange}
               type="text"
               maxLength={20}
