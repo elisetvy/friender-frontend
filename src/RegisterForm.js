@@ -9,7 +9,6 @@ function RegisterForm({ register }){
   const initialFormData = {username: "",
                           password: "",
                           fname: "",
-                          lname: "",
                           email: "",
                           dob: "",
                           photo: "",
@@ -83,19 +82,6 @@ function RegisterForm({ register }){
             <input name="fname"
               required
               value={formData.fname}
-              onChange={handleChange}
-              type="text"
-              maxLength={20}
-              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
-              />
-          </div>
-        </div>
-        <div>
-          <label className="mb-1">Last Name</label>
-          <div>
-            <input name="lname"
-              required
-              value={formData.lname}
               onChange={handleChange}
               type="text"
               maxLength={20}
