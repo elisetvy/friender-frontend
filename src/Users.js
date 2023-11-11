@@ -15,9 +15,6 @@ function Users({ users, currUser, logOut }) {
     <>
       <Nav logOut={logOut} currUser={currUser}></Nav>
       <div className="text-center m-10">
-        <div className="flex justify-center mb-4">
-        <User user={currUser} currUser={currUser} />
-        </div>
         {users.length !== 0 &&
         <div className="">
           <Carousel users={users} currUser={currUser} />
