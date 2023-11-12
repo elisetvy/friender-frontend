@@ -11,9 +11,13 @@ function MessageForm({ currUser }) {
     setMessage(e.target.value);
   }
 
+  function handleSubmit() {
+
+  }
+
   return (
     <div>
-      <form className="bg-emerald-100 w-1/3 ml-auto mr-auto px-4 py-4 rounded-lg">
+      <form onSubmit={handleSubmit} className="bg-emerald-100 w-1/3 ml-auto mr-auto px-4 py-4 rounded-lg">
         <div>
           <label className="mb-1">To</label>
           <div>
@@ -30,12 +34,12 @@ function MessageForm({ currUser }) {
         <div>
           <label className="mb-1">Message</label>
           <div>
-            <input name="message"
+            <textarea name="message"
               required
               value={message}
               onChange={handleChange}
               type="text"
-              className="bg-emerald-300 w-full rounded-lg h-36"
+              className="bg-emerald-300 w-full rounded-lg h-36 px-2 py-1"
             />
           </div>
         </div>

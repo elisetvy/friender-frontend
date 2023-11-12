@@ -8,7 +8,6 @@ function UserDetail({ currUser }) {
   const { username } = useParams();
 
   const [user, setUser] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const navigate = useNavigate();
@@ -39,7 +38,7 @@ function UserDetail({ currUser }) {
       }
     }
     getUser();
-  }, []);
+  }, [username]);
 
   if (isLoading) {
     return <p>Loading...</p>
