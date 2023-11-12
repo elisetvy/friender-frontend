@@ -34,8 +34,6 @@ function MessageForm({ sendMessage, getMessages }) {
   }
 
   async function handleSubmit(e) {
-    e.preventDefault();
-
     try {
       await sendMessage(message);
     } catch(err) {
@@ -56,7 +54,7 @@ function MessageForm({ sendMessage, getMessages }) {
         <div className="bg-emerald-300 h-72 px-3 py-3 mb-2 flex flex-col flex-col-reverse gap-2 overflow-scroll">
           { messages.length === 0
           ? <p className="text-center h-full">No messages!</p>
-          : messages.map(message => <Message message={message} />)
+          : messages.map(message => <Message key={message.id} message={message} />)
         }
         </div>
         <div>
