@@ -1,9 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function MessageForm({ sendMessage }) {
+import FrienderApi from "./api";
+import Message from "./Message";
+
+function MessageForm({ sendMessage, getMessages }) {
   const { sender, receiver } = useParams();
   const [message, setMessage] = useState({ sender: sender, receiver: receiver, body: ""});
+  const [messages, setMessages] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  /** Loads messages on mount. */
+  useEffect(function getMessagesOnRender() {
+    async function getMessages() {
+      let messages;
+
+      try {
+        messages = await FrienderApi.getMessages(sender, receiver);
+
+        setMessages(messages);
+        setIsLoading(false);
+      } catch(err) {
+        console.log(err);
+      }
+    }
+    getMessages();
+  }, []);
 
   function handleChange(e) {
     e.preventDefault();
@@ -21,14 +43,21 @@ function MessageForm({ sendMessage }) {
     }
   }
 
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit} className="bg-emerald-100 w-1/3 ml-auto mr-auto px-4 py-4 rounded-lg">
         <div className="flex w-full gap-2 items-center mb-2">
           <b>To:</b> {receiver}
         </div>
-        <div className="bg-emerald-300 h-72 px-3 py-3 mb-2 text-center">
-          <p>No messages!</p>
+        <div className="bg-emerald-300 h-72 px-3 py-3 mb-2 flex flex-col gap-2 overflow-scroll">
+          { messages === null
+          ? <p>No messages!</p>
+          : messages.map(message => <Message message={message} />)
+        }
         </div>
         <div>
           <div className="flex items-start gap-2">
