@@ -9,6 +9,7 @@ import RegisterForm from './RegisterForm';
 import Users from './Users';
 import UserDetail from './UserDetail';
 import LoginForm from './LoginForm';
+import MessageForm from './MessageForm';
 import FrienderApi from './api';
 
 function App() {
@@ -89,6 +90,7 @@ function App() {
           {allUsers && currUser && <Route path="/users" element={<Users users={allUsers}
             currUser={currUser} logOut={logOut} />} />}
           {allUsers && currUser && <Route path="/users/:username" element={<UserDetail currUser={currUser} />} />}
+          {allUsers && currUser && <Route path="/users/:username/messages/:receiver" element={<MessageForm currUser={currUser} />} />}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>

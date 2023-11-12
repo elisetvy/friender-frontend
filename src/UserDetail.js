@@ -1,37 +1,17 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import haversineDistance from 'haversine-distance';
 
 import FrienderApi from "./api";
-import Nav from "./Nav"
 
 function UserDetail({ currUser }) {
   const { username } = useParams();
 
   const [user, setUser] = useState(null);
-  const [name, setName] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const navigate = useNavigate();
-
-  function handleClick(e) {
-    e.preventDefault();
-
-    setIsEditing(true);
-  }
-
-  function handleChange(e) {
-    e.preventDefault();
-
-    setName(e.target.value);
-  }
-
-  function handleSave(e) {
-    e.preventDefault();
-
-    setIsEditing(false);
-  }
 
   /** Loads user data on mount.  */
   useEffect(function getUserOnRender() {
@@ -53,7 +33,6 @@ function UserDetail({ currUser }) {
         u.distance = distance;
 
         setUser(u);
-        setName(u.name);
         setIsLoading(false);
       } catch(err) {
         navigate("/users");
@@ -67,20 +46,15 @@ function UserDetail({ currUser }) {
   }
 
   return (
-      <div className="flex h-screen justify-center items-center">
-        <div className="bg-emerald-300 h-3/4 w-3/4 rounded-xl"></div>
-        <div className="border-1 border-solid border-emerald-400 bg-emerald-100 h-28 w-72 rounded-xl absolute top-56 left-96"></div>
-        <div className="border-1 border-solid border-emerald-400 bg-red-100 h-40 w-72 rounded-xl absolute top-28 left-32 flex justify-center items-center">
-          <form className="flex flex-col gap-3 items-center">
-            <input onChange={handleChange} onClick={handleClick} value={name} type="text" className="text-center bg-transparent" />
-            {isEditing && <button onClick={handleSave} className="bg-blue-300 px-3 py-1 rounded-xl text-xs w-fit">Save</button>}
-          </form>
+      <div className="flex">
+        <div className="flex flex-col gap-2 items-center w-1/2 px-2 py-2">
+          <img className="object-cover h-96" src={user.photo} alt={user.username}/>
+          <h1 className="text-3xl font-black bg-emerald-200 px-3 py-1 flex mt-2">{user.name}</h1>
         </div>
-        <div className="border-1 border-solid border-emerald-400 bg-emerald-100 h-28 w-72 rounded-xl absolute top-96 left-56">{user.bio}</div>
-        <div className="border-1 border-solid border-emerald-400 bg-emerald-100 h-36 w-52 rounded-xl absolute top-96 left-1/5">location</div>
-        <div className="border-1 border-solid border-emerald-400 bg-emerald-100 h-40 w-72 rounded-xl absolute top-72 right-32">likes dislikes</div>
-        <div className="border-1 border-solid border-emerald-400 bg-emerald-100 h-64 w-64 rounded-xl absolute top-24 right-96 overflow-hidden">
-          <img className="object-cover h-full w-full" src={user.photo} alt={user.username}/>
+        <div className="w-1/2 px-2 py-2">
+          <h1 className="font-bold text-xl">About</h1>
+          <p className="mb-6">{user.bio}</p>
+          {user.username !== currUser.username && <Link to={`/users/${currUser.username}/messages/${user.username}`} className="bg-emerald-300 px-3 py-1 rounded-lg hover:text-black hover:scale-105">Message</Link>}
         </div>
       </div>
   )

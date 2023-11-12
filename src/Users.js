@@ -13,7 +13,7 @@ function Users({ users, currUser, logOut }) {
 
   return (
     <>
-      <div className="text-center m-10">
+      <div className="text-center">
         {users.length !== 0 &&
         <div className="">
           <Carousel users={users} currUser={currUser} />
