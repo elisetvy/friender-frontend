@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import haversineDistance from 'haversine-distance';
 
 import HomePage from './HomePage';
+import Nav from './Nav';
 import RegisterForm from './RegisterForm';
 import Users from './Users';
 import UserDetail from './UserDetail';
@@ -80,6 +81,7 @@ function App() {
   return (
     <div className="font-mono">
       <BrowserRouter>
+      {currUser && <Nav currUser={currUser} logOut={logOut}></Nav>}
         <Routes>
           { !currUser ? <Route path="/" element={<HomePage />} /> : <Route path="*" element={<Navigate to="/users" />} /> }
           { !currUser && <Route path="/login" element={<LoginForm login={login} />} /> }

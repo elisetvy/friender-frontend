@@ -13,7 +13,6 @@ function Users({ users, currUser, logOut }) {
 
   return (
     <>
-      <Nav logOut={logOut} currUser={currUser}></Nav>
       <div className="text-center m-10">
         {users.length !== 0 &&
         <div className="">
