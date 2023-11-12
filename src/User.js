@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function User({ user, currUser }) {
 
   return (
-    <Link to={`/users/${user.username}`} className="hover:text-black bg-emerald-100 w-1/5 h-96 rounded-lg">
+    <Link to={`/users/${user.username}`} className="hover:text-black bg-emerald-100 w-72 h-96 rounded-lg">
       <div className="flex flex-col justify-between items-center px-4 py-4 h-96 gap-3">
         <div className="h-4/6 w-full overflow-hidden">
           <img className="h-full w-full object-cover" src={user.photo} alt={user.username} />
