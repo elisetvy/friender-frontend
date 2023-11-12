@@ -18,35 +18,26 @@ function MessageForm({ currUser }) {
   return (
     <div>
       <form onSubmit={handleSubmit} className="bg-emerald-100 w-1/3 ml-auto mr-auto px-4 py-4 rounded-lg">
-        <div>
-          <label className="mb-1">To</label>
-          <div>
-            <input name="receiver"
-              required
-              value={receiver}
-              type="text"
-              maxLength={20}
-              className="bg-emerald-300 mb-2 w-full rounded-lg px-2 py-1"
-              disabled
-            />
-          </div>
+        <div className="flex w-full gap-2 items-center mb-2">
+          <b>To:</b> {receiver}
+        </div>
+        <div className="bg-emerald-300 h-72 px-3 py-3 mb-2 text-center">
+          <p>No messages!</p>
         </div>
         <div>
-          <label className="mb-1">Message</label>
-          <div>
-            <textarea name="message"
-              required
-              value={message}
-              onChange={handleChange}
-              type="text"
-              className="bg-emerald-300 w-full rounded-lg h-36 px-2 py-1"
-            />
+          <div className="flex items-start gap-2">
+            <input name="receiver"
+                required
+                value={message}
+                type="text"
+                placeholder="Write something here..."
+                onChange={handleChange}
+                className="bg-emerald-300 w-full rounded-lg px-2 py-1"
+              />
+            <button className="bg-emerald-300 px-3 py-1 rounded-lg hover:scale-105"><i className="bi bi-send text-black"></i></button>
           </div>
         </div>
         {/* {error && <p className="mt-4 text-red-400 font-bold">{error}</p>} */}
-        <div className="flex justify-center">
-        <button className="bg-emerald-300 mt-4 px-3 py-1 rounded-lg hover:scale-105">Send</button>
-        </div>
       </form>
     </div>
   )
