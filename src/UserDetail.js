@@ -45,15 +45,17 @@ function UserDetail({ currUser }) {
   }
 
   return (
-      <div className="flex">
-        <div className="flex flex-col gap-2 items-center w-1/2 px-2 py-2">
-          <img className="object-cover h-96" src={user.photo} alt={user.username}/>
-          <h1 className="text-3xl font-black bg-emerald-200 px-3 py-1 flex mt-2">{user.name}</h1>
-        </div>
-        <div className="w-1/2 px-2 py-2">
-          <h1 className="font-bold text-xl">About</h1>
-          <p className="mb-6">{user.bio}</p>
-          {user.username !== currUser.username && <Link to={`/users/${currUser.username}/messages/${user.username}`} className="bg-emerald-300 px-3 py-1 rounded-lg hover:text-black hover:scale-105">Message</Link>}
+      <div className="flex justify-center">
+        <div className="flex w-5/6 gap-4">
+          <div className="flex flex-col gap-2 items-center w-1/2">
+            <img className="object-cover h-96" src={user.photo} alt={user.username}/>
+            <h1 className="text-3xl font-black bg-emerald-200 px-3 py-1 flex mt-2">{user.name}</h1>
+          </div>
+          <div className="w-1/2">
+            <h1 className="font-bold text-xl">About</h1>
+            <p className="mb-6">{user.bio}</p>
+            {user.username !== currUser.username && <Link to={`/users/${currUser.username}/messages/${user.username}`} className="bg-emerald-300 px-3 py-1 rounded-lg hover:text-black hover:scale-105">Message</Link>}
+          </div>
         </div>
       </div>
   )
