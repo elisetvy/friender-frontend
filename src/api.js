@@ -76,6 +76,20 @@ class FrienderApi{
 
     return response.user;
   }
+
+  /** Send a message. */
+  static async sendMessage(formData) {
+    const response = await this.request(`messages`, formData, "POST");
+
+    return response.message;
+  }
+
+  /** Get messages between users. */
+  static async getMessages(u1, u2) {
+    const response = await this.request(`messages/${u1}/${u2}`);
+
+    return response.messages;
+  }
 }
 
 export default FrienderApi;

@@ -1,18 +1,24 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-function MessageForm({ currUser }) {
-  const { receiver } = useParams();
-  const [message, setMessage] = useState("");
+function MessageForm({ sendMessage }) {
+  const { sender, receiver } = useParams();
+  const [message, setMessage] = useState({ sender: sender, receiver: receiver, body: ""});
 
   function handleChange(e) {
     e.preventDefault();
 
-    setMessage(e.target.value);
+    setMessage(prev => ({...prev, body: e.target.value }));
   }
 
-  function handleSubmit() {
+  async function handleSubmit(e) {
+    e.preventDefault();
 
+    try {
+      await sendMessage(message);
+    } catch(err) {
+      console.log('Error sending message');
+    }
   }
 
   return (
@@ -28,7 +34,7 @@ function MessageForm({ currUser }) {
           <div className="flex items-start gap-2">
             <input name="receiver"
                 required
-                value={message}
+                value={message.body}
                 type="text"
                 placeholder="Write something here..."
                 onChange={handleChange}

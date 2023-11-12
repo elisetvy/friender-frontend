@@ -75,6 +75,10 @@ function App() {
     FrienderApi.token = null;
   }
 
+  async function sendMessage(formData) {
+    await FrienderApi.sendMessage(formData);
+  }
+
   if (loadingUser === true) {
     return <p>Loading...</p>
   }
@@ -90,7 +94,7 @@ function App() {
           {allUsers && currUser && <Route path="/users" element={<Users users={allUsers}
             currUser={currUser} logOut={logOut} />} />}
           {allUsers && currUser && <Route path="/users/:username" element={<UserDetail currUser={currUser} />} />}
-          {allUsers && currUser && <Route path="/users/:username/messages/:receiver" element={<MessageForm currUser={currUser} />} />}
+          {allUsers && currUser && <Route path="/users/:sender/messages/:receiver" element={<MessageForm sendMessage={sendMessage} />} />}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
