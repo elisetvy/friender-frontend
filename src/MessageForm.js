@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 function MessageForm({ currUser }) {
   const { receiver } = useParams();
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState("");
 
   function handleChange(e) {
     e.preventDefault();
@@ -44,7 +44,9 @@ function MessageForm({ currUser }) {
           </div>
         </div>
         {/* {error && <p className="mt-4 text-red-400 font-bold">{error}</p>} */}
-        <button className="bg-emerald-300 mt-4 px-3 py-1 rounded-lg">Send</button>
+        <div className="flex justify-center">
+        <button className="bg-emerald-300 mt-4 px-3 py-1 rounded-lg hover:scale-105">Send</button>
+        </div>
       </form>
     </div>
   )
