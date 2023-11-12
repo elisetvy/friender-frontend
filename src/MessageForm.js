@@ -53,9 +53,9 @@ function MessageForm({ sendMessage, getMessages }) {
         <div className="flex w-full gap-2 items-center mb-2">
           <b>To:</b> {receiver}
         </div>
-        <div className="bg-emerald-300 h-72 px-3 py-3 mb-2 flex flex-col gap-2 overflow-scroll">
-          { messages === null
-          ? <p>No messages!</p>
+        <div className="bg-emerald-300 h-72 px-3 py-3 mb-2 flex flex-col flex-col-reverse gap-2 overflow-scroll">
+          { messages.length === 0
+          ? <p className="text-center">No messages!</p>
           : messages.map(message => <Message message={message} />)
         }
         </div>
