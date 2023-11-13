@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import MessagesContainer from "./MessagesContainer";
 
@@ -25,7 +25,7 @@ function MessageForm({ sendMessage, getMessages }) {
     <div>
       <form onSubmit={handleSubmit} className="bg-emerald-100 w-1/3 ml-auto mr-auto px-4 py-4 rounded-lg">
         <div className="flex w-full gap-2 items-center mb-2">
-          <b>To:</b> {receiver}
+          <b>To:</b> <Link to={`/users/${receiver}`}>{receiver}</Link>
         </div>
         <div className="bg-emerald-300 h-72 px-3 py-3 mb-2 flex flex-col flex-col-reverse overflow-scroll">
           <MessagesContainer sender={sender} receiver={receiver} className="" />

@@ -42,7 +42,7 @@ function Messages({ currUser }) {
     <div className="flex flex-col items-center gap-2">
       {messages.map(message => (
         <Link to={`/users/${currUser.username}/messages/${message.username}`} className="w-1/3 hover:scale-105">
-          <div key={message.id} className="bg-emerald-300 rounded-xl py-4 px-4 flex flex-col">
+          <div key={message.id} className="bg-emerald-200 rounded-xl py-4 px-4 flex flex-col">
             <div className="flex justify-between items-center">
             <b>{message.username}</b>
             <p className="text-xs">{daysAgo(message.timestamp) < 1 ? "Today" : daysAgo(message.timestamp) === 1 ? "1 day ago" : `${daysAgo(message.timestamp)} days ago`}</p>
