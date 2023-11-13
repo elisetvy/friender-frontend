@@ -77,7 +77,7 @@ function RegisterForm({ register }){
           </div>
         </div>
         <div>
-          <label className="mb-1">First Name</label>
+          <label className="mb-1">Name</label>
           <div>
             <input name="name"
               required
