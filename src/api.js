@@ -90,6 +90,13 @@ class FrienderApi{
 
     return response.messages;
   }
+
+  /** Get a user's messages. */
+  static async getUserMessages(username) {
+    const response = await this.request(`messages/${username}`);
+
+    return response.messages;
+  }
 }
 
 export default FrienderApi;

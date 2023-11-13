@@ -95,7 +95,7 @@ function App() {
           {allUsers && currUser && <Route path="/users" element={<Users users={allUsers}
             currUser={currUser} logOut={logOut} />} />}
           {allUsers && currUser && <Route path="/users/:username" element={<UserDetail currUser={currUser} />} />}
-          {allUsers && currUser && <Route path="/users/:username/messages" element={<Messages />} />}
+          {allUsers && currUser && <Route path="/users/:username/messages" element={<Messages currUser={currUser} />} />}
           {allUsers && currUser && <Route path="/users/:sender/messages/:receiver" element={<MessageForm sendMessage={sendMessage} />} />}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
