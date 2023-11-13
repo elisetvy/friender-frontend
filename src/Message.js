@@ -6,7 +6,7 @@ function Message({ message }) {
       <div className="text-[6px]">{new Date(timestamp).toString()}</div>
       <div className="flex gap-2 text-xs">
       <b>{sender}</b>
-      <div>{body}</div>
+      <div className="">{body}</div>
       </div>
     </div>
   )

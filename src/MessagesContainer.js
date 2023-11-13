@@ -31,7 +31,7 @@ function MessagesContainer({ sender, receiver }) {
   return (
     <div className="flex flex-col gap-2">
       { messages.length === 0
-          ? <p className="text-center h-full">No messages!</p>
+          ? <p className="text-center">No messages!</p>
           : messages.map(message => <Message key={message.id} message={message} />)
         }
     </div>

@@ -48,7 +48,7 @@ function Messages({ currUser }) {
             <b>{message.username}</b>
             <p className="text-xs">{daysAgo(message.timestamp) < 1 ? "Today" : daysAgo(message.timestamp) === 1 ? "1 day ago" : `${daysAgo(message.timestamp)} days ago`}</p>
             </div>
-            <p className="text-xs">{message.body}</p>
+            <p className="text-xs line-clamp-1">{message.body}</p>
           </div>
         </Link>
       ))
