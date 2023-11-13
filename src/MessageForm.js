@@ -38,7 +38,7 @@ function MessageForm({ sendMessage, getMessages }) {
                 type="text"
                 placeholder="Write something here..."
                 onChange={handleChange}
-                className="bg-emerald-300 w-full rounded-lg px-2 py-1"
+                className="bg-emerald-300 w-full rounded-lg px-2 py-1 placeholder:text-black placeholder:opacity-30 placeholder:text-sm"
               />
             <button className="bg-emerald-300 px-3 py-1 rounded-lg hover:scale-105"><i className="bi bi-send text-black"></i></button>
           </div>
