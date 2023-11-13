@@ -40,7 +40,8 @@ function Messages({ currUser }) {
 
   return (
     <div className="flex flex-col items-center gap-2">
-      {messages.map(message => (
+      {messages.length !== 0
+      ? messages.map(message => (
         <Link to={`/users/${currUser.username}/messages/${message.username}`} className="w-1/3 hover:scale-105">
           <div key={message.id} className="bg-emerald-200 rounded-xl py-4 px-4 flex flex-col">
             <div className="flex justify-between items-center">
@@ -50,7 +51,9 @@ function Messages({ currUser }) {
             <p className="text-xs">{message.body}</p>
           </div>
         </Link>
-      ))}
+      ))
+    : <p>No messages.</p>
+    }
     </div>
   )
 

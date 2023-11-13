@@ -21,7 +21,7 @@ function Carousel({ users, currUser }) {
     <div className="flex justify-center items-center gap-4">
       <button className={`${index === 0 ? "invisible" : "visible"} h-fit hover:scale-105`} onClick={unswipe}><i className="bi bi-x-circle-fill text-3xl text-emerald-300"></i>
 </button>
-        <User className="z-0" user={currU} currUser={currUser}/>
+        <User className="" user={currU} currUser={currUser}/>
       <button className={`${index === users.length - 1 ? "invisible" : "visible"} h-fit hover:scale-105`} onClick={swipe}><i className="bi-heart-fill text-3xl text-red-300"></i></button>
     </div>
   )
