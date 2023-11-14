@@ -39,7 +39,7 @@ function EditUserForm({ currUser, update }){
   }
 
   return(
-    <div className="text-center pt-10">
+    <div className="text-center">
       <form onSubmit={handleSubmit} encType="multipart/form-data" className="bg-emerald-100 w-fit ml-auto mr-auto px-4 py-4 rounded-lg">
         <div>
           <label className="mb-1">Username</label>
@@ -126,6 +126,7 @@ function EditUserForm({ currUser, update }){
               value={formData.radius}
               onChange={handleChange}
               type="text"
+              pattern="[0-9]"
               className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>

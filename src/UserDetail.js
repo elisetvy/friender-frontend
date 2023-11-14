@@ -57,6 +57,7 @@ function UserDetail({ currUser }) {
             <h1 className="font-bold text-xl">About</h1>
             <p className="mb-6">{user.bio}</p>
             {user.username !== currUser.username && <Link to={`/users/${currUser.username}/messages/${user.username}`} className="bg-emerald-300 px-3 py-1 rounded-lg hover:text-black hover:scale-105">Message</Link>}
+            {user.username === currUser.username && <Link to={`/users/${currUser.username}/edit`} className="bg-emerald-300 px-3 py-1 rounded-lg hover:text-black hover:scale-105">Edit Your Profile</Link>}
           </div>
         </div>
       </div>
