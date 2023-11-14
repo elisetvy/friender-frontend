@@ -80,6 +80,7 @@ function RegisterForm({ register }){
   }
 
   return(
+    <div className="absolute top-0 left-0 w-screen h-screen">
     <div className="w-full h-full flex justify-center items-center">
       <div className="bg-emerald-100 w-2/5 flex flex-col justify-center items-center text-center px-14 py-10 rounded-lg">
         { form === "one" &&
@@ -106,7 +107,7 @@ function RegisterForm({ register }){
               minLength={5}
               maxLength={100}
               className="mb-3 rounded-lg px-2 py-1"
-          />
+              />
           {error && <p className="mb-3 text-red-400 font-bold text-center">{error}</p>}
           <div className="flex justify-end">
           <button className="bg-emerald-300 w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
@@ -226,6 +227,7 @@ function RegisterForm({ register }){
       </>
       }
       </div>
+    </div>
     </div>
   )
 }

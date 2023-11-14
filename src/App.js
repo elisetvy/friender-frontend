@@ -97,7 +97,7 @@ function App() {
   }
 
   return (
-    <div className="font-mono px-10 py-4 h-screen">
+    <div className="font-mono px-10 py-4">
       <BrowserRouter>
       {currUser && <Nav currUser={currUser} logOut={logOut}></Nav>}
         <Routes>
