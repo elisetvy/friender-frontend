@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import haversineDistance from 'haversine-distance';
+import calculateAge from "./utils";
 
 import FrienderApi from "./api";
 
@@ -30,6 +31,7 @@ function UserDetail({ currUser }) {
         }
         const distance = Math.floor(haversineDistance(currUserCoords, uCoords) * 0.00062137); // convert meters to miles
         u.distance = distance;
+        u.age = calculateAge(u.dob)
 
         setUser(u);
         setIsLoading(false);
@@ -49,7 +51,7 @@ function UserDetail({ currUser }) {
         <div className="flex w-5/6 gap-4">
           <div className="flex flex-col gap-2 items-center w-1/2">
             <img className="object-cover h-96" src={user.photo} alt={user.username}/>
-            <h1 className="text-3xl font-black bg-emerald-200 px-3 py-1 flex mt-2">{user.name}</h1>
+            <h1 className="text-3xl font-black bg-emerald-200 px-3 py-1 flex mt-2">{user.name}, {user.age}</h1>
           </div>
           <div className="w-1/2">
             <h1 className="font-bold text-xl">About</h1>
