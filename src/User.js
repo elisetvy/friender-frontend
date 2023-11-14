@@ -9,7 +9,7 @@ function User({ user, currUser }) {
           <img className="h-full w-full object-cover" src={user.photo} alt={user.username} />
         </div>
         <div className="flex flex-col justify-between h-2/6">
-          <h3 className="font-bold">{user.name}</h3>
+          <h3 className="font-bold">{user.name}, {user.age}</h3>
           <p className="line-clamp-2">{user?.bio}</p>
           {user.username !== currUser.username && (
             <small className="font-bold">{user.distance < 1 ? "Less than 1 mile away" : user.distance === 1 ? "1 mile away" : `${user.distance.toLocaleString('en-US')} miles away`}</small>

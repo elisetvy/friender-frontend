@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
 import haversineDistance from 'haversine-distance';
+import calculateAge from './utils';
 
 import HomePage from './HomePage';
 import Nav from './Nav';
@@ -27,6 +28,7 @@ function App() {
         FrienderApi.token = currToken;
         const { username } = jwtDecode(currToken);
         const user = await FrienderApi.getUser(username);
+        user.age = calculateAge(user.dob);
         setCurrUser(user);
 
         let users = await FrienderApi.getUsers();
@@ -42,6 +44,7 @@ function App() {
           }
           const distance = Math.floor(haversineDistance(currUserCoords, userCoords) * 0.00062137); // convert meters to miles
           u.distance = distance;
+          u.age = calculateAge(u.dob);
           return distance <= user.radius
         });
 

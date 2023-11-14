@@ -32,7 +32,6 @@ class FrienderApi{
   static async register(formData){
     const formSubmission = new FormData();
 
-
     for (let key in formData){
       if (key !== "photo"){
         formSubmission.append(key, formData[key]);
