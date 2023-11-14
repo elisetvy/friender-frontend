@@ -10,6 +10,7 @@ import RegisterForm from './RegisterForm';
 import Users from './Users';
 import UserDetail from './UserDetail';
 import LoginForm from './LoginForm';
+import EditUserForm from './EditUserForm';
 import Matches from './Matches';
 import MessageForm from './MessageForm';
 import Messages from './Messages';
@@ -42,6 +43,7 @@ function App() {
             latitude: u.latlng.split(',')[0],
             longitude: u.latlng.split(',')[1]
           }
+
           const distance = Math.floor(haversineDistance(currUserCoords, userCoords) * 0.00062137); // convert meters to miles
           u.distance = distance;
           u.age = calculateAge(u.dob);
@@ -73,6 +75,12 @@ function App() {
       localStorage.setItem("currToken", token);
   }
 
+  async function update(username, formData) {
+      const user = await FrienderApi.updateUser(username, formData);
+      user.age = calculateAge(user.dob);
+      setCurrUser(user);
+  }
+
   async function logOut(){
     localStorage.removeItem("currToken");
     setCurrToken(null);
@@ -99,6 +107,7 @@ function App() {
           {allUsers && currUser && <Route path="/users" element={<Users users={allUsers}
             currUser={currUser} logOut={logOut} />} />}
           {allUsers && currUser && <Route path="/users/:username" element={<UserDetail currUser={currUser} />} />}
+          {allUsers && currUser && <Route path="/users/:username/edit" element={<EditUserForm currUser={currUser} update={update} />} />}
           {allUsers && currUser && <Route path="/users/:username/messages" element={<Messages currUser={currUser} />} />}
           {allUsers && currUser && <Route path="/users/:username/matches" element={<Matches currUser={currUser} users={allUsers} />} />}
           {allUsers && currUser && <Route path="/users/:sender/messages/:receiver" element={<MessageForm sendMessage={sendMessage} />} />}

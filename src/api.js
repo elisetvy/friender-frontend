@@ -96,6 +96,13 @@ class FrienderApi{
 
     return response.messages;
   }
+
+  /** Update a user. */
+  static async updateUser(username, data) {
+    const response = await this.request(`users/${username}`, data, "PATCH");
+
+    return response.user;
+  }
 }
 
 export default FrienderApi;
