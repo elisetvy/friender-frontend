@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import calculateAge from "./utils";
 
+import FrienderApi from "./api";
 
 function RegisterForm({ register }){
 
@@ -22,6 +23,18 @@ function RegisterForm({ register }){
   const [formData, setFormData]= useState(initialFormData);
   const [error, setError] = useState(null);
 
+  async function checkUsername(e) {
+    e.preventDefault();
+
+    try {
+      await FrienderApi.getUser(formData.username);
+      setError(`User already exists: ${formData.username}`)
+    } catch(err) {
+      console.log(err)
+      setForm(2);
+    }
+  }
+
   function handleChange(e) {
     const {name, value, files} = e.target;
 
@@ -39,7 +52,7 @@ function RegisterForm({ register }){
       await register(formData);
       navigate("/users");
     } catch(err) {
-      setError(err[0].message)
+      setError(err[0].message);
     }
   }
 
@@ -50,7 +63,7 @@ function RegisterForm({ register }){
         <>
         <p className="text-lg font-bold">Sign up for Friender today</p>
         <p className="text-sm">Choose a username and password to begin making friends!</p>
-        <form className="mt-4 flex flex-col text-left w-full">
+        <form onSubmit={checkUsername} className="mt-4 flex flex-col text-left w-full">
           <label className="mb-1">Username</label>
           <input name="username"
               required
@@ -71,8 +84,9 @@ function RegisterForm({ register }){
               maxLength={100}
               className="mb-3 rounded-lg px-2 py-1"
           />
+          {error && <p className="mb-3 text-red-400 font-bold text-center">{error}</p>}
           <div className="flex justify-end">
-          <button onClick={(e) => { e.preventDefault(); setForm(2); }} className="bg-emerald-300 w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
+          <button className="bg-emerald-300 w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
           </div>
         </form>
         <div className="mt-4 flex gap-2">
@@ -85,7 +99,7 @@ function RegisterForm({ register }){
       }
       { form === 2 &&
       <>
-      <form className="mt-4 flex flex-col text-left w-full">
+      <form onSubmit={(e) => { e.preventDefault(); setForm(3); }} className="mt-4 flex flex-col text-left w-full">
         <label className="mb-1">Name</label>
         <input name="name"
               required
@@ -113,7 +127,7 @@ function RegisterForm({ register }){
           className="mb-3 rounded-lg px-2 py-1"
           />
         <div className="flex justify-end">
-        <button onClick={(e) => { e.preventDefault(); setForm(3); }} className="bg-emerald-300 w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
+        <button className="bg-emerald-300 w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
         </div>
       </form>
       <div className="mt-4 flex gap-2">
@@ -126,7 +140,7 @@ function RegisterForm({ register }){
       }
       { form === 3 &&
       <>
-        <form className="mt-4 flex flex-col text-left w-full">
+        <form onSubmit={(e) => { e.preventDefault(); setForm(4); }} className="mt-4 flex flex-col text-left w-full">
           <label className="mb-1">ZIP Code</label>
           <input name="zip"
             required
@@ -145,7 +159,7 @@ function RegisterForm({ register }){
             className="mb-3 rounded-lg px-2 py-1"
             />
           <div className="flex justify-end">
-          <button onClick={(e) => { e.preventDefault(); setForm(4); }} className="bg-emerald-300 w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
+          <button className="bg-emerald-300 w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
           </div>
         </form>
         <div className="mt-4 flex gap-2">
@@ -172,7 +186,7 @@ function RegisterForm({ register }){
               type="text"
               className="mb-3 rounded-lg px-2 py-1"
               />
-          {error && <p className="mb-3 text-red-400 font-bold">{error}</p>}
+          {error && <p className="mb-3 text-red-400 font-bold text-center">{error}</p>}
           <div className="flex justify-end">
           <button onClick={handleSubmit} className="bg-emerald-300 w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Submit</button>
           </div>
