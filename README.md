@@ -2,10 +2,10 @@
 - Authentication with JWTs
 - Image storage with AWS S3
 - Location-based matching
-- Light age verification
+- Comprehensive client-side input validation w/ helpful feedback
+- Server-side input validation with jsonschema
 - Messaging
+- Beautiful interface styled with Tailwind CSS
 
 ### Features to be implemented
-- Split sign up into 2 parts
-- Like/dislike a user
-- Edit profile
+- Liking/disliking a user
