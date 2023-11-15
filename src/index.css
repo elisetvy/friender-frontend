@@ -14,12 +14,48 @@ code {
     monospace;
 }
 
+.font-blue {
+  color: #A1C3D1;
+}
+
+.background-blue {
+  background-color: #A1C3D1;
+}
+
 .font-white {
   color: #F0EBF4;
 }
 
 .font-white:hover {
   color: #F0EBF4;
+}
+
+.background-white {
+  background-color: #F0EBF4;
+}
+
+.font-pink {
+  color: #F172A1;
+}
+
+.background-pink {
+  background-color: #F172A1;
+}
+
+.font-fuschia {
+  color: #E64398;
+}
+
+.background-fuschia {
+  background-color: #E64398;
+}
+
+.font-purple {
+  color: #B39BC8;
+}
+
+.background-purple {
+  background-color: #B39BC8;
 }
 
 .HELP {

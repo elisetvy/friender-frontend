@@ -82,22 +82,22 @@ function RegisterForm({ register }){
   return(
     <div className="absolute top-0 left-0 w-screen h-screen">
     <div className="w-full h-full flex justify-center items-center">
-      <div className="bg-emerald-100 w-2/5 flex flex-col justify-center items-center text-center px-14 py-10 rounded-lg">
+      <div className="background-white w-2/5 flex flex-col justify-center items-center text-center px-14 py-10 rounded-lg">
         { form === "one" &&
         <>
-        <p className="text-lg font-bold">Sign up for Friender today</p>
-        <p className="text-sm">Choose a username and password to begin making friends!</p>
+        <p className="text-xl font-bold font-fuschia">Be the author of your own love story.</p>
+        <p className="text-sm font-fuschia">Choose a username and password to begin.</p>
         <form onSubmit={checkOne} className="mt-4 flex flex-col text-left w-full">
-          <label className="mb-1">Username</label>
+          <label className="mb-1 font-purple font-bold">Username</label>
           <input name="username"
               required
               value={formData.username}
               onChange={handleChange}
               type="text"
               maxLength={20}
-              className="mb-2 rounded-lg px-2 py-1"
+              className="mb-2 rounded-lg px-2 py-1 font-fuschia"
               />
-          <label className="mb-1">Password</label>
+          <label className="mb-1 font-purple font-bold">Password</label>
           <input name="password"
               required
               value={formData.password}
@@ -106,15 +106,15 @@ function RegisterForm({ register }){
               autoComplete="off"
               minLength={5}
               maxLength={100}
-              className="mb-3 rounded-lg px-2 py-1"
+              className="mb-3 rounded-lg px-2 py-1 font-fuschia"
               />
-          {error && <p className="mb-3 text-red-400 font-bold text-center">{error}</p>}
+          {error && <p className="mb-3 text-red-500 font-bold text-center">{error}</p>}
           <div className="flex justify-end">
-          <button className="bg-emerald-300 w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
+          <button className="font-white background-fuschia w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
           </div>
         </form>
         <div className="mt-4 flex gap-2">
-          <i className="bi bi-circle-fill text-emerald-300 text-[8px]"></i>
+          <i className="bi bi-circle-fill font-fuschia text-[8px]"></i>
           <i className="bi bi-circle-fill text-white text-[8px]"></i>
           <i className="bi bi-circle-fill text-white text-[8px]"></i>
           <i className="bi bi-circle-fill text-white text-[8px]"></i>
@@ -124,40 +124,40 @@ function RegisterForm({ register }){
       { form === "two" &&
       <>
       <form onSubmit={checkTwo} className="mt-4 flex flex-col text-left w-full">
-        <label className="mb-1">Name</label>
+        <label className="mb-1 font-purple font-bold">Name</label>
         <input name="name"
               required
               value={formData.name}
               onChange={handleChange}
               type="text"
               maxLength={20}
-              className="mb-2 rounded-lg px-2 py-1"
+              className="mb-2 rounded-lg px-2 py-1 font-fuschia"
               />
-        <label className="mb-1">Email Address</label>
+        <label className="mb-1 font-purple font-bold">Email Address</label>
         <input name="email"
               required
               value={formData.email}
               onChange={handleChange}
               type="email"
               maxLength={50}
-              className="mb-2 rounded-lg px-2 py-1"
+              className="mb-2 rounded-lg px-2 py-1 font-fuschia"
               />
-        <label className="mb-1">Date of Birth</label>
+        <label className="mb-1 font-purple font-bold">Date of Birth</label>
         <input name="dob"
           required
           value={formData.dob}
           onChange={handleChange}
           type="date"
-          className="mb-3 rounded-lg px-2 py-1"
+          className="mb-3 rounded-lg px-2 py-1 font-fuschia"
           />
-        {error && <p className="mb-3 text-red-400 font-bold text-center">{error}</p>}
+        {error && <p className="mb-3 text-red-500 font-bold text-center">{error}</p>}
         <div className="flex justify-end">
-        <button className="bg-emerald-300 w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
+        <button className="background-fuschia font-white w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
         </div>
       </form>
       <div className="mt-4 flex gap-2">
         <i onClick={(e) => { e.preventDefault(); setForm("one"); setError(null); }} className="hover:cursor-pointer bi bi-circle-fill text-white text-[8px]"></i>
-        <i className="bi bi-circle-fill text-emerald-300 text-[8px]"></i>
+        <i className="bi bi-circle-fill font-fuschia text-[8px]"></i>
         <i className="bi bi-circle-fill text-white text-[8px]"></i>
         <i className="bi bi-circle-fill text-white text-[8px]"></i>
       </div>
@@ -166,7 +166,7 @@ function RegisterForm({ register }){
       { form === "three" &&
       <>
         <form onSubmit={(e) => { e.preventDefault(); setForm("four"); }} className="mt-4 flex flex-col text-left w-full">
-          <label className="mb-1">ZIP Code</label>
+          <label className="mb-1 font-purple font-bold">ZIP Code</label>
           <input name="zip"
             required
             value={formData.zip}
@@ -174,25 +174,25 @@ function RegisterForm({ register }){
             pattern="[0-9]{5}"
             minLength={5}
             maxLength={5}
-            className="mb-2 rounded-lg px-2 py-1"
+            className="mb-2 rounded-lg px-2 py-1 font-fuschia"
             />
-          <label className="mb-1">Friend Radius</label>
+          <label className="mb-1 font-purple font-bold">Friend Radius</label>
           <input name="radius"
             value={formData.radius}
             onChange={handleChange}
             pattern="[0-9]"
             type="text"
-            className="mb-3 rounded-lg px-2 py-1"
+            className="mb-3 rounded-lg px-2 py-1 font-fuschia"
             />
-          {error && <p className="mb-3 text-red-400 font-bold text-center">{error}</p>}
+          {error && <p className="mb-3 text-red-500 font-bold text-center">{error}</p>}
           <div className="flex justify-end">
-          <button className="bg-emerald-300 w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
+          <button className="background-fuschia font-white w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
           </div>
         </form>
         <div className="mt-4 flex gap-2">
         <i onClick={(e) => { e.preventDefault(); setForm("one"); setError(null); }} className="hover:cursor-pointer bi bi-circle-fill text-white text-[8px]"></i>
         <i onClick={(e) => { e.preventDefault(); setForm("two"); setError(null); }} className="hover:cursor-pointer bi bi-circle-fill text-white text-[8px]"></i>
-        <i className="bi bi-circle-fill text-emerald-300 text-[8px]"></i>
+        <i className="bi bi-circle-fill font-fuschia text-[8px]"></i>
         <i className="bi bi-circle-fill text-white text-[8px]"></i>
         </div>
       </>
@@ -200,29 +200,29 @@ function RegisterForm({ register }){
       { form === "four" &&
       <>
         <form className="mt-4 flex flex-col text-left w-full">
-          <label className="mb-1">Profile Photo</label>
+          <label className="mb-1 font-purple font-bold">Profile Photo</label>
             <input name="photo"
               onChange={handleChange}
               type="file"
-              className="mb-2 rounded-lg px-2 py-1"
+              className="mb-2 rounded-lg px-2 py-1 font-fuschia"
               />
-          <label className="mb-1">Bio</label>
+          <label className="mb-1 font-purple font-bold">Bio</label>
           <input name="bio"
               value={formData.bio}
               onChange={handleChange}
               type="text"
-              className="mb-3 rounded-lg px-2 py-1"
+              className="mb-3 rounded-lg px-2 py-1 font-fuschia"
               />
-          {error && <p className="mb-3 text-red-400 font-bold text-center">{error}</p>}
+          {error && <p className="mb-3 text-red-500 font-bold text-center">{error}</p>}
           <div className="flex justify-end">
-          <button onClick={handleSubmit} className="bg-emerald-300 w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Submit</button>
+          <button onClick={handleSubmit} className="background-fuschia font-white w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Submit</button>
           </div>
         </form>
         <div className="mt-4 flex gap-2">
         <i onClick={(e) => { e.preventDefault(); setForm("one"); setError(null); }} className="hover:cursor-pointer bi bi-circle-fill text-white text-[8px]"></i>
         <i onClick={(e) => { e.preventDefault(); setForm("two"); setError(null); }} className="hover:cursor-pointer bi bi-circle-fill text-white text-[8px]"></i>
         <i onClick={(e) => { e.preventDefault(); setForm("three"); setError(null); }} className="hover:cursor-pointer bi bi-circle-fill text-white text-[8px]"></i>
-        <i className="bi bi-circle-fill text-emerald-300 text-[8px]"></i>
+        <i className="bi bi-circle-fill font-fuschia text-[8px]"></i>
         </div>
       </>
       }
