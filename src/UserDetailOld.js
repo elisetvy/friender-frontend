@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import haversineDistance from "haversine-distance";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import haversineDistance from 'haversine-distance';
 import calculateAge from "./utils";
 
 import FrienderApi from "./api";
 
-function UserDetail({ currUser }) {
+function UserDetailOld({ currUser }) {
   const { username } = useParams();
 
   const [user, setUser] = useState(null);
@@ -47,23 +47,21 @@ function UserDetail({ currUser }) {
   }
 
   return (
-    <div className="absolute h-screen w-screen top-0 left-0 flex justify-center items-center">
-      <div className="w-1/5 h-96">
-        <div className="background-white h-full rounded-xl overflow-hidden">
-          <div className="h-3/6">
-            <img className="w-full h-full object-cover" src={user.photo} alt={user.username} />
-            <div className="h-full flex flex-col gap-2 px-2 py-2">
-            <div className="flex flex-col">
-            <div className="w-full">{user.name[0].toUpperCase() + user.name.slice(1)}, {user.age}</div>
-            <small className="font-bold text-xs">{user.distance < 1 ? "Less than 1 mile away" : user.distance === 1 ? "1 mile away" : `${user.distance.toLocaleString('en-US')} miles away`}</small>
-            </div>
-            <div className="w-full">{user.bio}</div>
-            </div>
+      <div className="flex justify-center">
+        <div className="flex w-5/6 gap-4">
+          <div className="flex flex-col gap-2 items-center w-1/2">
+            <img className="object-cover h-96" src={user.photo} alt={user.username}/>
+            <h1 className="text-3xl font-black bg-emerald-200 px-3 py-1 flex mt-2">{user.name}, {user.age}</h1>
+          </div>
+          <div className="w-1/2">
+            <h1 className="font-bold text-xl">About</h1>
+            <p className="mb-6">{user.bio}</p>
+            {user.username !== currUser.username && <Link to={`/users/${currUser.username}/messages/${user.username}`} className="bg-emerald-300 px-3 py-1 rounded-lg hover:text-black hover:scale-105">Message</Link>}
+            {user.username === currUser.username && <Link to={`/users/${currUser.username}/edit`} className="bg-emerald-300 px-3 py-1 rounded-lg hover:text-black hover:scale-105">Edit Your Profile</Link>}
           </div>
         </div>
       </div>
-    </div>
   )
 }
 
-export default UserDetail;
+export default UserDetailOld;
