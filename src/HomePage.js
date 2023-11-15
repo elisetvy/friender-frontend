@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 
+import waves from "./layered-waves-haikei.svg";
 
 function HomePage({ currUser }) {
 
   return (
-    <div className="text-center pt-10">
-      <h1 className="text-3xl font-bold">Welcome to Friender!</h1>
-      <div className="flex gap-2 justify-center mt-4">
-      <Link to="/register" className="bg-emerald-300 px-3 py-1 rounded-lg hover:text-black hover:scale-105">Register</Link>
-      <Link to="/login" className="bg-emerald-300 px-3 py-1 rounded-lg hover:text-black hover:scale-105">Login</Link>
+    <>
+      <img className="w-screen h-screen absolute top-0 left-0 object-cover" src={waves} alt="test"></img>
+      <div className="flex flex-col justify-center items-center absolute top-0 left-0 w-screen h-screen">
+        <h1 className="text-7xl font-bold tracking-widest font-white -mt-36 text-center">LOVE NOTES</h1>
+        <div className="flex gap-10 justify-center mt-6">
+        <Link to="/register" className="font-white hover:underline hover:underline-offset-2 text-lg">Register</Link>
+        <Link to="/login" className="font-white hover:underline hover:underline-offset-2 text-lg">Log In</Link>
       </div>
     </div>
-
+    </>
   )
 }
 
