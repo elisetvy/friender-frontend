@@ -126,7 +126,7 @@ function EditUserForm({ currUser, update }){
               value={formData.radius}
               onChange={handleChange}
               type="text"
-              pattern="[0-9]"
+              pattern="[0-9]{}"
               className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>

@@ -182,7 +182,7 @@ function RegisterForm({ register }){
             <input name="radius"
               value={formData.radius}
               onChange={handleChange}
-              pattern="[0-9]"
+              pattern="[0-9]{}"
               type="text"
               className="mb-3 rounded-lg px-2 py-1 font-fuschia"
               />
