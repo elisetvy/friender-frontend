@@ -39,24 +39,25 @@ function Messages({ currUser }) {
   }
 
   return (
-    <div className="flex flex-col items-center gap-2">
-      {messages.length !== 0
-      ? messages.map(message => (
-        <Link key={message.id} to={`/users/${currUser.username}/messages/${message.username}`} className="w-1/3 hover:scale-105">
-          <div className="bg-emerald-200 rounded-xl py-4 px-4 flex flex-col">
-            <div className="flex justify-between items-center">
-            <b>{message.username}</b>
-            <p className="text-xs">{daysAgo(message.timestamp) < 1 ? "Today" : daysAgo(message.timestamp) === 1 ? "1 day ago" : `${daysAgo(message.timestamp)} days ago`}</p>
+    <div className="absolute top-0 left-0 w-screen min-h-screen flex justify-center items-center">
+      <div className="w-1/3 flex flex-col items-center gap-2">
+        {messages.length !== 0
+        ? messages.map(message => (
+          <Link key={message.id} to={`/users/${currUser.username}/messages/${message.username}`} className="w-full hover:scale-105">
+            <div className="background-purple font-white rounded-xl py-4 px-4 flex flex-col">
+              <div className="flex justify-between items-center">
+              <b className="font-fuschia">{message.username}</b>
+              <p className="text-xs">{daysAgo(message.timestamp) < 1 ? "Today" : daysAgo(message.timestamp) === 1 ? "1 day ago" : `${daysAgo(message.timestamp)} days ago`}</p>
+              </div>
+              <p className="text-xs line-clamp-1">{message.body}</p>
             </div>
-            <p className="text-xs line-clamp-1">{message.body}</p>
-          </div>
-        </Link>
-      ))
-    : <p>No messages.</p>
-    }
+          </Link>
+        ))
+      : <p>No messages.</p>
+      }
+      </div>
     </div>
   )
-
 }
 
 export default Messages;
