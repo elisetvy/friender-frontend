@@ -19,6 +19,7 @@ function EditUserForm({ currUser, update }){
 
   function handleChange(evt){
     const {name, value, files} = evt.target;
+
     if (name !== "photo"){
       setFormData( f => ({...f, [name]: value}));
     } else {
@@ -126,7 +127,7 @@ function EditUserForm({ currUser, update }){
               value={formData.radius}
               onChange={handleChange}
               type="text"
-              pattern="[0-9]{}"
+              pattern="[0-9]{0,}"
               className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
               />
           </div>
