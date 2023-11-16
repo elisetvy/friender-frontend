@@ -42,7 +42,7 @@ function EditUserForm({ currUser, update }){
 
   return(
     <div className="absolute top-0 left-0 w-screen h-screen flex justify-center items-center">
-      <form onSubmit={handleSubmit} encType="multipart/form-data" className="background-white w-2/5 overflow-scroll px-4 py-4 rounded-lg">
+      <form onSubmit={handleSubmit} encType="multipart/form-data" className="background-white w-2/5 px-4 py-4 rounded-lg">
         <div className="flex gap-4">
           <div className="w-1/2 flex flex-col">
             <label className="mb-1 font-purple font-bold">Username</label>
@@ -131,7 +131,7 @@ function EditUserForm({ currUser, update }){
             onChange={handleChange}
             type="file"
             accept="image/*"
-            className="mb-2 rounded-lg px-2 py-1 font-fuschia file:hover:scale-105 file:hover:cursor-pointer file:border-none file:bg-[#E64398] file:text-[#F0EBF4] file:px-2 file:py-1 file:text-sm file:rounded-3xl file:mr-3"
+            className="mb-2 rounded-lg px-2 py-1 font-fuschia file:hover:scale-105 file:hover:cursor-pointer file:border-none file:bg-[#E64398] file:text-[#F0EBF4] file:px-2 file:py-1 file:text-sm file:rounded-lg file:mr-3"
             />
         </div>
         <div className="flex flex-col">

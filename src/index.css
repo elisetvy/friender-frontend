@@ -58,6 +58,11 @@ code {
   background-color: #B39BC8;
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #E64398 !important;
+}
+
 .HELP {
   border: 2px solid red;
 }
