@@ -109,7 +109,7 @@ function RegisterForm({ register }){
                 maxLength={100}
                 className="mb-3 rounded-lg px-2 py-1 font-fuschia"
                 />
-            {error && <p className="mb-3 bg-red-400 text-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
+            {error && <p className="mb-3 bg-red-400 font-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
             <div className="flex gap-2 justify-end">
             <Link className="font-white background-purple px-3 py-1 rounded-lg hover:scale-105 text-sm" to="/login">I already have an account</Link>
             <button className="font-white background-fuschia w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
@@ -152,7 +152,7 @@ function RegisterForm({ register }){
             type="date"
             className="mb-3 rounded-lg px-2 py-1 font-fuschia"
             />
-          {error && <p className="mb-3 bg-red-400 text-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
+          {error && <p className="mb-3 bg-red-400 font-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
           <div className="flex justify-end">
           <button className="background-fuschia font-white w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
           </div>
@@ -186,7 +186,7 @@ function RegisterForm({ register }){
               type="text"
               className="mb-3 rounded-lg px-2 py-1 font-fuschia"
               />
-            {error && <p className="mb-3 bg-red-400 text-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
+            {error && <p className="mb-3 bg-red-400 font-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
             <div className="flex justify-end">
             <button className="background-fuschia font-white w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
             </div>
@@ -216,7 +216,7 @@ function RegisterForm({ register }){
                 type="text"
                 className="mb-3 rounded-lg px-2 py-1 font-fuschia"
                 />
-            {error && <p className="mb-3 bg-red-400 text-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
+            {error && <p className="mb-3 bg-red-400 font-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
             <div className="flex justify-end">
             <button onClick={handleSubmit} className="background-fuschia font-white w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Submit</button>
             </div>

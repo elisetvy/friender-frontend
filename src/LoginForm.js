@@ -59,7 +59,7 @@ function LoginForm({ login }) {
                 className="rounded-lg px-2 py-1 font-fuschia w-full"
               />
           </div>
-          {error && <p className="mt-3 bg-red-400 text-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
+          {error && <p className="mt-3 bg-red-400 font-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
           <div className="flex justify-end gap-2 mt-3">
             <Link className="font-white background-purple px-3 py-1 rounded-lg hover:scale-105 text-sm" to="/register">I don't have an account</Link>
             <button className="background-fuschia font-white w-fit px-3 py-1 rounded-lg hover:scale-105 text-sm">Log In</button>

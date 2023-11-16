@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function EditUserForm({ currUser, update }){
 
@@ -17,6 +17,7 @@ function EditUserForm({ currUser, update }){
 
   const [formData, setFormData]= useState(initialFormData);
   const [error, setError] = useState(null);
+  const [alert, setAlert] = useState(null);
 
   function handleChange(evt){
     const {name, value, files} = evt.target;
@@ -33,7 +34,7 @@ function EditUserForm({ currUser, update }){
 
     try {
       await update(currUser.username, formData);
-      navigate(`/users/${currUser.username}`);
+      setAlert('Your changes have been saved.')
     } catch(err) {
       console.log(err)
       setError(err[0].message)
@@ -143,8 +144,10 @@ function EditUserForm({ currUser, update }){
             className="mb-3 rounded-lg px-2 py-1 font-fuschia"
             />
         </div>
-        {error && <p className="mb-3 text-red-400 font-bold">{error}</p>}
-        <div className="text-right">
+        {error && <p className="mb-3 bg-red-400 font-bold text-center font-white text-sm px-3 py-1 rounded-lg">{error}</p>}
+        {alert && <p className="mb-3 bg-emerald-400 font-bold text-center font-white text-sm px-3 py-1 rounded-lg">{alert}</p>}
+        <div className="flex justify-end gap-2">
+          <Link to={`/users/${currUser.username}`} className="font-white background-purple w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Cancel</Link>
           <button className="font-white background-fuschia w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Save</button>
         </div>
       </form>
