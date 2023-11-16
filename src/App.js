@@ -11,6 +11,7 @@ import Users from './Users';
 import UserDetail from './UserDetail';
 import LoginForm from './LoginForm';
 import EditUserForm from './EditUserForm';
+import EditPasswordForm from './EditPasswordForm';
 import Matches from './Matches';
 import MessageForm from './MessageForm';
 import Messages from './Messages';
@@ -108,6 +109,7 @@ function App() {
             currUser={currUser} logOut={logOut} />} />}
           {allUsers && currUser && <Route path="/users/:username" element={<UserDetail currUser={currUser} />} />}
           {allUsers && currUser && <Route path={`/users/${currUser.username}/edit`} element={<EditUserForm currUser={currUser} update={update} />} />}
+          {allUsers && currUser && <Route path={`/users/${currUser.username}/change-password`} element={<EditPasswordForm currUser={currUser} update={update} />} />}
           {allUsers && currUser && <Route path="/users/:username/messages" element={<Messages currUser={currUser} />} />}
           {allUsers && currUser && <Route path="/users/:username/matches" element={<Matches currUser={currUser} users={allUsers} />} />}
           {allUsers && currUser && <Route path="/users/:sender/messages/:receiver" element={<MessageForm sendMessage={sendMessage} />} />}

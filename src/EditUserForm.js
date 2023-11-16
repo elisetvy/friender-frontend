@@ -1,17 +1,16 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import FrienderApi from "./api";
 
 function EditUserForm({ currUser, update }){
-
-  const navigate = useNavigate();
-
   const initialFormData = {username: currUser.username,
                           password: "",
                           name: currUser.name,
                           email: currUser.email,
                           zip: currUser.zip,
                           radius: currUser.radius,
-                          photo: currUser.photo,
+                          // photo: currUser.photo,
                           bio: currUser.bio,
                           }
 
@@ -32,17 +31,26 @@ function EditUserForm({ currUser, update }){
   async function handleSubmit(evt){
     evt.preventDefault();
 
+    if (formData.username !== currUser.username) {
+      try {
+        await FrienderApi.getUser(formData.username);
+      } catch(err) {
+        setError(`User already exists: ${formData.username}`);
+      }
+    }
+
     try {
       await update(currUser.username, formData);
+      if (error !== null) setError(null);
       setAlert('Your changes have been saved.')
     } catch(err) {
-      console.log(err)
+      setAlert(null);
       setError(err[0].message)
     }
   }
 
   return(
-    <div className="absolute top-0 left-0 w-screen h-screen flex justify-center items-center">
+    <div className="absolute top-0 left-0 w-screen h-screen flex flex-col justify-center items-center">
       <form onSubmit={handleSubmit} encType="multipart/form-data" className="background-white w-2/5 px-4 py-4 rounded-lg">
         <div className="flex gap-4">
           <div className="w-1/2 flex flex-col">
@@ -125,7 +133,7 @@ function EditUserForm({ currUser, update }){
               />
           </div>
         </div>
-        <div className="flex flex-col">
+        {/* <div className="flex flex-col">
           <label className="mb-1 font-purple font-bold">Profile Photo</label>
           <input name="photo"
             onChange={handleChange}
@@ -133,7 +141,7 @@ function EditUserForm({ currUser, update }){
             accept="image/*"
             className="mb-2 rounded-lg px-2 py-1 font-fuschia file:hover:scale-105 file:hover:cursor-pointer file:border-none file:bg-[#E64398] file:text-[#F0EBF4] file:px-2 file:py-1 file:text-sm file:rounded-lg file:mr-3"
             />
-        </div>
+        </div> */}
         <div className="flex flex-col">
           <label className="mb-1 font-purple font-bold">Bio</label>
           <input name="bio"
@@ -150,6 +158,7 @@ function EditUserForm({ currUser, update }){
           <button className="font-white background-fuschia w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Save</button>
         </div>
       </form>
+      <Link to={`/users/${currUser.username}/change-password`} className="mt-3 text-sm font-fuschia">Click here to change your password.</Link>
     </div>
 
   )
