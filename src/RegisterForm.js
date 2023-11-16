@@ -207,7 +207,7 @@ function RegisterForm({ register }){
                 onChange={handleChange}
                 type="file"
                 accept="image/*"
-                className="mb-2 rounded-lg px-2 py-1 font-fuschia"
+                className="mb-2 rounded-lg px-2 py-1 font-fuschia file:hover:scale-105 file:hover:cursor-pointer file:border-none file:bg-[#E64398] file:text-[#F0EBF4] file:px-2 file:py-1 file:text-sm file:rounded-lg file:mr-3"
                 />
             <label className="mb-1 font-purple font-bold">Bio</label>
             <input name="bio"
