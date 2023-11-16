@@ -110,9 +110,9 @@ function App() {
           {allUsers && currUser && <Route path="/users/:username" element={<UserDetail currUser={currUser} />} />}
           {allUsers && currUser && <Route path={`/users/${currUser.username}/edit`} element={<EditUserForm currUser={currUser} update={update} />} />}
           {allUsers && currUser && <Route path={`/users/${currUser.username}/change-password`} element={<EditPasswordForm currUser={currUser} update={update} />} />}
-          {allUsers && currUser && <Route path="/users/:username/messages" element={<Messages currUser={currUser} />} />}
-          {allUsers && currUser && <Route path="/users/:username/matches" element={<Matches currUser={currUser} users={allUsers} />} />}
-          {allUsers && currUser && <Route path="/users/:sender/messages/:receiver" element={<MessageForm sendMessage={sendMessage} />} />}
+          {allUsers && currUser && <Route path={`/users/${currUser.username}/messages`} element={<Messages currUser={currUser} />} />}
+          {allUsers && currUser && <Route path={`/users/${currUser.username}/matches`} element={<Matches currUser={currUser} users={allUsers} />} />}
+          {allUsers && currUser && <Route path={`/users/${currUser.username}/messages/:receiver`} element={<MessageForm currUser={currUser} sendMessage={sendMessage} />} />}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>

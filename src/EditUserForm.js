@@ -34,8 +34,9 @@ function EditUserForm({ currUser, update }){
     if (formData.username !== currUser.username) {
       try {
         await FrienderApi.getUser(formData.username);
-      } catch(err) {
         setError(`User already exists: ${formData.username}`);
+        return;
+      } catch(err) {
       }
     }
 
@@ -52,7 +53,7 @@ function EditUserForm({ currUser, update }){
   return(
     <div className="absolute top-0 left-0 w-screen h-screen flex flex-col justify-center items-center">
       <form onSubmit={handleSubmit} encType="multipart/form-data" className="background-white w-2/5 px-4 py-4 rounded-lg">
-        <div className="flex gap-4">
+        <div className="w-full flex gap-4">
           <div className="w-1/2 flex flex-col">
             <label className="mb-1 font-purple font-bold">Username</label>
               <input name="username"
@@ -77,7 +78,7 @@ function EditUserForm({ currUser, update }){
               />
           </div>
         </div>
-        <div className="flex gap-4">
+        <div className="w-full flex gap-4">
           <div className="w-1/2 flex flex-col">
             <label className="mb-1 font-purple font-bold">Name</label>
             <input name="name"

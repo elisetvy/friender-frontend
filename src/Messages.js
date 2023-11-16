@@ -4,7 +4,6 @@ import { useParams, Link } from "react-router-dom";
 import FrienderApi from "./api";
 
 function Messages({ currUser }) {
-  const { username } = useParams();
   const [messages, setMessages] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -14,7 +13,7 @@ function Messages({ currUser }) {
       let messages;
 
       try {
-        messages = await FrienderApi.getUserMessages(username);
+        messages = await FrienderApi.getUserMessages(currUser.username);
 
         setMessages(messages);
         setIsLoading(false);

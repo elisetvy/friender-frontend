@@ -3,9 +3,9 @@ import { useParams, Link } from "react-router-dom";
 
 import MessagesContainer from "./MessagesContainer";
 
-function MessageForm({ sendMessage, getMessages }) {
-  const { sender, receiver } = useParams();
-  const [message, setMessage] = useState({ sender: sender, receiver: receiver, body: ""});
+function MessageForm({ currUser, sendMessage }) {
+  const { receiver } = useParams();
+  const [message, setMessage] = useState({ sender: currUser.username, receiver: receiver, body: ""});
 
   function handleChange(e) {
     e.preventDefault();
@@ -28,7 +28,7 @@ function MessageForm({ sendMessage, getMessages }) {
           <b>To:</b> <Link to={`/users/${receiver}`}>{receiver}</Link>
         </div>
         <div className="background-white h-72 px-3 py-3 mb-2 flex flex-col flex-col-reverse overflow-scroll">
-          <MessagesContainer sender={sender} receiver={receiver} className="" />
+          <MessagesContainer sender={currUser.username} receiver={receiver} className="" />
         </div>
         <div>
           <div className="flex items-start gap-2">

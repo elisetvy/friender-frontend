@@ -62,7 +62,7 @@ function UserDetail({ currUser }) {
           </div>
         </div>
         { user.username === currUser.username &&
-        <div className="text-sm w-fit ml-auto mr-auto mt-2 background-purple font-white px-3 py-1 rounded-lg hover:scale-105 hover:cursor-pointer">
+        <div className="text-sm w-fit ml-auto mr-auto mt-3 background-purple font-white px-3 py-1 rounded-lg hover:scale-105 hover:cursor-pointer">
         <Link className="" to={`/users/${currUser.username}/edit`}>Edit Your Profile</Link>
         </div>
         }

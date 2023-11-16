@@ -47,7 +47,7 @@ function EditPasswordForm({ currUser, update }) {
               maxLength={20}
               className="mb-2 rounded-lg px-2 py-1 font-fuschia w-full"
             />
-          <label className="mb-1 font-purple font-bold">Password</label>
+          <label className="mb-1 font-purple font-bold">New Password</label>
             <input name="newPassword"
               required
               value={formData.newPassword}
