@@ -178,7 +178,7 @@ function RegisterForm({ register }){
               maxLength={5}
               className="mb-2 rounded-lg px-2 py-1 font-fuschia"
               />
-            <label className="mb-1 font-purple font-bold">Friend Radius</label>
+            <label className="mb-1 font-purple font-bold">Match Radius</label>
             <input name="radius"
               value={formData.radius}
               onChange={handleChange}
@@ -206,6 +206,7 @@ function RegisterForm({ register }){
               <input name="photo"
                 onChange={handleChange}
                 type="file"
+                accept="image/*"
                 className="mb-2 rounded-lg px-2 py-1 font-fuschia"
                 />
             <label className="mb-1 font-purple font-bold">Bio</label>

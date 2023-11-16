@@ -11,6 +11,7 @@ function EditUserForm({ currUser, update }){
                           email: currUser.email,
                           zip: currUser.zip,
                           radius: currUser.radius,
+                          photo: currUser.photo,
                           bio: currUser.bio,
                           }
 
@@ -40,23 +41,21 @@ function EditUserForm({ currUser, update }){
   }
 
   return(
-    <div className="text-center">
-      <form onSubmit={handleSubmit} encType="multipart/form-data" className="bg-emerald-100 w-fit ml-auto mr-auto px-4 py-4 rounded-lg">
-        <div>
-          <label className="mb-1">Username</label>
-          <div>
-            <input name="username"
-              value={formData.username}
-              onChange={handleChange}
-              type="text"
-              maxLength={20}
-              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
-              />
+    <div className="absolute top-0 left-0 w-screen h-screen flex justify-center items-center">
+      <form onSubmit={handleSubmit} encType="multipart/form-data" className="background-white w-2/5 overflow-scroll px-4 py-4 rounded-lg">
+        <div className="flex gap-4">
+          <div className="w-1/2 flex flex-col">
+            <label className="mb-1 font-purple font-bold">Username</label>
+              <input name="username"
+                value={formData.username}
+                onChange={handleChange}
+                type="text"
+                maxLength={20}
+                className="mb-2 rounded-lg px-2 py-1 font-fuschia"
+                />
           </div>
-        </div>
-        <div>
-          <label className="mb-1">Password</label>
-          <div>
+          <div className="w-1/2 flex flex-col">
+            <label className="mb-1 font-purple font-bold">Password</label>
             <input name="password"
               required
               value={formData.password}
@@ -65,49 +64,45 @@ function EditUserForm({ currUser, update }){
               autoComplete="off"
               minLength={5}
               maxLength={100}
-              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
+              className="mb-2 rounded-lg px-2 py-1 font-fuschia"
               />
           </div>
         </div>
-        <div>
-          <label className="mb-1">Name</label>
-          <div>
+        <div className="flex gap-4">
+          <div className="w-1/2 flex flex-col">
+            <label className="mb-1 font-purple font-bold">Name</label>
             <input name="name"
               value={formData.name}
               onChange={handleChange}
               type="text"
               maxLength={20}
-              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
+              className="mb-2 rounded-lg px-2 py-1 font-fuschia"
               />
           </div>
-        </div>
-        <div>
-          <label className="mb-1">Email</label>
-          <div>
+          <div className="w-1/2 flex flex-col">
+            <label className="mb-1 font-purple font-bold">Email</label>
             <input name="email"
               value={formData.email}
               onChange={handleChange}
               type="email"
               maxLength={50}
-              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
+              className="mb-2 rounded-lg px-2 py-1 font-fuschia"
               />
           </div>
         </div>
-        <div>
-          <label className="mb-1">Date of Birth</label>
-          <div>
+        <div className="w-full flex gap-4">
+          <div className="w-1/3 flex flex-col">
+            <label className="mb-1 font-purple font-bold">Date of Birth</label>
             <input name="dob"
               value={currUser.dob}
               onChange={handleChange}
               type="date"
-              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
+              className="mb-2 rounded-lg px-2 py-1 font-white background-fuschia opacity-25 w-full"
               disabled
               />
           </div>
-        </div>
-        <div>
-          <label className="mb-1">ZIP Code</label>
-          <div>
+          <div className="w-1/3 flex flex-col">
+            <label className="mb-1 font-purple font-bold">ZIP Code</label>
             <input name="zip"
               required
               value={formData.zip}
@@ -116,35 +111,42 @@ function EditUserForm({ currUser, update }){
               pattern="[0-9]{5}"
               minLength={5}
               maxLength={5}
-              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
+              className="mb-2 rounded-lg px-2 py-1 font-fuschia w-full"
               />
           </div>
-        </div>
-        <div>
-          <label className="mb-1">Friend Radius</label>
-          <div>
+          <div className="w-1/3 flex flex-col">
+            <label className="mb-1 font-purple font-bold">Match Radius</label>
             <input name="radius"
               value={formData.radius}
               onChange={handleChange}
               type="text"
               pattern="[0-9]{0,}"
-              className="bg-emerald-300 mb-2 rounded-lg px-2 py-1"
+              className="mb-2 rounded-lg px-2 py-1 font-fuschia w-full"
               />
           </div>
         </div>
-        <div>
-          <label className="mb-1">Bio</label>
-          <div>
-            <input name="bio"
-              value={formData.bio}
-              onChange={handleChange}
-              type="text"
-              className="bg-emerald-300 rounded-lg px-2 py-1"
-              />
-          </div>
+        <div className="flex flex-col">
+          <label className="mb-1 font-purple font-bold">Profile Photo</label>
+          <input name="photo"
+            onChange={handleChange}
+            type="file"
+            accept="image/*"
+            className="mb-2 rounded-lg px-2 py-1 font-fuschia file:hover:scale-105 file:hover:cursor-pointer file:border-none file:bg-[#E64398] file:text-[#F0EBF4] file:px-2 file:py-1 file:text-sm file:rounded-3xl file:mr-3"
+            />
         </div>
-        {error && <p className="mt-4 text-red-400 font-bold">{error}</p>}
-        <button className="bg-emerald-300 mt-4 px-3 py-1 rounded-lg">Save</button>
+        <div className="flex flex-col">
+          <label className="mb-1 font-purple font-bold">Bio</label>
+          <input name="bio"
+            value={formData.bio}
+            onChange={handleChange}
+            type="text"
+            className="mb-3 rounded-lg px-2 py-1 font-fuschia"
+            />
+        </div>
+        {error && <p className="mb-3 text-red-400 font-bold">{error}</p>}
+        <div className="text-right">
+          <button className="font-white background-fuschia w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Save</button>
+        </div>
       </form>
     </div>
 
