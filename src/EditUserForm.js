@@ -105,7 +105,6 @@ function EditUserForm({ currUser, update }){
           <div className="w-1/3 flex flex-col">
             <label className="mb-1 font-purple font-bold">ZIP Code</label>
             <input name="zip"
-              required
               value={formData.zip}
               onChange={handleChange}
               type="text"
