@@ -31,4 +31,4 @@ A web application for meeting people in your area.
 ## Links
 
 - `Soon:` Website
-- `Soon:` Deplayed back-end
+- `Soon:` Deployed back-end
