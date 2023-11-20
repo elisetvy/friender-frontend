@@ -30,5 +30,6 @@ A web application for meeting people in your area.
 
 ## Links
 
-- `Soon:` Website
+- [Back-End GitHub repository](https://github.com/elisetvy/friender-backend)
 - `Soon:` Deployed back-end
+- `Soon:` Website
