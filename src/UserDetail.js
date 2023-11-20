@@ -5,6 +5,7 @@ import calculateAge from "./utils";
 
 import FrienderApi from "./api";
 
+/** Card rendered on user page. */
 function UserDetail({ currUser }) {
   const { username } = useParams();
 

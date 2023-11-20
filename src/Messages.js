@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import FrienderApi from "./api";
 
+/** Component displaying message threads. */
 function Messages({ currUser }) {
   const [messages, setMessages] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +26,6 @@ function Messages({ currUser }) {
   }, []);
 
   /** Calculate days between timestamp and now. */
-
   function daysAgo(timestamp) {
     const time = new Date().getTime() - new Date(timestamp).getTime();
     const days = Math.floor(time / (1000 * 3600 * 24));

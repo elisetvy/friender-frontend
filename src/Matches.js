@@ -1,5 +1,6 @@
 import User from "./User";
 
+/** Component displaying all users currUser has matched with. */
 function Matches({ currUser, users }) {
 
   return (

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+/** Form to change password. */
 function EditPasswordForm({ currUser, update }) {
 
   const initialFormData = {
@@ -12,12 +13,13 @@ function EditPasswordForm({ currUser, update }) {
   const [error, setError] = useState(null);
   const [alert, setAlert] = useState(null);
 
+  /** Update state with form data. */
   function handleChange(evt) {
     const { name, value } = evt.target;
     setFormData(f => ({ ...f, [name]: value }));
-
   }
 
+  /** Call function to update user with with form data. */
   async function handleSubmit(evt) {
     evt.preventDefault();
 

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import waves from "./layered-waves-haikei.svg";
 
+/** Home page where users can register or log in. */
 function HomePage({ currUser }) {
 
   return (

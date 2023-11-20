@@ -4,6 +4,7 @@ import calculateAge from "./utils";
 
 import FrienderApi from "./api";
 
+/** Form to register a user. */
 function RegisterForm({ register }){
 
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ function RegisterForm({ register }){
   const [error, setError] = useState(null);
   const [emails, setEmails] = useState(null);
 
+  /** Get users and user emails on mount.. */
   useEffect(function getUsersOnMount() {
     async function getUsers() {
       const users = await FrienderApi.getUsers();
@@ -33,6 +35,7 @@ function RegisterForm({ register }){
     getUsers();
   }, []);
 
+  /** Check if username is already taken. */
   async function checkOne(e) {
     e.preventDefault();
 
@@ -45,6 +48,7 @@ function RegisterForm({ register }){
     }
   }
 
+  /** Check user's age and if email is already taken. */
   async function checkTwo(e) {
     e.preventDefault();
 
@@ -58,6 +62,7 @@ function RegisterForm({ register }){
     }
   }
 
+  /** Update state with form data. */
   function handleChange(e) {
     const {name, value, files} = e.target;
 
@@ -68,6 +73,7 @@ function RegisterForm({ register }){
     }
   }
 
+  /** Call register function with form data. */
   async function handleSubmit(evt){
     evt.preventDefault();
 

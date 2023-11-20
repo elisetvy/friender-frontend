@@ -3,16 +3,19 @@ import { useParams, Link } from "react-router-dom";
 
 import MessagesContainer from "./MessagesContainer";
 
+/** Form to send a message. */
 function MessageForm({ currUser, sendMessage }) {
   const { receiver } = useParams();
   const [message, setMessage] = useState({ sender: currUser.username, receiver: receiver, body: ""});
 
+  /** Update state with form data. */
   function handleChange(e) {
     e.preventDefault();
 
     setMessage(prev => ({...prev, body: e.target.value }));
   }
 
+  /** Call sendMessage function with form data. */
   async function handleSubmit(e) {
     try {
       await sendMessage(message);

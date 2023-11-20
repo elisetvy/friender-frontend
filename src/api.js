@@ -69,7 +69,7 @@ class FrienderApi{
     return response;
   }
 
-  /** Get a users. */
+  /** Get a user. */
   static async getUser(username) {
     const response = await this.request(`users/${username}`); // array of objects
 

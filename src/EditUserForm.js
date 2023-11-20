@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import FrienderApi from "./api";
 
+/** Form to edit user info. */
 function EditUserForm({ currUser, update }){
   const initialFormData = {username: currUser.username,
                           password: "",
@@ -18,6 +19,7 @@ function EditUserForm({ currUser, update }){
   const [error, setError] = useState(null);
   const [alert, setAlert] = useState(null);
 
+  /** Update state with form data. */
   function handleChange(evt){
     const {name, value, files} = evt.target;
 
@@ -28,9 +30,11 @@ function EditUserForm({ currUser, update }){
     }
   }
 
+  /** Call update function with form data. */
   async function handleSubmit(evt){
     evt.preventDefault();
 
+    // Duplicate check
     if (formData.username !== currUser.username) {
       try {
         await FrienderApi.getUser(formData.username);

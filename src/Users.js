@@ -1,5 +1,6 @@
 import Carousel from "./Carousel";
 
+/** Renders carousel of user cards. */
 function Users({ users, currUser, logOut }) {
 
   return (

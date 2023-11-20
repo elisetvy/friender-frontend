@@ -1,3 +1,4 @@
+/** Message component rendered by MessagesContainer. */
 function Message({ message }) {
   const { sender, body, timestamp } = message;
 

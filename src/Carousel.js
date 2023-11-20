@@ -1,16 +1,19 @@
 import { useState } from "react";
 import User from "./User";
 
+/** Carousel to display user cards. */
 function Carousel({ users, currUser }) {
   const [ index, setIndex ] = useState(0);
   const currU = users[index];
 
+  /** Swipe right (like a user). */
   function swipe() {
     if (index < users.length - 1) {
       setIndex(prev => prev += 1);
     }
   }
 
+  /** Swipe left (pass on a user). */
   function unswipe() {
     if (index > 0) {
       setIndex(prev => prev - 1);

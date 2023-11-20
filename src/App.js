@@ -17,6 +17,7 @@ import MessageForm from './MessageForm';
 import Messages from './Messages';
 import FrienderApi from './api';
 
+/** App for matching with people nearby. */
 function App() {
   const [currToken, setCurrToken] = useState(localStorage.getItem("currToken") || null);
   const [currUser, setCurrUser] = useState(null);
@@ -64,33 +65,40 @@ function App() {
     [currToken]
   );
 
-  async function register(formData) {
-    const token = await FrienderApi.register(formData);
+  /** Register a user. */
+  async function register(data) {
+    const token = await FrienderApi.register(data);
     setCurrToken(token);
     localStorage.setItem("currToken", token);
+    FrienderApi.token = token;
   }
 
-  async function login(formData) {
-      const token = await FrienderApi.login(formData);
-      setCurrToken(token)
-      localStorage.setItem("currToken", token);
+  /** Log in a user. */
+  async function login(credentials) {
+    const token = await FrienderApi.login(credentials);
+    setCurrToken(token)
+    localStorage.setItem("currToken", token);
+    FrienderApi.token = token;
   }
 
-  async function update(username, formData) {
-      const user = await FrienderApi.updateUser(username, formData);
-      user.age = calculateAge(user.dob);
-      setCurrUser(user);
+  /** Update a user. */
+  async function update(username, data) {
+    const user = await FrienderApi.updateUser(username, data);
+    user.age = calculateAge(user.dob);
+    setCurrUser(user);
   }
 
-  async function logOut(){
+  /** Log out a user. */
+  async function logout(){
     localStorage.removeItem("currToken");
     setCurrToken(null);
     setCurrUser(null);
     FrienderApi.token = null;
   }
 
-  async function sendMessage(formData) {
-    await FrienderApi.sendMessage(formData);
+  /** Send a message */
+  async function sendMessage(data) {
+    await FrienderApi.sendMessage(data);
   }
 
   if (loadingUser === true) {
@@ -100,13 +108,13 @@ function App() {
   return (
     <div className="background-blue h-fit min-h-screen px-10 py-4">
       <BrowserRouter>
-      {currUser && <Nav className="" currUser={currUser} logOut={logOut}></Nav>}
+      {currUser && <Nav className="" currUser={currUser} logout={logout}></Nav>}
         <Routes>
           { !currUser ? <Route path="/" element={<HomePage />} /> : <Route path="*" element={<Navigate to="/users" />} /> }
           { !currUser && <Route path="/login" element={<LoginForm login={login} />} /> }
           { !currUser && <Route path="/register" element={<RegisterForm register={register} />} /> }
           {allUsers && currUser && <Route path="/users" element={<Users users={allUsers}
-            currUser={currUser} logOut={logOut} />} />}
+            currUser={currUser} logout={logout} />} />}
           {allUsers && currUser && <Route path="/users/:username" element={<UserDetail currUser={currUser} />} />}
           {allUsers && currUser && <Route path={`/users/${currUser.username}/edit`} element={<EditUserForm currUser={currUser} update={update} />} />}
           {allUsers && currUser && <Route path={`/users/${currUser.username}/change-password`} element={<EditPasswordForm currUser={currUser} update={update} />} />}

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import FrienderApi from "./api";
 import Message from "./Message";
 
+/** Container displaying Message components. */
 function MessagesContainer({ sender, receiver }) {
   const [messages, setMessages] = useState(null);
   const [isLoading, setIsLoading] = useState(true);

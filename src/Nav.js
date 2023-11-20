@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+/** Navigation bar. */
 function Nav({ logOut, currUser }) {
   const [showMenu, setShowMenu] = useState(false);
   const navigate = useNavigate();

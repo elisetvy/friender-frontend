@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
+/** Form to log in. */
 function LoginForm({ login }) {
 
   const navigate = useNavigate();
@@ -13,12 +14,14 @@ function LoginForm({ login }) {
   const [loginData, setLoginData] = useState(initialLoginData);
   const [error, setError] = useState(null);
 
+  /** Update state with form data. */
   function handleChange(evt) {
     const { name, value } = evt.target;
     setLoginData(f => ({ ...f, [name]: value }));
 
   }
 
+  /** Call login function with credentials. */
   async function handleSubmit(evt) {
     evt.preventDefault();
 

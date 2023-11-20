@@ -1,5 +1,4 @@
 /** Calculate age based on DOB. */
-
 function calculateAge(dob) {
   const diff_ms = Date.now() - new Date(dob).getTime();
   const age_dt = new Date(diff_ms);

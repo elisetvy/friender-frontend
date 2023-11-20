@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+/** User card. */
 function User({ user, currUser }) {
 
   return (
