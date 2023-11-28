@@ -30,7 +30,7 @@ function EditPasswordForm({ currUser, update }) {
       setAlert('Your new password has been saved.');
     } catch (err) {
       setAlert(null);
-      setError('Your password is incorrect!');
+      setError('Your old password is incorrect!');
     }
   }
 

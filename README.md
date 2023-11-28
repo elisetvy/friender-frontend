@@ -1,6 +1,6 @@
 # Friender
 
-A web application for meeting people in your area.
+A web application for connecting with people in your area.
 
 ## Features
 

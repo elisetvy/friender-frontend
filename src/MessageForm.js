@@ -26,7 +26,7 @@ function MessageForm({ currUser, sendMessage }) {
 
   return (
     <div className="absolute top-0 left-0 w-screen min-h-screen flex justify-center items-center">
-      <form onSubmit={handleSubmit} className="background-purple w-1/3 ml-auto mr-auto px-4 py-4 rounded-lg">
+      <form onSubmit={handleSubmit} className="background-purple min-w-[320px] w-1/3 ml-auto mr-auto px-4 py-4 rounded-lg">
         <div className="flex w-full gap-2 items-center mb-2 font-fuschia">
           <b>To:</b> <Link to={`/users/${receiver}`}>{receiver}</Link>
         </div>
@@ -42,6 +42,7 @@ function MessageForm({ currUser, sendMessage }) {
                 placeholder="Write something here..."
                 onChange={handleChange}
                 className="background-white w-full rounded-lg px-2 py-1 font-fuschia placeholder:text-[#B39BC8] placeholder:text-sm"
+                autoFocus
               />
             <button className="background-white px-3 py-1 rounded-lg hover:scale-105"><i className="bi bi-send font-purple"></i></button>
           </div>

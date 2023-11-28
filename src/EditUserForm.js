@@ -65,7 +65,8 @@ function EditUserForm({ currUser, update }){
                 onChange={handleChange}
                 type="text"
                 maxLength={20}
-                className="mb-2 rounded-lg px-2 py-1 font-fuschia"
+                className="mb-2 rounded-lg px-2 py-1 font-white background-fuschia opacity-25"
+                disabled
                 />
           </div>
           <div className="w-1/2 flex flex-col">
