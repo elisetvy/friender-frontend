@@ -56,9 +56,9 @@ function EditUserForm({ currUser, update }){
 
   return(
     <div className="absolute top-0 left-0 w-screen h-screen flex flex-col justify-center items-center">
-      <form onSubmit={handleSubmit} encType="multipart/form-data" className="background-white min-w-[385px] w-2/5 px-4 py-4 rounded-lg HELP">
-        <div className="w-full flex gap-4 HELP">
-          <div className="w-1/2 flex flex-col HELP">
+      <form onSubmit={handleSubmit} encType="multipart/form-data" className="background-white min-w-[385px] w-2/5 px-4 py-4 rounded-lg text-sm sm:text-md md:text-lg">
+        <div className="w-full flex gap-2 sm:gap-4">
+          <div className="w-1/2 flex flex-col">
             <label className="mb-1 font-purple font-bold">Username</label>
               <input name="username"
                 value={formData.username}
@@ -69,7 +69,7 @@ function EditUserForm({ currUser, update }){
                 disabled
                 />
           </div>
-          <div className="w-1/2 flex flex-col HELP">
+          <div className="w-1/2 flex flex-col">
             <label className="mb-1 font-purple font-bold">Password</label>
             <input name="password"
               required
@@ -83,7 +83,7 @@ function EditUserForm({ currUser, update }){
               />
           </div>
         </div>
-        <div className="w-full flex gap-4">
+        <div className="w-full flex gap-2 sm:gap-4">
           <div className="w-1/2 flex flex-col">
             <label className="mb-1 font-purple font-bold">Name</label>
             <input name="name"
@@ -105,9 +105,9 @@ function EditUserForm({ currUser, update }){
               />
           </div>
         </div>
-        <div className="w-full flex gap-4 HELP">
-          <div className="w-1/3 flex flex-col HELP">
-            <label className="mb-1 font-purple font-bold ">Date of Birth</label>
+        <div className="w-full flex gap-2 sm:gap-4">
+          <div className="w-1/3 flex flex-col justify-between">
+            <label className="mb-1 font-purple font-bold">Date of Birth</label>
             <input name="dob"
               value={currUser.dob}
               onChange={handleChange}
@@ -116,7 +116,7 @@ function EditUserForm({ currUser, update }){
               disabled
               />
           </div>
-          <div className="w-1/3 flex flex-col HELP">
+          <div className="w-1/3 flex flex-col justify-between">
             <label className="mb-1 font-purple font-bold">ZIP Code</label>
             <input name="zip"
               value={formData.zip}
@@ -128,7 +128,7 @@ function EditUserForm({ currUser, update }){
               className="mb-2 rounded-lg px-2 py-1 font-fuschia w-full"
               />
           </div>
-          <div className="w-1/3 flex flex-col HELP">
+          <div className="w-1/3 flex flex-col justify-between">
             <label className="mb-1 font-purple font-bold">Match Radius</label>
             <input name="radius"
               value={formData.radius}
@@ -154,7 +154,7 @@ function EditUserForm({ currUser, update }){
             value={formData.bio}
             onChange={handleChange}
             type="text"
-            className="mb-3 rounded-lg px-2 py-1 font-fuschia"
+            className="mb-3 rounded-lg px-2 py-1 font-fuschia w-full"
             />
         </div>
         {error && <p className="mb-3 bg-red-400 font-bold text-center font-white text-sm px-3 py-1 rounded-lg">{error}</p>}
