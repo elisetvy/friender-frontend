@@ -89,7 +89,7 @@ function RegisterForm({ register }){
     <div className="absolute top-0 left-0 w-screen h-screen">
       <Link to="/" className="absolute text-center w-screen top-10 font-white font-bold tracking-widest text-xl hover:text-[#E64398]">LOVE NOTES</Link>
       <div className="w-full h-full flex justify-center items-center">
-        <div className="background-white w-2/5 flex flex-col justify-center items-center text-center px-14 py-10 rounded-lg">
+        <div className="background-white min-w-[385px] w-2/5 flex flex-col justify-center items-center text-center px-14 py-10 rounded-lg">
           { form === "one" &&
           <>
           <p className="text-xl font-bold font-fuschia">Be the author of your own love story.</p>
@@ -117,8 +117,8 @@ function RegisterForm({ register }){
                 />
             {error && <p className="mb-3 bg-red-400 font-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
             <div className="flex gap-2 justify-end">
-            <Link className="font-white background-purple px-3 py-1 rounded-lg hover:scale-105 text-sm" to="/login">I already have an account</Link>
-            <button className="font-white background-fuschia w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
+            <Link className="font-white background-purple px-3 py-1 rounded-lg hover:scale-105 text-sm text-center" to="/login">I already have an account</Link>
+            <button className="font-white background-fuschia w-fit px-3 py-1 text-xsxs rounded-lg hover:scale-105 text-center">Continue <i className="bi bi-arrow-right"></i></button>
             </div>
           </form>
           <div className="mt-4 flex gap-2">

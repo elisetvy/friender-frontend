@@ -108,7 +108,7 @@ function App() {
   return (
     <div className="background-blue h-fit min-h-screen px-10 py-4">
       <BrowserRouter>
-      {currUser && <Nav className="" currUser={currUser} logout={logout}></Nav>}
+      {currUser && <Nav className="" currUser={currUser} logOut={logout}></Nav>}
         <Routes>
           { !currUser ? <Route path="/" element={<HomePage />} /> : <Route path="*" element={<Navigate to="/users" />} /> }
           { !currUser && <Route path="/login" element={<LoginForm login={login} />} /> }
