@@ -106,7 +106,7 @@ function App() {
   }
 
   return (
-    <div className="background-blue h-fit min-h-screen px-10 py-4">
+    <div className="background-blue h-fit min-h-screen">
       <BrowserRouter>
       {currUser && <Nav className="" currUser={currUser} logOut={logout}></Nav>}
         <Routes>

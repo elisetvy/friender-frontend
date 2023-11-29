@@ -4,9 +4,9 @@ import User from "./User";
 function Matches({ currUser, users }) {
 
   return (
-    <div className="flex flex-wrap justify-center gap-4 text-center">
+    <div className="HELP w-screen flex flex-wrap justify-center gap-4 text-center pb-4">
       {users.map(user => (
-        <User key={user.username} user={user} currUser={currUser} className="" />
+          <User key={user.username} user={user} currUser={currUser} />
       ))}
     </div>
   )

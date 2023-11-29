@@ -21,12 +21,12 @@ function Carousel({ users, currUser }) {
   }
 
   return (
-    <div className="absolute h-screen w-screen top-0 left-0 flex justify-center items-center">
+    <div className="w-screen flex justify-center">
       <div className="relative w-full h-96 flex flex-col items-center gap-4">
           <User className="" user={currU} currUser={currUser} users={users} />
           <div className="absolute bottom-3 flex gap-4">
-            <button className={`${index === 0 ? "invisible" : "visible"} h-fit hover:scale-105`} onClick={unswipe}><i className="bi bi-x-circle-fill text-4xl text-emerald-300"></i></button>
-            <button className={`${index === users.length - 1 ? "invisible" : "visible"} h-fit hover:scale-105`} onClick={swipe}><i className="bi-heart-fill text-4xl text-red-300"></i></button>
+            <button className="h-fit hover:scale-105" onClick={unswipe}><i className="bi bi-x-circle-fill text-4xl text-emerald-300"></i></button>
+            <button className="h-fit hover:scale-105" onClick={swipe}><i className="bi-heart-fill text-4xl text-red-300"></i></button>
           </div>
       </div>
     </div>

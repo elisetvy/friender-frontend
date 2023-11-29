@@ -48,8 +48,8 @@ function UserDetail({ currUser }) {
   }
 
   return (
-    <div className="absolute h-screen w-screen top-0 left-0 flex justify-center items-center">
-      <div className="h-96">
+    <div className="w-screen flex justify-center">
+      <div className="min-w-[250px] w-1/5 h-96">
         <div className="background-white h-full rounded-xl overflow-hidden">
           <div className="h-3/6">
             <img className="w-full h-full object-cover" src={user.photo} alt={user.username} />

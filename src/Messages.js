@@ -38,8 +38,8 @@ function Messages({ currUser }) {
   }
 
   return (
-    <div className="absolute top-0 left-0 w-screen min-h-screen flex justify-center items-center">
-      <div className="w-1/3 flex flex-col items-center gap-2">
+    <div className="w-screen flex justify-center">
+      <div className="min-w-[385px] w-1/3 flex flex-col items-center gap-2">
         {messages.length !== 0
         ? messages.map(message => (
           <Link key={message.id} to={`/users/${currUser.username}/messages/${message.username}`} className="w-full hover:scale-105">
@@ -52,7 +52,7 @@ function Messages({ currUser }) {
             </div>
           </Link>
         ))
-      : <p>No messages.</p>
+        : <p>No messages.</p>
       }
       </div>
     </div>
