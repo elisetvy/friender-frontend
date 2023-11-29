@@ -47,7 +47,7 @@ function Messages({ currUser }) {
             <div className="background-white border-1 border-[#E64398] font-fuschia rounded-lg py-4 px-4 flex flex-col">
               <div className="flex justify-between items-center">
               <b className="font-blue">{message.username}</b>
-              <p className="text-xs">{daysAgo(message.timestamp) < 1 ? "Today" : daysAgo(message.timestamp) === 1 ? "1 day ago" : `${daysAgo(message.timestamp)} days ago`}</p>
+              <p className="text-xs italic">{daysAgo(message.timestamp) < 1 ? "Today" : daysAgo(message.timestamp) === 1 ? "1 day ago" : `${daysAgo(message.timestamp)} days ago`}</p>
               </div>
               <p className="text-xs line-clamp-1">{message.body}</p>
             </div>

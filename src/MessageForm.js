@@ -57,7 +57,7 @@ function MessageForm({ currUser, sendMessage }) {
             <p>{receiverUser.username}</p>
           </div>
         </Link>
-        <div className="background-white h-72 mb-2 flex flex-col flex-col-reverse overflow-scroll">
+        <div className="background-white h-72 mb-2 flex flex-col flex-col-reverse overflow-auto">
           <MessagesContainer currUser={currUser} sender={currUser.username} receiver={receiver} className="" />
         </div>
         <div>

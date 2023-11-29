@@ -50,27 +50,29 @@ function UserDetail({ currUser }) {
 
   return (
     <div className="w-screen flex justify-center">
-      <div className="min-w-[250px] w-1/5 h-96">
-        <div className="background-white h-full rounded-xl overflow-hidden">
-          <div className="h-3/6">
-            <img className="w-full h-full object-cover" src={user.photo} alt={user.username} />
-            <div className="h-full flex flex-col gap-2 px-2 py-2">
-            <div className="flex flex-col h-fit">
-            <div className="w-full">{user.name[0].toUpperCase() + user.name.slice(1)}, {user.age}</div>
-            { user.username !== currUser.username && <small className="font-bold">{user.distance < 1 ? "Less than 1 mile away" : user.distance === 1 ? "1 mile away" : `${user.distance.toLocaleString('en-US')} miles away`}</small> }
-            </div>
-            <div className="w-full overflow-scroll">{user.bio}</div>
+      <div className="min-w-[250px] w-1/5 font-fuschia">
+          <div className="flex flex-col justify-between gap-2 border-1 border-[#E64398] background-white h-96 rounded-lg overflow-hidden px-2 py-2">
+            <img className="rounded-lg h-3/6 object-cover" src={user.photo} alt={user.username} />
+
+            <div className="flex flex-col gap-2 h-3/6">
+              <div className="flex flex-col h-fit">
+                <div className="w-full">{user.name[0].toUpperCase() + user.name.slice(1)}, {user.age}</div>
+                { user.username !== currUser.username && <small className="font-bold">{user.distance < 1 ? "Less than 1 mile away" : user.distance === 1 ? "1 mile away" : `${user.distance.toLocaleString('en-US')} miles away`}</small> }
+              </div>
+              <div className="w-full h-fit overflow-auto">{user.bio}</div>
             </div>
           </div>
-        </div>
-        { user.username === currUser.username &&
-        <div className="text-sm w-fit ml-auto mr-auto mt-3 background-purple font-white px-3 py-1 rounded-lg hover:scale-105 hover:cursor-pointer">
-        <Link className="" to={`/users/${currUser.username}/edit`}>Edit Your Profile</Link>
-        </div>
-        }
-        <div className="full flex justify-center">
-          <button onClick={() => navigate(-1)} className="mt-3 hover:scale-105"><i className="background-fuschia font-white px-1.5 py-1 rounded-full bi bi-arrow-return-left"></i></button>
-        </div>
+          { user.username === currUser.username &&
+          <div className="text-sm w-fit ml-auto mr-auto mt-3 background-purple font-white px-3 py-1 rounded-lg hover:scale-105 hover:cursor-pointer">
+          <Link className="" to={`/users/${currUser.username}/edit`}>Edit Your Profile</Link>
+          </div>
+          }
+
+
+
+          <div className="full flex justify-center">
+            <button onClick={() => navigate(-1)} className="mt-3 hover:scale-105"><i className="background-fuschia font-white px-1.5 py-1 rounded-full bi bi-arrow-return-left"></i></button>
+          </div>
       </div>
     </div>
   )

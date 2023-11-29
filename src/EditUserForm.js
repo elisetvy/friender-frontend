@@ -164,7 +164,7 @@ function EditUserForm({ currUser, update }){
           <button className="font-white background-fuschia w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Save</button>
         </div>
       </form>
-      <Link to={`/users/${currUser.username}/change-password`} className="mt-3 text-sm font-fuschia">Click here to change your password.</Link>
+      <Link to={`/users/${currUser.username}/change-password`} className="mt-3 text-sm font-fuschia hover:text-[#F0EBF4]">Click here to change your password.</Link>
     </div>
 
   )
