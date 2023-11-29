@@ -35,7 +35,7 @@ function EditPasswordForm({ currUser, update }) {
   }
 
   return (
-    <div className="absolute top-0 left-0 w-screen h-screen flex justify-center items-center">
+    <div className="w-screen flex justify-center items-center">
     <div className="background-white min-w-[385px] w-1/3 flex flex-col justify-center items-center text-center px-14 py-10 rounded-lg text-sm sm:text-md md:text-lg">
       <form onSubmit={handleSubmit} className="flex flex-col text-left w-full">
           <div className="mt-3">

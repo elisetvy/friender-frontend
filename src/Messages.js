@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import FrienderApi from "./api";
+import Loading from "./Loading";
 
 /** Component displaying message threads. */
 function Messages({ currUser }) {
@@ -34,7 +35,7 @@ function Messages({ currUser }) {
   }
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <Loading />
   }
 
   return (

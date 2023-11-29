@@ -37,7 +37,7 @@ function LoginForm({ login }) {
   return (
     <div className="absolute top-0 left-0 w-screen h-screen flex justify-center items-center">
       <Link to="/" className="absolute text-center w-screen top-10 font-white font-bold tracking-widest text-xl hover:text-[#E64398]">LOVE NOTES</Link>
-      <div className="background-white w-1/3 flex flex-col justify-center items-center text-center px-14 py-10 rounded-lg">
+      <div className="background-white min-w-[385px] w-1/3 flex flex-col justify-center items-center text-center px-14 py-10 rounded-lg">
         <form onSubmit={handleSubmit} className="flex flex-col text-left w-full">
           <p className="text-xl font-bold font-fuschia text-center">Oh hey.</p>
           <p className="text-sm font-fuschia text-center">We missed you.</p>
@@ -64,8 +64,8 @@ function LoginForm({ login }) {
           </div>
           {error && <p className="mt-3 bg-red-400 font-white font-bold text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
           <div className="flex justify-end gap-2 mt-3">
-            <Link className="font-white background-purple px-3 py-1 rounded-lg hover:scale-105 text-sm" to="/register">I don't have an account</Link>
-            <button className="background-fuschia font-white w-fit px-3 py-1 rounded-lg hover:scale-105 text-sm">Log In</button>
+            <Link className="flex justify-center items-center font-white background-purple px-3 py-1 rounded-lg hover:scale-105 text-sm" to="/register">I don't have an account</Link>
+            <button className="flex justify-center items-center background-fuschia font-white w-fit px-3 py-1 rounded-lg hover:scale-105 text-sm">Log In</button>
           </div>
         </form>
       </div>

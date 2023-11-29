@@ -25,8 +25,8 @@ function Carousel({ users, currUser }) {
       <div className="relative w-full h-96 flex flex-col items-center gap-4">
           <User className="" user={currU} currUser={currUser} users={users} />
           <div className="absolute bottom-3 flex gap-4">
-            <button className="h-fit hover:scale-105" onClick={unswipe}><i className="bi bi-x-circle-fill text-4xl text-emerald-300"></i></button>
-            <button className="h-fit hover:scale-105" onClick={swipe}><i className="bi-heart-fill text-4xl text-red-300"></i></button>
+            <button className="h-fit hover:scale-105" onClick={unswipe}><i className="bi bi-x-circle-fill text-4xl font-blue"></i></button>
+            <button className="h-fit hover:scale-105" onClick={swipe}><i className="bi-heart-fill text-4xl font-fuschia"></i></button>
           </div>
       </div>
     </div>

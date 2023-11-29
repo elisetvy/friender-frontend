@@ -4,6 +4,7 @@ import haversineDistance from "haversine-distance";
 import calculateAge from "./utils";
 
 import FrienderApi from "./api";
+import Loading from "./Loading";
 
 /** Card rendered on user page. */
 function UserDetail({ currUser }) {
@@ -44,7 +45,7 @@ function UserDetail({ currUser }) {
   }, [username]);
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <Loading />
   }
 
   return (
@@ -54,11 +55,12 @@ function UserDetail({ currUser }) {
           <div className="h-3/6">
             <img className="w-full h-full object-cover" src={user.photo} alt={user.username} />
             <div className="h-full flex flex-col gap-2 px-2 py-2">
-            <div className="flex flex-col">
+            <div className="flex flex-col h-fit">
             <div className="w-full">{user.name[0].toUpperCase() + user.name.slice(1)}, {user.age}</div>
             { user.username !== currUser.username && <small className="font-bold">{user.distance < 1 ? "Less than 1 mile away" : user.distance === 1 ? "1 mile away" : `${user.distance.toLocaleString('en-US')} miles away`}</small> }
             </div>
-            <div className="w-full overflow-scroll">{user.bio}</div>
+            <div className="w-full overflow-scroll h-2/4">{user.bio}</div>
+            <button onClick={() => navigate(-1)} className="flex justify-center items- h-1/4 hover:scale-105"><i className="background-fuschia font-white px-2 py-1 rounded-full bi bi-arrow-return-left"></i></button>
             </div>
           </div>
         </div>

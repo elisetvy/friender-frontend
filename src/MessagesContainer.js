@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import FrienderApi from "./api";
+import Loading from "./Loading";
 import Message from "./Message";
 
 /** Container displaying Message components. */
@@ -26,7 +27,7 @@ function MessagesContainer({ sender, receiver }) {
   }, []);
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <Loading />
   }
 
   return (

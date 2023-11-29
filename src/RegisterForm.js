@@ -117,8 +117,8 @@ function RegisterForm({ register }){
                 />
             {error && <p className="mb-3 bg-red-400 font-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
             <div className="flex gap-2 justify-end">
-            <Link className="font-white background-purple px-3 py-1 rounded-lg hover:scale-105 text-sm text-center" to="/login">I already have an account</Link>
-            <button className="font-white background-fuschia w-fit px-3 py-1 text-xsxs rounded-lg hover:scale-105 text-center">Continue <i className="bi bi-arrow-right"></i></button>
+            <Link className="flex justify-center items-center font-white background-purple px-3 py-1 rounded-lg hover:scale-105 text-sm text-center" to="/login">I already have an account</Link>
+            <button className="flex justify-center items-center font-white background-fuschia w-fit px-3 py-1 text-xsxs rounded-lg hover:scale-105 text-center">Continue <i className="bi bi-arrow-right"></i></button>
             </div>
           </form>
           <div className="mt-4 flex gap-2">
@@ -160,7 +160,7 @@ function RegisterForm({ register }){
             />
           {error && <p className="mb-3 bg-red-400 font-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
           <div className="flex justify-end">
-          <button className="background-fuschia font-white w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
+          <button className="flex justify-center items-center background-fuschia font-white w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
           </div>
         </form>
         <div className="mt-4 flex gap-2">
@@ -194,7 +194,7 @@ function RegisterForm({ register }){
               />
             {error && <p className="mb-3 bg-red-400 font-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
             <div className="flex justify-end">
-            <button className="background-fuschia font-white w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
+            <button className="flex justify-center items-center background-fuschia font-white w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Continue <i className="bi bi-arrow-right"></i></button>
             </div>
           </form>
           <div className="mt-4 flex gap-2">
@@ -224,7 +224,7 @@ function RegisterForm({ register }){
                 />
             {error && <p className="mb-3 bg-red-400 font-white text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
             <div className="flex justify-end">
-            <button onClick={handleSubmit} className="background-fuschia font-white w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Submit</button>
+            <button onClick={handleSubmit} className="flex justify-center items-center background-fuschia font-white w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Submit</button>
             </div>
           </form>
           <div className="mt-4 flex gap-2">

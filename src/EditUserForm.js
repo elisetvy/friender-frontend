@@ -55,7 +55,7 @@ function EditUserForm({ currUser, update }){
   }
 
   return(
-    <div className="absolute top-0 left-0 w-screen h-screen flex flex-col justify-center items-center">
+    <div className="w-screen flex flex-col justify-center items-center">
       <form onSubmit={handleSubmit} encType="multipart/form-data" className="background-white min-w-[385px] w-2/5 px-4 py-4 rounded-lg text-sm sm:text-md md:text-lg">
         <div className="w-full flex gap-2 sm:gap-4">
           <div className="w-1/2 flex flex-col">

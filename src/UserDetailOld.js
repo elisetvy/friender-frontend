@@ -4,6 +4,7 @@ import haversineDistance from 'haversine-distance';
 import calculateAge from "./utils";
 
 import FrienderApi from "./api";
+import Loading from "./Loading";
 
 function UserDetailOld({ currUser }) {
   const { username } = useParams();
@@ -43,7 +44,7 @@ function UserDetailOld({ currUser }) {
   }, [username]);
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <Loading />
   }
 
   return (

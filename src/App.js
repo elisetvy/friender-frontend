@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import haversineDistance from 'haversine-distance';
 import calculateAge from './utils';
 
+import Loading from './Loading';
 import HomePage from './HomePage';
 import Nav from './Nav';
 import RegisterForm from './RegisterForm';
@@ -102,11 +103,11 @@ function App() {
   }
 
   if (loadingUser === true) {
-    return <p>Loading...</p>
+    return <Loading />
   }
 
   return (
-    <div className="background-blue h-fit min-h-screen">
+    <div className="relative background-blue h-fit min-h-screen">
       <BrowserRouter>
       {currUser && <Nav className="" currUser={currUser} logOut={logout}></Nav>}
         <Routes>
