@@ -44,9 +44,9 @@ function Messages({ currUser }) {
         {messages.length !== 0
         ? messages.map(message => (
           <Link key={message.id} to={`/users/${currUser.username}/messages/${message.username}`} className="w-full hover:scale-105">
-            <div className="background-purple font-white rounded-xl py-4 px-4 flex flex-col">
+            <div className="background-white border-1 border-[#E64398] font-fuschia rounded-lg py-4 px-4 flex flex-col">
               <div className="flex justify-between items-center">
-              <b className="font-fuschia">{message.username}</b>
+              <b className="font-blue">{message.username}</b>
               <p className="text-xs">{daysAgo(message.timestamp) < 1 ? "Today" : daysAgo(message.timestamp) === 1 ? "1 day ago" : `${daysAgo(message.timestamp)} days ago`}</p>
               </div>
               <p className="text-xs line-clamp-1">{message.body}</p>

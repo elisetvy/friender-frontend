@@ -5,7 +5,7 @@ import Loading from "./Loading";
 import Message from "./Message";
 
 /** Container displaying Message components. */
-function MessagesContainer({ sender, receiver }) {
+function MessagesContainer({ sender, receiver, currUser }) {
   const [messages, setMessages] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -34,7 +34,7 @@ function MessagesContainer({ sender, receiver }) {
     <div className="flex flex-col gap-2">
       { messages.length === 0
           ? <p className="text-center">No messages!</p>
-          : messages.map(message => <Message key={message.id} message={message} />)
+          : messages.map(message => <Message currUser={currUser} key={message.id} message={message} />)
         }
     </div>
   )

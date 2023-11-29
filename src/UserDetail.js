@@ -59,8 +59,7 @@ function UserDetail({ currUser }) {
             <div className="w-full">{user.name[0].toUpperCase() + user.name.slice(1)}, {user.age}</div>
             { user.username !== currUser.username && <small className="font-bold">{user.distance < 1 ? "Less than 1 mile away" : user.distance === 1 ? "1 mile away" : `${user.distance.toLocaleString('en-US')} miles away`}</small> }
             </div>
-            <div className="w-full overflow-scroll h-2/4">{user.bio}</div>
-            <button onClick={() => navigate(-1)} className="flex justify-center items- h-1/4 hover:scale-105"><i className="background-fuschia font-white px-2 py-1 rounded-full bi bi-arrow-return-left"></i></button>
+            <div className="w-full overflow-scroll">{user.bio}</div>
             </div>
           </div>
         </div>
@@ -69,6 +68,9 @@ function UserDetail({ currUser }) {
         <Link className="" to={`/users/${currUser.username}/edit`}>Edit Your Profile</Link>
         </div>
         }
+        <div className="full flex justify-center">
+          <button onClick={() => navigate(-1)} className="mt-3 hover:scale-105"><i className="background-fuschia font-white px-1.5 py-1 rounded-full bi bi-arrow-return-left"></i></button>
+        </div>
       </div>
     </div>
   )
