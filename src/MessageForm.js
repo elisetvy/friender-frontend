@@ -26,7 +26,7 @@ function MessageForm({ currUser, sendMessage }) {
 
   return (
     <div className="absolute top-0 left-0 w-screen min-h-screen flex justify-center items-center">
-      <form onSubmit={handleSubmit} className="background-purple min-w-[320px] w-1/3 ml-auto mr-auto px-4 py-4 rounded-lg">
+      <form onSubmit={handleSubmit} className="background-purple min-w-[385px] w-1/3 ml-auto mr-auto px-4 py-4 rounded-lg">
         <div className="flex w-full gap-2 items-center mb-2 font-fuschia">
           <b>To:</b> <Link to={`/users/${receiver}`}>{receiver}</Link>
         </div>
