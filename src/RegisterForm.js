@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import calculateAge from "./utils";
 
 import FrienderApi from "./api";
+import Nav from "./Nav";
 
 /** Form to register a user. */
 function RegisterForm({ register }){
@@ -86,8 +87,8 @@ function RegisterForm({ register }){
   }
 
   return(
-    <div className="absolute top-0 left-0 w-screen h-screen">
-      <Link to="/" className="absolute text-center w-screen top-10 font-white font-bold tracking-widest text-xl hover:text-[#E64398]">LOVE NOTES</Link>
+    <div className="w-screen flex flex-col justify-center items-center">
+      <Nav />
       <div className="w-full h-full flex justify-center items-center">
         <div className="background-white min-w-[385px] w-2/5 flex flex-col justify-center items-center text-center px-14 py-10 rounded-lg">
           { form === "one" &&
