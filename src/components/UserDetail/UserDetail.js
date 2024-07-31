@@ -68,7 +68,7 @@ function UserDetail({ currUser }) {
           </div>
         }
         <div className="Back">
-          <button onClick={() => navigate(-1)} className="hover:scale-105"><i className="background-fuschia font-white px-1.5 py-1 rounded-full bi bi-arrow-return-left"></i></button>
+          <button onClick={() => navigate(-1)}><i className="bi bi-arrow-return-left"></i></button>
         </div>
       </div>
     </div>

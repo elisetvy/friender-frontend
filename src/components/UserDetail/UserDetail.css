@@ -86,3 +86,11 @@ small {
   scale: 1.05;
   transition: 0.5s;
 }
+
+.Back > button > i {
+  background: var(--fuschia);
+  color: var(--white);
+  padding: 0.5rem 0.65rem;
+  border-radius: 100%;
+
+}
