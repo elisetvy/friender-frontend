@@ -1,0 +1,88 @@
+.UserDetail {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.UserDetail > div:first-child {
+  height: 32rem;
+  grid-column: 2 / span 1;
+  color: var(--fuschia);
+}
+
+@media (width <= 992px) {
+  .UserDetail {
+    padding: 2rem 14rem;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .UserDetail > div:first-child {
+    grid-column: 1 / span 3;
+  }
+}
+
+@media (width <= 786px) {
+  .UserDetail {
+    padding: 2rem 5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .UserDetail > div:first-child {
+    grid-column: 1 / span 3;
+  }
+}
+
+.UserDetail-content {
+  background: var(--white);
+  box-shadow: 0 3px 5px gray;
+  height: 100%;
+  border-radius: 0.25rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+
+img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  grid-row: 1 / span 3;
+}
+
+small {
+  font-weight: bold;
+}
+
+.UserDetail-text {
+  grid-row: 4 / span 2;
+  padding: 0 1rem 1rem;
+}
+
+.UserDetail-name {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.UserDetail-bio {
+  margin-top: 1rem;
+}
+
+.Back {
+  display: flex;
+  justify-content: center;
+}
+
+.Back button {
+  margin-top: 2rem;
+}
+
+.Back button:hover {
+  scale: 1.05;
+  transition: 0.5s;
+}
