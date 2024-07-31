@@ -10,7 +10,12 @@ form {
   padding: 2rem;
 }
 
-@media (width <= 992px) {
+.section {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (width <= 1200px) {
   .EditUserForm > div:first-child {
     grid-template-columns: repeat(12, 1fr);
   }
@@ -23,12 +28,8 @@ form {
 @media (width <= 768px) {
   .section {
     flex-direction: column;
+    gap: 0;
   }
-}
-
-.section {
-  display: flex;
-  gap: 1rem;
 }
 
 .section div {
@@ -57,7 +58,7 @@ input {
 }
 
 .ChangePassword {
-  padding: 1rem 0 2rem;
+  padding: 2rem;
   text-align: center;
 }
 
