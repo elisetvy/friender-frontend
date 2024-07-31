@@ -1,0 +1,100 @@
+.LoginForm {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.LoginForm > div {
+  grid-column: 3 / span 3;
+  display: flex;
+  justify-content: center;
+}
+
+@media (width <= 768px) {
+  .LoginForm > div {
+    grid-column: 2 / span 5;
+  }
+}
+
+.LoginForm > div > div {
+  width: 100%;
+  background: var(--white);
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--purple);
+}
+
+input {
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: var(--fuschia);
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--fuschia);
+  text-align: center;
+}
+
+.tagline-sub {
+  margin-top: 0.5rem;
+  color: var(--fuschia);
+  text-align: center;
+}
+
+.error {
+  margin-bottom: 1rem;
+  background: var(--red);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.Buttons {
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+}
+
+.GoToRegister {
+  background: var(--purple);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.GoToRegister:hover,
+.continue:hover {
+  transform: scale(1.05);
+  color: var(--white);
+}
+
+.continue {
+  background: var(--fuschia);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  text-align: center;
+}
