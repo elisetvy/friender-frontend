@@ -10,8 +10,54 @@ form {
   padding: 2rem;
 }
 
+@media (width <= 992px) {
+  .EditUserForm > div:first-child {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  form {
+    grid-column: 2 / span 10;
+  }
+}
+
+@media (width <= 768px) {
+  .section {
+    flex-direction: column;
+  }
+}
+
+.section {
+  display: flex;
+  gap: 1rem;
+}
+
+.section div {
+  width: 100%;
+}
+
+label {
+  width: inherit;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--purple);
+}
+
+input {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: var(--fuschia);
+}
+
+.disabled {
+  background: var(--fuschia);
+  color: var(--white);
+  opacity: 25%;
+}
+
 .ChangePassword {
-  margin-top: 1rem;
+  padding: 1rem 0 2rem;
   text-align: center;
 }
 
@@ -21,4 +67,52 @@ form {
 
 .ChangePassword > a:hover {
   color: var(--white);
+}
+
+.error {
+  margin-bottom: 1rem;
+  background: var(--red);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.alert {
+  margin-bottom: 1rem;
+  background: var(--green);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.Buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+}
+
+.Cancel {
+  background: var(--purple);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.Cancel:hover,
+.Save:hover {
+  color: var(--white);
+  scale: 1.05;
+  transition: 0.5s;
+}
+
+.Save {
+  background: var(--fuschia);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  text-align: center;
 }
