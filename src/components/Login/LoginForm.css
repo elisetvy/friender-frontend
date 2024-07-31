@@ -75,8 +75,9 @@
 
 .GoToRegister:hover,
 .continue:hover {
-  transform: scale(1.05);
   color: var(--white);
+  scale: 1.05;
+  transition: 0.5s;
 }
 
 .continue {

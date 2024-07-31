@@ -86,6 +86,13 @@ input {
   text-align: center;
 }
 
+.GoToLogin:hover,
+.continue:hover {
+  color: var(--white);
+  scale: 1.05;
+  transition: 0.5s;
+}
+
 .pagination {
   margin-top: 1rem;
   display: flex;
