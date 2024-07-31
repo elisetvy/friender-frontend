@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-import Nav from "../../Nav";
 import "./RegisterForm.css";
 import calculateAge from "../../utils";
 import FrienderApi from "../../api";
@@ -90,7 +89,6 @@ function RegisterForm({ register }) {
 
   return (
     <div className="RegisterForm">
-      {/* <Nav /> */}
       <div>
         <div>
           {form === "one" &&
@@ -117,16 +115,16 @@ function RegisterForm({ register }) {
                   maxLength={100}
                 />
                 {error && <p className="error">{error}</p>}
-                <div className="flex gap-2 justify-end">
+                <div className="Buttons">
                   <Link className="GoToLogin" to="/login">I already have an account</Link>
                   <button className="continue">Continue <i className="bi bi-arrow-right"></i></button>
                 </div>
               </form>
-              <div className="mt-4 flex gap-2">
-                <i className="bi bi-circle-fill font-fuschia text-[8px]"></i>
-                <i className="bi bi-circle-fill text-white text-[8px]"></i>
-                <i className="bi bi-circle-fill text-white text-[8px]"></i>
-                <i className="bi bi-circle-fill text-white text-[8px]"></i>
+              <div className="pagination">
+                <i className="bi bi-circle-fill active"></i>
+                <i className="bi bi-circle-fill"></i>
+                <i className="bi bi-circle-fill"></i>
+                <i className="bi bi-circle-fill"></i>
               </div>
             </>
           }
@@ -157,15 +155,15 @@ function RegisterForm({ register }) {
                   type="date"
                 />
                 {error && <p className="error">{error}</p>}
-                <div className="flex justify-end">
+                <div className="Buttons">
                   <button className="continue">Continue <i className="bi bi-arrow-right"></i></button>
                 </div>
               </form>
-              <div className="mt-4 flex gap-2">
-                <i onClick={(e) => { e.preventDefault(); setForm("one"); setError(null); }} className="hover:cursor-pointer bi bi-circle-fill text-white text-[8px]"></i>
-                <i className="bi bi-circle-fill font-fuschia text-[8px]"></i>
-                <i className="bi bi-circle-fill text-white text-[8px]"></i>
-                <i className="bi bi-circle-fill text-white text-[8px]"></i>
+              <div className="pagination">
+                <i className="bi bi-circle-fill" onClick={(e) => { e.preventDefault(); setForm("one"); setError(null); }}></i>
+                <i className="bi bi-circle-fill active"></i>
+                <i className="bi bi-circle-fill"></i>
+                <i className="bi bi-circle-fill"></i>
               </div>
             </>
           }
@@ -185,19 +183,19 @@ function RegisterForm({ register }) {
                 <input name="radius"
                   value={formData.radius}
                   onChange={handleChange}
-                  pattern="[0-9]{0,}"
+                  pattern="[0-9]{0,}" // input can be empty
                   type="text"
                 />
                 {error && <p className="error">{error}</p>}
-                <div className="flex justify-end">
+                <div className="Buttons">
                   <button className="continue">Continue <i className="bi bi-arrow-right"></i></button>
                 </div>
               </form>
-              <div className="mt-4 flex gap-2">
-                <i onClick={(e) => { e.preventDefault(); setForm("one"); setError(null); }} className="hover:cursor-pointer bi bi-circle-fill text-white text-[8px]"></i>
-                <i onClick={(e) => { e.preventDefault(); setForm("two"); setError(null); }} className="hover:cursor-pointer bi bi-circle-fill text-white text-[8px]"></i>
-                <i className="bi bi-circle-fill font-fuschia text-[8px]"></i>
-                <i className="bi bi-circle-fill text-white text-[8px]"></i>
+              <div className="pagination">
+                <i className="bi bi-circle-fill" onClick={(e) => { e.preventDefault(); setForm("one"); setError(null); }}></i>
+                <i className="bi bi-circle-fill" onClick={(e) => { e.preventDefault(); setForm("two"); setError(null); }}></i>
+                <i className="bi bi-circle-fill active"></i>
+                <i className="bi bi-circle-fill"></i>
               </div>
             </>
           }
@@ -217,15 +215,15 @@ function RegisterForm({ register }) {
                   type="text"
                 />
                 {error && <p className="error">{error}</p>}
-                <div className="flex justify-end">
+                <div className="Buttons">
                   <button onClick={handleSubmit} className="continue">Submit</button>
                 </div>
               </form>
-              <div className="mt-4 flex gap-2">
-                <i onClick={(e) => { e.preventDefault(); setForm("one"); setError(null); }} className="hover:cursor-pointer bi bi-circle-fill text-white text-[8px]"></i>
-                <i onClick={(e) => { e.preventDefault(); setForm("two"); setError(null); }} className="hover:cursor-pointer bi bi-circle-fill text-white text-[8px]"></i>
-                <i onClick={(e) => { e.preventDefault(); setForm("three"); setError(null); }} className="hover:cursor-pointer bi bi-circle-fill text-white text-[8px]"></i>
-                <i className="bi bi-circle-fill font-fuschia text-[8px]"></i>
+              <div className="pagination">
+                <i className="bi bi-circle-fill" onClick={(e) => { e.preventDefault(); setForm("one"); setError(null); }}></i>
+                <i className="bi bi-circle-fill" onClick={(e) => { e.preventDefault(); setForm("two"); setError(null); }}></i>
+                <i className="bi bi-circle-fill" onClick={(e) => { e.preventDefault(); setForm("three"); setError(null); }}></i>
+                <i className="bi bi-circle-fill active"></i>
               </div>
             </>
           }

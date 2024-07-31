@@ -1,5 +1,4 @@
 .RegisterForm {
-  border: 1px solid black;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
@@ -70,6 +69,12 @@ input {
   text-align: center;
 }
 
+.Buttons {
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+}
+
 .GoToLogin {
   background: var(--purple);
   padding: 0.5rem 1rem;
@@ -78,7 +83,8 @@ input {
   text-align: center;
 }
 
-.GoToLogin:hover, .continue:hover {
+.GoToLogin:hover,
+.continue:hover {
   transform: scale(1.05);
   color: var(--white);
 }
@@ -89,4 +95,24 @@ input {
   border-radius: 0.5rem;
   color: var(--white);
   text-align: center;
+}
+
+.pagination {
+  margin-top: 2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pagination > .active {
+  font-size: 8px;
+  color: var(--fuschia);
+}
+
+.pagination i {
+  font-size: 8px;
+  color: white;
+}
+
+.pagination i:hover {
+  cursor: pointer;
 }
