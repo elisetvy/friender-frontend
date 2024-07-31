@@ -94,7 +94,7 @@ function RegisterForm({ register }) {
           {form === "one" &&
             <>
               <p className="tagline">Be the author of your own love story.</p>
-              <p className="instructions">Choose a username and password to begin.</p>
+              <p className="tagline-sub">Choose a username and password to begin.</p>
               <form onSubmit={checkOne}>
                 <label>Username</label>
                 <input name="username"
