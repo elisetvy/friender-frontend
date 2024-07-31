@@ -1,7 +1,7 @@
 .RegisterForm {
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(7, 1fr);
   align-items: center;
 }
 
@@ -80,20 +80,6 @@ input {
 
 .GoToLogin {
   background: var(--purple);
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  color: var(--white);
-  text-align: center;
-}
-
-.GoToLogin:hover,
-.continue:hover {
-  transform: scale(1.05);
-  color: var(--white);
-}
-
-.continue {
-  background: var(--fuschia);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   color: var(--white);
