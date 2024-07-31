@@ -41,8 +41,8 @@
   text-align: center;
 }
 
-form {
-  margin-top: 2rem;
+.RegisterForm > div > div > form {
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -87,7 +87,7 @@ input {
 }
 
 .pagination {
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
   gap: 0.5rem;
 }
