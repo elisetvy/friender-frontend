@@ -1,0 +1,56 @@
+.Nav {
+  background: var(--white);
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.Nav-left {
+  padding: 0.5rem;
+  display: flex;
+  gap: 6rem;
+  color: var(--fuschia);
+}
+
+.Nav-right {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: end;
+  gap: 6rem;
+  color: var(--fuschia);
+  text-align: right;
+}
+
+.Nav-left > a:hover,
+.Nav-right > a:hover,
+.Nav-right i:hover {
+  color: var(--blue);
+  cursor: pointer;
+}
+
+@media (width <= 768px) {
+  .Nav {
+    padding: 1rem 1rem;
+  }
+
+  .Nav-left,
+  .Nav-right {
+    gap: 2rem;
+  }
+}
+
+.Brand {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  color: var(--fuschia);
+  text-align: center;
+}
+
+.Brand:hover {
+  color: var(--blue);
+}
