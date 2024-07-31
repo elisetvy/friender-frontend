@@ -7,10 +7,10 @@ import calculateAge from './utils';
 import Loading from './Loading';
 import HomePage from './HomePage';
 import Nav from './Nav';
-import RegisterForm from './RegisterForm';
+import RegisterForm from './components/Register/RegisterForm';
 import Users from './Users';
 import UserDetail from './UserDetail';
-import LoginForm from './LoginForm';
+import LoginForm from './components/Login/LoginForm';
 import EditUserForm from './EditUserForm';
 import EditPasswordForm from './EditPasswordForm';
 import Matches from './Matches';
@@ -41,16 +41,16 @@ function App() {
           const currUserCoords = {
             latitude: user.latlng.split(',')[0],
             longitude: user.latlng.split(',')[1]
-          }
+          };
           const userCoords = {
             latitude: u.latlng.split(',')[0],
             longitude: u.latlng.split(',')[1]
-          }
+          };
 
           const distance = Math.floor(haversineDistance(currUserCoords, userCoords) * 0.00062137); // convert meters to miles
           u.distance = distance;
           u.age = calculateAge(u.dob);
-          return distance <= user.radius
+          return distance <= user.radius;
         });
 
         setAllUsers(users);
@@ -77,7 +77,7 @@ function App() {
   /** Log in a user. */
   async function login(credentials) {
     const token = await FrienderApi.login(credentials);
-    setCurrToken(token)
+    setCurrToken(token);
     localStorage.setItem("currToken", token);
     FrienderApi.token = token;
   }
@@ -90,7 +90,7 @@ function App() {
   }
 
   /** Log out a user. */
-  async function logout(){
+  async function logout() {
     localStorage.removeItem("currToken");
     setCurrToken(null);
     setCurrUser(null);
@@ -103,17 +103,17 @@ function App() {
   }
 
   if (loadingUser === true) {
-    return <Loading />
+    return <Loading />;
   }
 
   return (
     <div className="relative background-blue h-fit min-h-screen">
       <BrowserRouter>
-      {currUser && <Nav className="" currUser={currUser} logOut={logout}></Nav>}
+        {currUser && <Nav className="" currUser={currUser} logOut={logout}></Nav>}
         <Routes>
-          { !currUser ? <Route path="/" element={<HomePage />} /> : <Route path="*" element={<Navigate to="/users" />} /> }
-          { !currUser && <Route path="/login" element={<LoginForm login={login} />} /> }
-          { !currUser && <Route path="/register" element={<RegisterForm register={register} />} /> }
+          {!currUser ? <Route path="/" element={<HomePage />} /> : <Route path="*" element={<Navigate to="/users" />} />}
+          {!currUser && <Route path="/login" element={<LoginForm login={login} />} />}
+          {!currUser && <Route path="/register" element={<RegisterForm register={register} />} />}
           {allUsers && currUser && <Route path="/users" element={<Users users={allUsers}
             currUser={currUser} logout={logout} />} />}
           {allUsers && currUser && <Route path="/users/:username" element={<UserDetail currUser={currUser} />} />}
