@@ -97,7 +97,7 @@ function RegisterForm({ register }) {
             <>
               <p className="tagline">Be the author of your own love story.</p>
               <p className="instructions">Choose a username and password to begin.</p>
-              <form onSubmit={checkOne} className="mt-4 flex flex-col text-left w-full">
+              <form onSubmit={checkOne}>
                 <label>Username</label>
                 <input name="username"
                   required
@@ -132,7 +132,7 @@ function RegisterForm({ register }) {
           }
           {form === "two" &&
             <>
-              <form onSubmit={checkTwo} className="mt-4 flex flex-col text-left w-full">
+              <form onSubmit={checkTwo}>
                 <label>Name</label>
                 <input name="name"
                   required
@@ -171,7 +171,7 @@ function RegisterForm({ register }) {
           }
           {form === "three" &&
             <>
-              <form onSubmit={(e) => { e.preventDefault(); setForm("four"); }} className="mt-4 flex flex-col text-left w-full">
+              <form onSubmit={(e) => { e.preventDefault(); setForm("four"); }}>
                 <label>ZIP Code</label>
                 <input name="zip"
                   required
@@ -203,7 +203,7 @@ function RegisterForm({ register }) {
           }
           {form === "four" &&
             <>
-              <form className="mt-4 flex flex-col text-left w-full">
+              <form>
                 <label>Profile Photo</label>
                 <input name="photo"
                   onChange={handleChange}

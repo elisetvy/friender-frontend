@@ -1,16 +1,23 @@
 .RegisterForm {
   border: 1px solid black;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .RegisterForm > div {
-  grid-column: 2 / span 3;
+  grid-column: 3 / span 3;
   display: flex;
   justify-content: center;
 }
 
+@media (width <= 768px) {
+  .RegisterForm > div {
+    grid-column: 2 / span 5;
+  }
+}
+
 .RegisterForm > div > div {
+  width: 100%;
   background: var(--white);
   padding: 2rem 3rem;
   border-radius: 1rem;
@@ -24,11 +31,21 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--fuschia);
+  text-align: center;
 }
 
 .instructions {
   margin-top: 0.5rem;
   color: var(--fuschia);
+  text-align: center;
+}
+
+form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
 }
 
 label {
