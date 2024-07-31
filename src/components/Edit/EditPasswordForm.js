@@ -37,41 +37,35 @@ function EditPasswordForm({ currUser, update }) {
   }
 
   return (
-    <div className="w-screen flex justify-center items-center">
-    <div className="background-white min-w-[385px] w-1/3 flex flex-col justify-center items-center text-center px-14 py-10 rounded-lg text-sm sm:text-md md:text-lg">
-      <form onSubmit={handleSubmit} className="flex flex-col text-left w-full">
-          <div className="mt-3">
-          <label className="mb-1 font-purple font-bold">Old Password</label>
-            <input name="password"
-              required
-              value={formData.password}
-              onChange={handleChange}
-              type="password"
-              minLength={5}
-              maxLength={20}
-              className="mb-2 rounded-lg px-2 py-1 font-fuschia w-full"
-            />
-          <label className="mb-1 font-purple font-bold">New Password</label>
-            <input name="newPassword"
-              required
-              value={formData.newPassword}
-              onChange={handleChange}
-              type="password"
-              minLength={5}
-              maxLength={20}
-              className="rounded-lg px-2 py-1 font-fuschia w-full"
-            />
-        </div>
-        {error && <p className="mt-3 bg-red-400 font-white font-bold text-center text-sm px-3 py-1 rounded-lg">{error}</p>}
-        {alert && <p className="mt-3 bg-emerald-400 text-center font-white font-bold text-sm px-3 py-1 rounded-lg">{alert}</p>}
-        <div className="flex justify-end gap-2 mt-3">
-          <Link to={`/users/${currUser.username}`} className="font-white background-purple w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Cancel</Link>
-          <button className="font-white background-fuschia w-fit px-3 py-1 text-sm rounded-lg hover:scale-105">Save</button>
+    <div className="EditPassword">
+      <form onSubmit={handleSubmit}>
+        <label>Old Password</label>
+        <input name="password"
+          required
+          value={formData.password}
+          onChange={handleChange}
+          type="password"
+          minLength={5}
+          maxLength={20}
+        />
+        <label>New Password</label>
+        <input name="newPassword"
+          required
+          value={formData.newPassword}
+          onChange={handleChange}
+          type="password"
+          minLength={5}
+          maxLength={20}
+        />
+        {error && <p className="error">{error}</p>}
+        {alert && <p className="alert">{alert}</p>}
+        <div className="Buttons">
+          <Link className="Cancel" to={`/users/${currUser.username}`}>Cancel</Link>
+          <button className="Save">Save</button>
         </div>
       </form>
     </div>
-  </div>
-);
+  );
 }
 
 export default EditPasswordForm;
