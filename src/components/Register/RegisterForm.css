@@ -1,0 +1,75 @@
+.RegisterForm {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.RegisterForm > div {
+  grid-column: 2 / span 3;
+  display: flex;
+  justify-content: center;
+}
+
+.RegisterForm > div > div {
+  background: var(--white);
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--fuschia);
+}
+
+.instructions {
+  margin-top: 0.5rem;
+  color: var(--fuschia);
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--purple);
+}
+
+input {
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: var(--fuschia);
+}
+
+.error {
+  margin-bottom: 1rem;
+  background: var(--red);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.GoToLogin {
+  background: var(--purple);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.GoToLogin:hover, .continue:hover {
+  transform: scale(1.05);
+  color: var(--white);
+}
+
+.continue {
+  background: var(--fuschia);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: var(--white);
+  text-align: center;
+}
