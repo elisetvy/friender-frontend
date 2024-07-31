@@ -1,0 +1,24 @@
+.EditUserForm > div:first-child {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+form {
+  grid-column: 3 / span 3;
+  background: var(--white);
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+
+.ChangePassword {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.ChangePassword > a {
+  color: var(--fuschia);
+}
+
+.ChangePassword > a:hover {
+  color: var(--white);
+}
