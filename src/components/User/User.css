@@ -2,6 +2,11 @@
   height: 24rem;
 }
 
+.User:hover {
+transform: scale(1.005);
+transition: 0.5s;
+}
+
 .User > div {
   background: var(--white);
   box-shadow: 0 3px 5px gray;  height: 100%;
