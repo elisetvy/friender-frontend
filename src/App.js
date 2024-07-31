@@ -6,7 +6,7 @@ import calculateAge from './utils';
 
 import Loading from './Loading';
 import HomePage from './HomePage';
-import Nav from './Nav';
+import Nav from './components/Nav/Nav';
 import RegisterForm from './components/Register/RegisterForm';
 import Users from './Users';
 import UserDetail from './UserDetail';
