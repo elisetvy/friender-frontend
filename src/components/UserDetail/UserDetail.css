@@ -47,7 +47,6 @@
   overflow: hidden;
 }
 
-
 img {
   position: relative;
   width: 100%;
@@ -92,5 +91,19 @@ small {
   color: var(--white);
   padding: 0.5rem 0.65rem;
   border-radius: 100%;
+}
 
+.Edit-button {
+  background: var(--purple);
+  padding: 0.5rem 1rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  color: var(--white);
+}
+
+.Edit-button:hover {
+  cursor: pointer;
+  background: transparent;
+  color: var(--white);
+  transition: 0.5s;
 }
