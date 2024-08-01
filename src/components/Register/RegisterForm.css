@@ -97,7 +97,7 @@ input {
 }
 
 .pagination {
-  margin-top: 1rem;
+  margin-top: 2rem;
   display: flex;
   gap: 0.5rem;
 }
