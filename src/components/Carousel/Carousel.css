@@ -33,12 +33,10 @@
 }
 
 .x {
-  font-size: 3rem;
   color: var(--white);
 }
 
 .yes {
-  font-size: 3rem;
   color: var(--fuschia);
 }
 
@@ -46,4 +44,8 @@
 .yes:hover {
   scale: 1.05;
   transition: 0.5s;
+}
+
+.x > i, .yes > i {
+  font-size: 3rem;
 }
