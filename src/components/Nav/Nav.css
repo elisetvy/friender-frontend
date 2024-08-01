@@ -7,6 +7,10 @@
   align-items: center;
 }
 
+i {
+  font-size: 24px;
+}
+
 .Nav-left {
   padding: 0.5rem;
   display: flex;
@@ -26,6 +30,8 @@
 .Nav-left > a:hover,
 .Nav-right > a:hover,
 .Nav-right i:hover {
+  scale: 1.05;
+  transition: 0.5s;
   color: var(--blue);
   cursor: pointer;
 }
@@ -52,5 +58,6 @@
 }
 
 .Brand:hover {
+  transition: 0.5s;
   color: var(--blue);
 }
