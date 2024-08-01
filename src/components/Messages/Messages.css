@@ -1,0 +1,39 @@
+.Messages {
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.Messages-thread {
+  grid-column: 3 / span 2;
+}
+
+.Messages-thread-link > div {
+  padding: 1.5rem 2rem;
+  background: var(--white);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--fuschia);
+}
+
+.Messages-thread-link > div > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--blue);
+}
+
+.Messages-thread-time {
+  font-style: italic;
+  font-size: 0.75rem;
+}
+
+.Messages-thread-link > div > p {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
