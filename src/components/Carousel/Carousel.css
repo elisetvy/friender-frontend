@@ -13,7 +13,20 @@
   grid-column: 2 / span 1;
 }
 
-.Buttons {
+@media (width <= 992px) {
+  .Carousel > div:first-child > a {
+    padding: 0 5rem;
+    grid-column: 1 / span 3;
+  }
+}
+
+@media (width <= 768px) {
+  .Carousel > div:first-child > a {
+    padding: 0 1rem;
+  }
+}
+
+.Carousel-buttons {
   display: flex;
   justify-content: center;
   gap: 2rem;

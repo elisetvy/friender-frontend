@@ -28,7 +28,7 @@ function Carousel({ users, currUser }) {
       <div>
         <User user={currU} currUser={currUser} users={users} />
       </div>
-      <div className="Buttons">
+      <div className="Carousel-buttons">
         <button className="x" onClick={unswipe}><i className="bi bi-x-circle-fill"></i></button>
         <button className="yes" onClick={swipe}><i className="bi-heart-fill"></i></button>
       </div>
