@@ -35,8 +35,8 @@
   text-align: center;
 }
 
-.instructions {
-  margin-top: 0.5rem;
+.tagline-sub {
+  margin: 0.5rem 0 2rem;
   color: var(--fuschia);
   text-align: center;
 }
