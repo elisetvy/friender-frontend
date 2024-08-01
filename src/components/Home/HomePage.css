@@ -51,4 +51,5 @@ h1 {
 .HomePage-content > div > a:hover {
   font-size: 1.25rem;
   color: var(--fuschia);
+  transition: 0.5s;
 }
