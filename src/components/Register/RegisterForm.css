@@ -82,6 +82,9 @@ input {
   background: var(--purple);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--white);
   text-align: center;
 }
