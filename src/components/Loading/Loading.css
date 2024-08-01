@@ -1,23 +1,24 @@
 @keyframes grow {
   50% {
-    transform: scale(2)
-    }
+    transform: scale(2);
+  }
   100% {
-    transform: scale(1)
+    transform: scale(1);
   }
 }
 
-.loading {
+.Loading {
   height: 100vh;
   width: 100vw;
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(5px);
-  position: fixed;
-  top: 0;
+  color: var(--fuschia);
 }
 
-.loading i {
+.Loading i {
   animation: grow 3s infinite linear;
 }
