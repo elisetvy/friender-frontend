@@ -1,6 +1,6 @@
 const BASE_API_URL = "http://localhost:3001";
 
-class FrienderApi{
+class API {
   static token = null;
 
   /** Formats requests. */
@@ -29,11 +29,11 @@ class FrienderApi{
   }
 
   /** Register a new user. */
-  static async register(formData){
+  static async register(formData) {
     const formSubmission = new FormData();
 
-    for (let key in formData){
-      if (key !== "photo"){
+    for (let key in formData) {
+      if (key !== "photo") {
         formSubmission.append(key, formData[key]);
       } else {
         formSubmission.append("file", formData[key]);
@@ -56,8 +56,8 @@ class FrienderApi{
     return data.token;
   }
 
-  static async login(formData){
-    const response = await this.request('auth/login', formData, "POST" );
+  static async login(formData) {
+    const response = await this.request('auth/login', formData, "POST");
 
     return response.token;
   }
@@ -105,4 +105,4 @@ class FrienderApi{
   }
 }
 
-export default FrienderApi;
+export default API;
