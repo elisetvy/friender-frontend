@@ -62,13 +62,13 @@ function UserDetail({ currUser }) {
             <div className="UserDetail-bio">{user.bio}</div>
           </div>
         </div>
-        {user.username === currUser.username &&
+        {/* {user.username === currUser.username &&
           <Link to={`/users/${currUser.username}/edit`}><div className="Edit-button">Edit Your Profile</div></Link>
-        }
+        } */}
+      </div>
         <div className="Back">
           <button onClick={() => navigate(-1)}><i className="bi bi-arrow-return-left"></i></button>
         </div>
-      </div>
     </div>
   );
 }

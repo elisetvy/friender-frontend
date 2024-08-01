@@ -73,12 +73,13 @@ small {
 }
 
 .Back {
+  grid-column: 2 / span 1;
   display: flex;
   justify-content: center;
 }
 
 .Back button {
-  padding: 2rem;
+  padding: 0 2rem;
 }
 
 .Back button:hover {
