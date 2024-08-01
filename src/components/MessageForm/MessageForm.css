@@ -5,6 +5,7 @@
 }
 
 .MessageForm > form {
+  padding: 2rem;
   height: 32rem;
   grid-column: 2 / span 1;
   background: var(--white);
