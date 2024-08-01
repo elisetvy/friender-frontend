@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
 import haversineDistance from 'haversine-distance';
 import calculateAge from './utils';
+import "./App.css";
 
 import Loading from './components/Loading/Loading';
 import HomePage from './components/Home/HomePage';
@@ -107,9 +108,9 @@ function App() {
   }
 
   return (
-    <div className="relative background-blue h-fit min-h-screen">
+    <div className="App">
       <BrowserRouter>
-        {currUser && <Nav className="" currUser={currUser} logOut={logout}></Nav>}
+        {currUser && <Nav currUser={currUser} logOut={logout}></Nav>}
         <Routes>
           {!currUser ? <Route path="/" element={<HomePage />} /> : <Route path="*" element={<Navigate to="/users" />} />}
           {!currUser && <Route path="/login" element={<LoginForm login={login} />} />}
