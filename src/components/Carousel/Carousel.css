@@ -1,0 +1,36 @@
+.Carousel > div:first-child {
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.Carousel > div:first-child > a {
+  height: 32rem;
+  grid-column: 2 / span 1;
+}
+
+.Buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.x {
+  font-size: 3rem;
+  color: var(--white);
+}
+
+.yes {
+  font-size: 3rem;
+  color: var(--fuschia);
+}
+
+.x:hover,
+.yes:hover {
+  scale: 1.05;
+  transition: 0.5s;
+}
