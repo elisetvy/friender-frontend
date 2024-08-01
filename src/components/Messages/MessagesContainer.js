@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import "./MessagesContainer.css";
-import FrienderApi from "../../api";
+import API from "../../api";
 import Loading from "../Loading/Loading";
 import Message from "../Message/Message";
 
@@ -16,7 +16,7 @@ function MessagesContainer({ sender, receiver, currUser }) {
       let messages;
 
       try {
-        messages = await FrienderApi.getMessages(sender, receiver);
+        messages = await API.getMessages(sender, receiver);
 
         setMessages(messages);
         setIsLoading(false);

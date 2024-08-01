@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "./Messages.css";
-import FrienderApi from "../../api";
+import API from "../../api";
 import Loading from "../Loading/Loading";
 
 /** Component displaying message threads. */
@@ -16,7 +16,7 @@ function Messages({ currUser }) {
       let messages;
 
       try {
-        messages = await FrienderApi.getUserMessages(currUser.username);
+        messages = await API.getUserMessages(currUser.username);
 
         setMessages(messages);
         setIsLoading(false);

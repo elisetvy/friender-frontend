@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 import "./RegisterForm.css";
 import calculateAge from "../../utils";
-import FrienderApi from "../../api";
+import API from "../../api";
 
 /** Form to register a user. */
 function RegisterForm({ register }) {
@@ -30,7 +30,7 @@ function RegisterForm({ register }) {
   /** Get users and user emails on mount.. */
   useEffect(function getUsersOnMount() {
     async function getUsers() {
-      const users = await FrienderApi.getUsers();
+      const users = await API.getUsers();
       const emails = users.map(user => user.email);
       setEmails(emails);
     }
@@ -42,7 +42,7 @@ function RegisterForm({ register }) {
     e.preventDefault();
 
     try {
-      await FrienderApi.getUser(formData.username);
+      await API.getUser(formData.username);
       setError(`User already exists: ${formData.username}`);
     } catch (err) {
       setError(null);

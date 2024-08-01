@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./EditUserForm.css";
-import FrienderApi from "../../api";
+import API from "../../api";
 
 /** Form to edit user info. */
 function EditUserForm({ currUser, update }) {
@@ -39,7 +39,7 @@ function EditUserForm({ currUser, update }) {
     // Duplicate check
     if (formData.username !== currUser.username) {
       try {
-        await FrienderApi.getUser(formData.username);
+        await API.getUser(formData.username);
         setError(`User already exists: ${formData.username}`);
         return;
       } catch (err) {

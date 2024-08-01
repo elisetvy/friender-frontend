@@ -4,7 +4,7 @@ import haversineDistance from "haversine-distance";
 import calculateAge from "../../utils";
 
 import "./UserDetail.css";
-import FrienderApi from "../../api";
+import API from "../../api";
 import Loading from "../Loading/Loading";
 
 /** Card rendered on user page. */
@@ -22,7 +22,7 @@ function UserDetail({ currUser }) {
       let u;
 
       try {
-        u = await FrienderApi.getUser(username);
+        u = await API.getUser(username);
 
         const currUserCoords = {
           latitude: currUser.latlng.split(',')[0],

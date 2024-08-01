@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import "./MessageForm.css";
-import FrienderApi from "../../api";
+import API from "../../api";
 import Loading from "../Loading/Loading";
 import MessagesContainer from "../Messages/MessagesContainer";
 
@@ -18,7 +18,7 @@ function MessageForm({ currUser, sendMessage }) {
       let u;
 
       try {
-        u = await FrienderApi.getUser(receiver);
+        u = await API.getUser(receiver);
 
         setReceiverUser(u);
         setLoading(false);

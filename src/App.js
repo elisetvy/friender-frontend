@@ -15,7 +15,7 @@ import EditPasswordForm from './components/Edit/EditPasswordForm';
 import Matches from './components/Matches/Matches';
 import MessageForm from './components/MessageForm/MessageForm';
 import Messages from './components/Messages/Messages';
-import FrienderApi from './api';
+import API from './api';
 import Carousel from './components/Carousel/Carousel';
 
 /** App for matching with people nearby. */
@@ -29,13 +29,13 @@ function App() {
   useEffect(
     function getAllUsers() {
       async function getUsers() {
-        FrienderApi.token = currToken;
+        API.token = currToken;
         const { username } = jwtDecode(currToken);
-        const user = await FrienderApi.getUser(username);
+        const user = await API.getUser(username);
         user.age = calculateAge(user.dob);
         setCurrUser(user);
 
-        let users = await FrienderApi.getUsers();
+        let users = await API.getUsers();
         users = users.filter(u => u.username !== username);
         users = users.filter(u => {
           const currUserCoords = {
@@ -68,23 +68,23 @@ function App() {
 
   /** Register a user. */
   async function register(data) {
-    const token = await FrienderApi.register(data);
+    const token = await API.register(data);
     setCurrToken(token);
     localStorage.setItem("currToken", token);
-    FrienderApi.token = token;
+    API.token = token;
   }
 
   /** Log in a user. */
   async function login(credentials) {
-    const token = await FrienderApi.login(credentials);
+    const token = await API.login(credentials);
     setCurrToken(token);
     localStorage.setItem("currToken", token);
-    FrienderApi.token = token;
+    API.token = token;
   }
 
   /** Update a user. */
   async function update(username, data) {
-    const user = await FrienderApi.updateUser(username, data);
+    const user = await API.updateUser(username, data);
     user.age = calculateAge(user.dob);
     setCurrUser(user);
   }
@@ -94,12 +94,12 @@ function App() {
     localStorage.removeItem("currToken");
     setCurrToken(null);
     setCurrUser(null);
-    FrienderApi.token = null;
+    API.token = null;
   }
 
   /** Send a message */
   async function sendMessage(data) {
-    await FrienderApi.sendMessage(data);
+    await API.sendMessage(data);
   }
 
   if (loadingUser === true) {
