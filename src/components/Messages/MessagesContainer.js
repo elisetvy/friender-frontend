@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+import "./MessagesContainer.css";
 import FrienderApi from "../../api";
 import Loading from "../../Loading";
 import Message from "../../Message";
@@ -31,7 +32,7 @@ function MessagesContainer({ sender, receiver, currUser }) {
   }
 
   return (
-    <div className="Messages">
+    <div className="MessagesContainer">
       {messages.length === 0
         ? <p>No messages!</p>
         : messages.map(message => <Message currUser={currUser} key={message.id} message={message} />)
