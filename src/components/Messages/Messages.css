@@ -23,6 +23,11 @@
   color: var(--fuschia);
 }
 
+.Messages-thread-link > div:hover {
+  scale: 1.05;
+  transition: 0.5s;
+}
+
 .Messages-thread-link > div > div {
   display: flex;
   justify-content: space-between;
