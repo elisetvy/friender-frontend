@@ -8,6 +8,12 @@
   grid-column: 3 / span 2;
 }
 
+@media (width <= 992px) {
+  .Messages-thread {
+    grid-column: 1 / span 6;
+  }
+}
+
 .Messages-thread-link > div {
   padding: 1.5rem 2rem;
   background: var(--white);
