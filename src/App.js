@@ -4,19 +4,19 @@ import { jwtDecode } from "jwt-decode";
 import haversineDistance from 'haversine-distance';
 import calculateAge from './utils';
 
-import Loading from './Loading';
-import HomePage from './HomePage';
+import Loading from './components/Loading/Loading';
+import HomePage from './components/Home/HomePage';
 import Nav from './components/Nav/Nav';
 import RegisterForm from './components/Register/RegisterForm';
-import Users from './Users';
-import UserDetail from './UserDetail';
+import UserDetail from './components/UserDetail/UserDetail';
 import LoginForm from './components/Login/LoginForm';
-import EditUserForm from './EditUserForm';
-import EditPasswordForm from './EditPasswordForm';
-import Matches from './Matches';
-import MessageForm from './MessageForm';
-import Messages from './Messages';
+import EditUserForm from './components/Edit/EditUserForm';
+import EditPasswordForm from './components/Edit/EditPasswordForm';
+import Matches from './components/Matches/Matches';
+import MessageForm from './components/MessageForm/MessageForm';
+import Messages from './components/Messages/Messages';
 import FrienderApi from './api';
+import Carousel from './components/Carousel/Carousel';
 
 /** App for matching with people nearby. */
 function App() {
@@ -114,7 +114,7 @@ function App() {
           {!currUser ? <Route path="/" element={<HomePage />} /> : <Route path="*" element={<Navigate to="/users" />} />}
           {!currUser && <Route path="/login" element={<LoginForm login={login} />} />}
           {!currUser && <Route path="/register" element={<RegisterForm register={register} />} />}
-          {allUsers && currUser && <Route path="/users" element={<Users users={allUsers}
+          {allUsers && currUser && <Route path="/users" element={<Carousel users={allUsers}
             currUser={currUser} logout={logout} />} />}
           {allUsers && currUser && <Route path="/users/:username" element={<UserDetail currUser={currUser} />} />}
           {allUsers && currUser && <Route path={`/users/${currUser.username}/edit`} element={<EditUserForm currUser={currUser} update={update} />} />}

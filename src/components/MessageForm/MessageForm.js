@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 
 import "./MessageForm.css";
 import FrienderApi from "../../api";
-import Loading from "../../Loading";
+import Loading from "../Loading/Loading";
 import MessagesContainer from "../Messages/MessagesContainer";
 
 /** Form to send a message. */
@@ -59,12 +59,12 @@ function MessageForm({ currUser, sendMessage }) {
           </div>
         </Link>
         <div className="MessageForm-messages">
-          <MessagesContainer currUser={currUser} sender={currUser.username} receiver={receiver}/>
+          <MessagesContainer currUser={currUser} sender={currUser.username} receiver={receiver} />
         </div>
         <div>
           <div className="MessageForm-currUser">
             <Link to={`/users/${currUser.username}`}>
-                <img src={currUser.photo} alt={currUser.username}/>
+              <img src={currUser.photo} alt={currUser.username} />
             </Link>
             <input name="receiver"
               required

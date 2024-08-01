@@ -5,7 +5,7 @@ import calculateAge from "../../utils";
 
 import "./UserDetail.css";
 import FrienderApi from "../../api";
-import Loading from "../../Loading";
+import Loading from "../Loading/Loading";
 
 /** Card rendered on user page. */
 function UserDetail({ currUser }) {

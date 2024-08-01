@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./Messages.css";
 import FrienderApi from "../../api";
-import Loading from "../../Loading";
+import Loading from "../Loading/Loading";
 
 /** Component displaying message threads. */
 function Messages({ currUser }) {

@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 
 import "./MessagesContainer.css";
 import FrienderApi from "../../api";
-import Loading from "../../Loading";
-import Message from "../../Message";
+import Loading from "../Loading/Loading";
+import Message from "../Message/Message";
 
 /** Container displaying Message components. */
 function MessagesContainer({ sender, receiver, currUser }) {
