@@ -39,7 +39,7 @@ function LoginForm({ login }) {
 
   return (
     <div>
-      <Nav className="Nav" />
+      <Nav className="Login-Nav" />
       <div className="LoginForm">
         <div>
           <div>

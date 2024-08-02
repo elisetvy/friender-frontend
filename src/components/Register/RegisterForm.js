@@ -90,7 +90,7 @@ function RegisterForm({ register }) {
 
   return (
     <div>
-      <Nav className="Nav" />
+      <Nav className="Register-Nav" />
       <div className="RegisterForm">
         <div>
           <div>
