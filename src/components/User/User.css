@@ -3,17 +3,18 @@
 }
 
 .User:hover {
-transform: scale(1.005);
-transition: 0.5s;
+  transform: scale(1.005);
+  transition: 0.5s;
 }
 
 .User > div {
   background: var(--white);
-  box-shadow: 0 3px 5px gray;  height: 100%;
+  box-shadow: 0 3px 5px gray;
+  height: 100%;
   border-radius: 0.25rem;
   overflow: hidden;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
 }
 
 .User > div > img {
