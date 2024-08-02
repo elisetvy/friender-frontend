@@ -1,7 +1,7 @@
 .UserDetail {
   padding: 2rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   align-items: center;
   gap: 2rem;
@@ -17,7 +17,7 @@
 @media (width <= 992px) {
   .UserDetail {
     padding: 2rem 14rem;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .UserDetail > div:first-child {
@@ -28,7 +28,7 @@
 @media (width <= 786px) {
   .UserDetail {
     padding: 2rem 5rem;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .UserDetail > div:first-child {
@@ -60,8 +60,10 @@ small {
 }
 
 .UserDetail-text {
+  margin-bottom: 1rem;
   grid-row: 4 / span 2;
   padding: 0 1rem 1rem;
+  overflow: auto;
 }
 
 .UserDetail-name {
