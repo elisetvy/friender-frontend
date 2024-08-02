@@ -1,3 +1,9 @@
+.Nav {
+  position: absolute;
+  width: 100%;
+}
+
+
 .LoginForm {
   height: 100vh;
   display: grid;

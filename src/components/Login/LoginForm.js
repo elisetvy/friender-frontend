@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import "./LoginForm.css";
+import Nav from "../Nav/Nav";
 
 /** Form to log in. */
 function LoginForm({ login }) {
@@ -37,38 +38,42 @@ function LoginForm({ login }) {
   }
 
   return (
-    <div className="LoginForm">
-      <div>
+    <div>
+      <Nav className="Nav" />
+      <div className="LoginForm">
         <div>
-          <p className="tagline">Oh hey.</p>
-          <p className="tagline-sub">We missed you.</p>
-          <form onSubmit={handleSubmit}>
-            <label>Username</label>
-            <input name="username"
-              required
-              value={loginData.username}
-              onChange={handleChange}
-              type="text"
-              maxLength={20}
-            />
-            <label>Password</label>
-            <input name="password"
-              required
-              value={loginData.password}
-              onChange={handleChange}
-              type="password"
-              minLength={5}
-              maxLength={20}
-            />
-            {error && <p className="error">{error}</p>}
-            <div className="Buttons">
-              <Link className="GoToRegister" to="/register">I don't have an account</Link>
-              <button className="continue">Log In</button>
-            </div>
-          </form>
+          <div>
+            <p className="tagline">Oh hey.</p>
+            <p className="tagline-sub">We missed you.</p>
+            <form onSubmit={handleSubmit}>
+              <label>Username</label>
+              <input name="username"
+                required
+                value={loginData.username}
+                onChange={handleChange}
+                type="text"
+                maxLength={20}
+              />
+              <label>Password</label>
+              <input name="password"
+                required
+                value={loginData.password}
+                onChange={handleChange}
+                type="password"
+                minLength={5}
+                maxLength={20}
+              />
+              {error && <p className="error">{error}</p>}
+              <div className="Buttons">
+                <Link className="GoToRegister" to="/register">I don't have an account</Link>
+                <button className="continue">Log In</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
+
   );
 }
 
