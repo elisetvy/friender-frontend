@@ -156,11 +156,12 @@ function RegisterForm({ register }) {
                 />
                 {error && <p className="error">{error}</p>}
                 <div className="Buttons">
+                  <button className="GoToLogin" onClick={(e) => { e.preventDefault(); setForm("one"); }}>Back</button>
                   <button className="continue">Continue <i className="bi bi-arrow-right"></i></button>
                 </div>
               </form>
               <div className="pagination">
-                <i className="bi bi-circle-fill" onClick={(e) => { e.preventDefault(); setForm("one"); setError(null); }}></i>
+                <i className="bi bi-circle-fill"></i>
                 <i className="bi bi-circle-fill active"></i>
                 <i className="bi bi-circle-fill"></i>
                 <i className="bi bi-circle-fill"></i>
@@ -188,12 +189,13 @@ function RegisterForm({ register }) {
                 />
                 {error && <p className="error">{error}</p>}
                 <div className="Buttons">
+                <button className="GoToLogin" onClick={(e) => { e.preventDefault(); setForm("two"); }}>Back</button>
                   <button className="continue">Continue <i className="bi bi-arrow-right"></i></button>
                 </div>
               </form>
               <div className="pagination">
-                <i className="bi bi-circle-fill" onClick={(e) => { e.preventDefault(); setForm("one"); setError(null); }}></i>
-                <i className="bi bi-circle-fill" onClick={(e) => { e.preventDefault(); setForm("two"); setError(null); }}></i>
+                <i className="bi bi-circle-fill"></i>
+                <i className="bi bi-circle-fill"></i>
                 <i className="bi bi-circle-fill active"></i>
                 <i className="bi bi-circle-fill"></i>
               </div>
@@ -216,13 +218,14 @@ function RegisterForm({ register }) {
                 />
                 {error && <p className="error">{error}</p>}
                 <div className="Buttons">
+                <button className="GoToLogin" onClick={(e) => { e.preventDefault(); setForm("three"); }}>Back</button>
                   <button onClick={handleSubmit} className="continue">Submit</button>
                 </div>
               </form>
               <div className="pagination">
-                <i className="bi bi-circle-fill" onClick={(e) => { e.preventDefault(); setForm("one"); setError(null); }}></i>
-                <i className="bi bi-circle-fill" onClick={(e) => { e.preventDefault(); setForm("two"); setError(null); }}></i>
-                <i className="bi bi-circle-fill" onClick={(e) => { e.preventDefault(); setForm("three"); setError(null); }}></i>
+                <i className="bi bi-circle-fill"></i>
+                <i className="bi bi-circle-fill"></i>
+                <i className="bi bi-circle-fill"></i>
                 <i className="bi bi-circle-fill active"></i>
               </div>
             </>

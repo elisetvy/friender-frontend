@@ -111,7 +111,3 @@ input {
   font-size: 8px;
   color: white;
 }
-
-.pagination i:hover {
-  cursor: pointer;
-}
