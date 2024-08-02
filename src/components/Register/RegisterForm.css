@@ -89,6 +89,22 @@ input {
   text-align: center;
 }
 
+.continue {
+  background: var(--fuschia);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.continue > i {
+  font-size: inherit;
+}
+
 .GoToLogin:hover,
 .continue:hover {
   color: var(--white);
