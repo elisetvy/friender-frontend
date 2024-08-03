@@ -1,6 +1,6 @@
 .Nav {
   background: var(--white);
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
@@ -34,7 +34,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
   text-align: center;
 }
 
