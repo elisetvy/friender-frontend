@@ -5,6 +5,7 @@
 .HomePage > img {
   min-height: 100vh;
   max-height: 100vh;
+  min-width: 100vw;
   object-fit: cover;
 }
 
