@@ -20,5 +20,6 @@
 }
 
 .Loading i {
+  font-size: 2rem;
   animation: grow 3s infinite linear;
 }
