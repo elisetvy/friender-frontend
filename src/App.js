@@ -2,29 +2,31 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
 import haversineDistance from 'haversine-distance';
-import calculateAge from './utils';
-import "./App.css";
 
 import Loading from './components/Loading/Loading';
 import HomePage from './components/Home/HomePage';
 import Nav from './components/Nav/Nav';
 import RegisterForm from './components/Register/RegisterForm';
-import UserDetail from './components/UserDetail/UserDetail';
 import LoginForm from './components/Login/LoginForm';
+import Carousel from './components/Carousel/Carousel';
+import UserDetail from './components/UserDetail/UserDetail';
 import EditUserForm from './components/Edit/EditUserForm';
 import EditPasswordForm from './components/Edit/EditPasswordForm';
 import Matches from './components/Matches/Matches';
 import MessageForm from './components/MessageForm/MessageForm';
 import Messages from './components/Messages/Messages';
+
+import calculateAge from './utils';
 import API from './api';
-import Carousel from './components/Carousel/Carousel';
+
+import "./App.css";
 
 /** App for matching with people nearby. */
 function App() {
   const [currToken, setCurrToken] = useState(localStorage.getItem("currToken") || null);
   const [currUser, setCurrUser] = useState(null);
   const [allUsers, setAllUsers] = useState(null);
-  const [loadingUser, setLoadingUser] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   /** Update currUser when currToken changes. */
   useEffect(
@@ -36,6 +38,7 @@ function App() {
         user.age = calculateAge(user.dob);
         setCurrUser(user);
 
+        /** Filter for users that are not currUser + are within distance. */
         let users = await API.getUsers();
         users = users.filter(u => u.username !== username);
         users = users.filter(u => {
@@ -55,13 +58,13 @@ function App() {
         });
 
         setAllUsers(users);
-        setLoadingUser(false);
+        setLoading(false);
       }
 
       if (currToken) {
         getUsers();
       } else {
-        setLoadingUser(false);
+        setLoading(false);
       }
     },
     [currToken]
@@ -103,7 +106,7 @@ function App() {
     await API.sendMessage(data);
   }
 
-  if (loadingUser === true) {
+  if (loading === true) {
     return <Loading />;
   }
 
