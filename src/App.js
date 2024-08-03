@@ -4,7 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import haversineDistance from 'haversine-distance';
 
 import Loading from './components/Loading/Loading';
-import HomePage from './components/Home/HomePage';
+import Home from './components/Home/Home';
 import Nav from './components/Nav/Nav';
 import RegisterForm from './components/Register/RegisterForm';
 import LoginForm from './components/Login/LoginForm';
@@ -115,7 +115,7 @@ function App() {
       <BrowserRouter>
         {currUser && <Nav currUser={currUser} logOut={logout}></Nav>}
         <Routes>
-          {!currUser ? <Route path="/" element={<HomePage />} /> : <Route path="*" element={<Navigate to="/users" />} />}
+          {!currUser ? <Route path="/" element={<Home />} /> : <Route path="*" element={<Navigate to="/users" />} />}
           {!currUser && <Route path="/login" element={<LoginForm login={login} />} />}
           {!currUser && <Route path="/register" element={<RegisterForm register={register} />} />}
           {allUsers && currUser && <Route path="/users" element={<Carousel users={allUsers}
