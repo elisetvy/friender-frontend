@@ -154,55 +154,7 @@ code {
     monospace;
 }
 
-.font-blue {
-  color: #a1c3d1;
-}
-
-.background-blue {
-  background-color: #a1c3d1;
-}
-
-.font-white {
-  color: #f0ebf4;
-}
-
-.font-white:hover {
-  color: #f0ebf4;
-}
-
-.background-white {
-  background-color: #f0ebf4;
-}
-
-.font-pink {
-  color: #f172a1;
-}
-
-.background-pink {
-  background-color: #f172a1;
-}
-
-.font-fuschia {
-  color: #e64398;
-}
-
-.background-fuschia {
-  background-color: #e64398;
-}
-
-.font-purple {
-  color: #b39bc8;
-}
-
-.background-purple {
-  background-color: #b39bc8;
-}
-
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
   -webkit-text-fill-color: #e64398 !important;
-}
-
-.HELP {
-  border: 2px solid red;
 }
