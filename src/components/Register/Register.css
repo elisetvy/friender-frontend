@@ -1,32 +1,32 @@
 .Register-Nav {
   position: absolute;
-  width: 100%;
+  width: 100vw;
 }
 
-.RegisterForm {
+.Register {
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   align-items: center;
 }
 
-.RegisterForm > div {
+.Register-Form {
   grid-column: 3 / span 3;
   display: flex;
   justify-content: center;
 }
 
 @media (width <= 768px) {
-  .RegisterForm > div {
+  .Register-Form {
     grid-column: 2 / span 5;
   }
 }
 
-.RegisterForm > div > div {
+.Register-Form > div {
   width: 100%;
-  background: var(--white);
   padding: 2rem 3rem;
   border-radius: 1rem;
+  background: var(--white);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,54 +36,54 @@
 .tagline {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--fuschia);
   text-align: center;
+  color: var(--fuschia);
 }
 
-.tagline-sub {
+.instructions {
   margin: 0.5rem 0 2rem;
-  color: var(--fuschia);
   text-align: center;
+  color: var(--fuschia);
 }
 
-.RegisterForm > div > div > form {
-  margin-top: 0;
+.Register-Form form {
   display: flex;
   flex-direction: column;
   text-align: left;
   width: 100%;
 }
 
-label {
+.Register-Form label {
   margin-bottom: 0.5rem;
   font-weight: bold;
   color: var(--purple);
 }
 
-input {
+.Register-Form input {
   margin-bottom: 1rem;
-  border-radius: 0.5rem;
   padding: 0.5rem;
+  border-radius: 0.5rem;
   color: var(--fuschia);
 }
 
-.error {
+.Register-Form .error {
   margin-bottom: 1rem;
-  background: var(--red);
   padding: 0.5rem;
   border-radius: 0.5rem;
-  color: var(--white);
+  background: var(--red);
   text-align: center;
+  color: var(--white);
 }
 
-.Buttons {
+.Register-Form .buttons {
   margin-top: 1rem;
   display: flex;
   justify-content: end;
   gap: 0.5rem;
 }
 
-.GoToLogin {
+.goToLogin,
+.back {
   background: var(--purple);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -110,7 +110,8 @@ input {
   font-size: inherit;
 }
 
-.GoToLogin:hover,
+.goToLogin:hover,
+.back:hover,
 .continue:hover {
   color: var(--white);
   scale: 1.05;
@@ -123,12 +124,12 @@ input {
   gap: 0.5rem;
 }
 
-.pagination > .active {
-  font-size: 8px;
-  color: var(--fuschia);
-}
-
 .pagination i {
   font-size: 8px;
   color: white;
+}
+
+.pagination > .active {
+  font-size: 8px;
+  color: var(--fuschia);
 }
