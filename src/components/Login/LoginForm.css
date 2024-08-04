@@ -1,6 +1,8 @@
 .Login-Nav {
   width: 100%;
   position: absolute;
+  padding: 0.5rem 0;
+  background: var(--white);
 }
 
 .Login {

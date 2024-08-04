@@ -1,6 +1,8 @@
 .Register-Nav {
   width: 100vw;
   position: absolute;
+  padding: 0.5rem 0;
+  background: var(--white);
 }
 
 .Register {
