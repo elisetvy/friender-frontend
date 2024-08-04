@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import Nav from "../Nav/Nav";
-import "./RegisterForm.css";
+
 import calculateAge from "../../utils";
 import API from "../../api";
+
+import "./Register.css";
 
 /** Form to register a user. */
 function RegisterForm({ register }) {
@@ -23,7 +25,7 @@ function RegisterForm({ register }) {
     bio: "",
   };
 
-  const [form, setForm] = useState("one");
+  const [formPage, setFormPage] = useState("one");
   const [formData, setFormData] = useState(initialFormData);
   const [error, setError] = useState(null);
   const [emails, setEmails] = useState(null);
@@ -39,7 +41,7 @@ function RegisterForm({ register }) {
   }, []);
 
   /** Check if username is already taken. */
-  async function checkOne(e) {
+  async function checkUsername(e) {
     e.preventDefault();
 
     try {
@@ -47,12 +49,12 @@ function RegisterForm({ register }) {
       setError(`User already exists: ${formData.username}`);
     } catch (err) {
       setError(null);
-      setForm("two");
+      setFormPage("two");
     }
   }
 
   /** Check user's age and if email is already taken. */
-  async function checkTwo(e) {
+  async function checkAgeAndEmail(e) {
     e.preventDefault();
 
     if (calculateAge(formData.dob) < 18) {
@@ -61,7 +63,7 @@ function RegisterForm({ register }) {
       setError("This email address is already associated with a user!");
     } else {
       setError(null);
-      setForm("three");
+      setFormPage("three");
     }
   }
 
@@ -90,15 +92,17 @@ function RegisterForm({ register }) {
 
   return (
     <div>
-      <Nav className="Register-Nav" />
-      <div className="RegisterForm">
-        <div>
+      <div className="Register-Nav">
+        <Nav />
+      </div>
+      <div className="Register">
+        <div className="Register-Form">
           <div>
-            {form === "one" &&
+            {formPage === "one" &&
               <>
                 <p className="tagline">Be the author of your own love story.</p>
-                <p className="tagline-sub">Choose a username and password to begin.</p>
-                <form onSubmit={checkOne}>
+                <p className="instructions">Choose a username and password to begin.</p>
+                <form onSubmit={checkUsername}>
                   <label>Username</label>
                   <input name="username"
                     required
@@ -118,8 +122,8 @@ function RegisterForm({ register }) {
                     maxLength={100}
                   />
                   {error && <p className="error">{error}</p>}
-                  <div className="Buttons">
-                    <Link className="GoToLogin" to="/login">I already have an account</Link>
+                  <div className="buttons">
+                    <Link className="goToLogin" to="/login">I already have an account</Link>
                     <button className="continue">Continue <i className="bi bi-arrow-right"></i></button>
                   </div>
                 </form>
@@ -131,9 +135,9 @@ function RegisterForm({ register }) {
                 </div>
               </>
             }
-            {form === "two" &&
+            {formPage === "two" &&
               <>
-                <form onSubmit={checkTwo}>
+                <form onSubmit={checkAgeAndEmail}>
                   <label>Name</label>
                   <input name="name"
                     required
@@ -158,8 +162,8 @@ function RegisterForm({ register }) {
                     type="date"
                   />
                   {error && <p className="error">{error}</p>}
-                  <div className="Buttons">
-                    <button className="GoToLogin" onClick={(e) => { e.preventDefault(); setForm("one"); }}>Back</button>
+                  <div className="buttons">
+                    <button className="back" onClick={(e) => { e.preventDefault(); setFormPage("one"); }}>Back</button>
                     <button className="continue">Continue <i className="bi bi-arrow-right"></i></button>
                   </div>
                 </form>
@@ -171,9 +175,9 @@ function RegisterForm({ register }) {
                 </div>
               </>
             }
-            {form === "three" &&
+            {formPage === "three" &&
               <>
-                <form onSubmit={(e) => { e.preventDefault(); setForm("four"); }}>
+                <form onSubmit={(e) => { e.preventDefault(); setFormPage("four"); }}>
                   <label>ZIP Code</label>
                   <input name="zip"
                     required
@@ -191,8 +195,8 @@ function RegisterForm({ register }) {
                     type="text"
                   />
                   {error && <p className="error">{error}</p>}
-                  <div className="Buttons">
-                    <button className="GoToLogin" onClick={(e) => { e.preventDefault(); setForm("two"); }}>Back</button>
+                  <div className="buttons">
+                    <button className="back" onClick={(e) => { e.preventDefault(); setFormPage("two"); }}>Back</button>
                     <button className="continue">Continue <i className="bi bi-arrow-right"></i></button>
                   </div>
                 </form>
@@ -204,7 +208,7 @@ function RegisterForm({ register }) {
                 </div>
               </>
             }
-            {form === "four" &&
+            {formPage === "four" &&
               <>
                 <form>
                   <label>Profile Photo</label>
@@ -220,8 +224,8 @@ function RegisterForm({ register }) {
                     type="text"
                   />
                   {error && <p className="error">{error}</p>}
-                  <div className="Buttons">
-                    <button className="GoToLogin" onClick={(e) => { e.preventDefault(); setForm("three"); }}>Back</button>
+                  <div className="buttons">
+                    <button className="back" onClick={(e) => { e.preventDefault(); setFormPage("three"); }}>Back</button>
                     <button onClick={handleSubmit} className="continue">Submit</button>
                   </div>
                 </form>
