@@ -2,7 +2,7 @@ import User from "../User/User";
 
 import "./Matches.css";
 
-/** Component displaying all users currUser has matched with. */
+/** Grid of users currUser has matched with. */
 function Matches({ currUser, users }) {
 
   return (
