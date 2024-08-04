@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-import "./LoginForm.css";
 import Nav from "../Nav/Nav";
+
+import "./LoginForm.css";
 
 /** Form to log in. */
 function LoginForm({ login }) {
@@ -39,12 +40,13 @@ function LoginForm({ login }) {
 
   return (
     <div>
-      <Nav className="Login-Nav" />
-      <div className="LoginForm">
-        <div>
-          <div>
-            <p className="tagline">Oh hey.</p>
-            <p className="tagline-sub">We missed you.</p>
+      <div className="Login-Nav">
+        <Nav />
+      </div>
+      <div className="Login">
+        <div className="Login-Form">
+            <p>Oh hey.</p>
+            <p>We missed you.</p>
             <form onSubmit={handleSubmit}>
               <label>Username</label>
               <input name="username"
@@ -64,12 +66,11 @@ function LoginForm({ login }) {
                 maxLength={20}
               />
               {error && <p className="error">{error}</p>}
-              <div className="Buttons">
-                <Link className="GoToRegister" to="/register">I don't have an account</Link>
+              <div className="buttons">
+                <Link className="goToRegister" to="/register">I don't have an account</Link>
                 <button className="continue">Log In</button>
               </div>
             </form>
-          </div>
         </div>
       </div>
     </div>
