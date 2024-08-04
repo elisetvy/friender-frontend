@@ -1,51 +1,47 @@
-.Carousel > div:first-child {
-  margin: 2rem 2rem 1rem;
+.Carousel {
+  padding: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  text-align: center;
+  gap: 1rem;
 }
 
-.Carousel > div:first-child > a {
+.Carousel-card {
   height: 32rem;
   grid-column: 2 / span 1;
 }
 
 @media (width <= 992px) {
-  .Carousel > div:first-child > a {
+  .Carousel-card {
     padding: 0 5rem;
     grid-column: 1 / span 3;
   }
 }
 
 @media (width <= 768px) {
-  .Carousel > div:first-child > a {
+  .Carousel-card {
     padding: 0 1rem;
   }
 }
 
 .Carousel-buttons {
+  grid-column: 2 / span 1;
   display: flex;
   justify-content: center;
   gap: 2rem;
 }
 
-.x {
+.pass i {
+  font-size: 3rem;
   color: var(--white);
 }
 
-.yes {
+.like i {
+  font-size: 3rem;
+  font-size: 3rem;
   color: var(--fuschia);
 }
 
-.x:hover,
-.yes:hover {
+.Carousel-buttons > button:hover {
   scale: 1.05;
   transition: 0.5s;
-}
-
-.x > i, .yes > i {
-  font-size: 3rem;
 }
