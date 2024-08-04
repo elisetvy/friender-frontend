@@ -25,12 +25,12 @@ function Carousel({ users, currUser }) {
 
   return (
     <div className="Carousel">
-      <div>
+      <div className="Carousel-card">
         <User user={currU} currUser={currUser} users={users} />
       </div>
       <div className="Carousel-buttons">
-        <button className="x" onClick={unswipe}><i className="bi bi-x-circle-fill"></i></button>
-        <button className="yes" onClick={swipe}><i className="bi-heart-fill"></i></button>
+        <button className="pass" onClick={unswipe}><i className="bi bi-x-circle-fill"></i></button>
+        <button className="like" onClick={swipe}><i className="bi-heart-fill"></i></button>
       </div>
     </div>
   );
