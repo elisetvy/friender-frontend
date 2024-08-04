@@ -1,97 +1,91 @@
 .Login-Nav {
-  position: absolute;
   width: 100%;
+  position: absolute;
 }
 
-.LoginForm {
+.Login {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
 }
 
-.LoginForm > div {
-  grid-column: 3 / span 3;
-  display: flex;
-  justify-content: center;
-}
-
-@media (width <= 768px) {
-  .LoginForm > div {
-    grid-column: 2 / span 5;
-  }
-}
-
-.LoginForm > div > div {
+.Login-Form {
   width: 100%;
-  background: var(--white);
+  grid-column: 3 / span 3;
   padding: 2rem 3rem;
   border-radius: 1rem;
+  background: var(--white);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.LoginForm > div > div > form {
-  margin-top: 0;
+@media (width <= 768px) {
+  .Login-Form {
+    grid-column: 2 / span 5;
+  }
+}
+
+.Login-Form p:first-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--fuschia);
+}
+
+.Login-Form p:nth-child(2) {
+  margin: 0.5rem 0 2rem;
+  text-align: center;
+  color: var(--fuschia);
+}
+
+.Login-Form form {
+  width: 100%;
   display: flex;
   flex-direction: column;
   text-align: left;
-  width: 100%;
-}
-
-.tagline {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--fuschia);
-  text-align: center;
-}
-
-.tagline-sub {
-  margin-top: 0.5rem;
-  color: var(--fuschia);
-  text-align: center;
 }
 
 .error {
   margin-bottom: 1rem;
-  background: var(--red);
   padding: 0.5rem;
   border-radius: 0.5rem;
-  color: var(--white);
+  background: var(--red);
   text-align: center;
+  color: var(--white);
 }
 
-.Buttons {
+.buttons {
   margin-top: 1rem;
   display: flex;
   justify-content: end;
   gap: 0.5rem;
 }
 
-.GoToRegister {
+.goToRegister {
   background: var(--purple);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  color: var(--white);
   text-align: center;
-}
-
-.GoToRegister:hover,
-.continue:hover {
   color: var(--white);
-  scale: 1.05;
-  transition: 0.5s;
 }
 
 .continue {
-  background: var(--fuschia);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+  background: var(--fuschia);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--white);
   text-align: center;
+  color: var(--white);
+}
+
+.goToRegister:hover,
+.continue:hover {
+  transition: 0.5s;
+  color: var(--white);
+  scale: 1.05;
 }
