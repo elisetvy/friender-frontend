@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
 
-import "./HomePage.css";
 import waves from '../../assets/layered-waves-haikei.svg';
 
+import "./Home.css";
+
 /** Home page where users can register or log in. */
-function HomePage({ currUser }) {
+function Home({ currUser }) {
 
   return (
-    <div className="HomePage">
+    <div className="Home">
       <img src={waves} alt="waves"></img>
-      <div className="HomePage-content">
+      <div className="Home-body">
         <h1>LOVE NOTES</h1>
-        <div>
+        <div className="Home-body-links">
           <Link to="/register">Register</Link>
           <Link to="/login">Log In</Link>
         </div>
@@ -20,4 +21,4 @@ function HomePage({ currUser }) {
   );
 }
 
-export default HomePage;
+export default Home;

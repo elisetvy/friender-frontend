@@ -1,15 +1,11 @@
-.HomePage {
-  min-height: 100vh;
-}
-
-.HomePage > img {
+.Home > img {
   min-height: 100vh;
   max-height: 100vh;
   min-width: 100vw;
   object-fit: cover;
 }
 
-.HomePage-content {
+.Home-body {
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -21,7 +17,7 @@
   align-items: center;
 }
 
-h1 {
+.Home-body > h1 {
   margin-top: -6rem;
   padding: 0 2rem;
   font-size: 4rem;
@@ -32,25 +28,25 @@ h1 {
 }
 
 @media (width <= 576px) {
-  h1 {
+  .Home-body > h1 {
     margin-top: -12rem;
   }
 }
 
-.HomePage-content > div {
+.Home-body-links {
   margin-top: 1.75rem;
   display: flex;
   justify-content: center;
   gap: 6rem;
 }
 
-.HomePage-content > div > a {
+.Home-body-links > a {
   font-size: 1.25rem;
   color: var(--white);
 }
 
-.HomePage-content > div > a:hover {
+.Home-body-links > a:hover {
+  transition: 0.5s;
   font-size: 1.25rem;
   color: var(--fuschia);
-  transition: 0.5s;
 }
