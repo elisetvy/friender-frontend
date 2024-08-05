@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import "./Messages.css";
-import API from "../../api";
 import Loading from "../Loading/Loading";
+
+import API from "../../api";
+
+import "./Messages.css";
 
 /** Component displaying message threads. */
 function Messages({ currUser }) {
@@ -44,14 +46,12 @@ function Messages({ currUser }) {
       <div className="Messages-thread">
         {messages.length !== 0
           ? messages.map(message => (
-            <Link className="Messages-thread-link" key={message.id} to={`/users/${currUser.username}/messages/${message.username}`}>
-              <div>
+            <Link key={message.id} to={`/users/${currUser.username}/messages/${message.username}`}>
                 <div>
-                  <b>{message.username}</b>
-                  <p className="Messages-thread-time">{daysAgo(message.timestamp) < 1 ? "Today" : daysAgo(message.timestamp) === 1 ? "1 day ago" : `${daysAgo(message.timestamp)} days ago`}</p>
+                  <p>{message.username}</p>
+                  <p >{daysAgo(message.timestamp) < 1 ? "Today" : daysAgo(message.timestamp) === 1 ? "1 day ago" : `${daysAgo(message.timestamp)} days ago`}</p>
                 </div>
                 <p>{message.body}</p>
-              </div>
             </Link>
           ))
           : <p>No messages.</p>

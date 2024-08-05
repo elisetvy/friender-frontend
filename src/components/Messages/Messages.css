@@ -1,5 +1,5 @@
 .Messages {
-  margin: 2rem;
+  padding: 2rem;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
 }
@@ -14,37 +14,37 @@
   }
 }
 
-.Messages-thread-link > div {
+.Messages-thread > a {
   padding: 1.5rem 2rem;
-  background: var(--white);
   border-radius: 0.5rem;
+  background: var(--white);
   display: flex;
   flex-direction: column;
   color: var(--fuschia);
 }
 
-.Messages-thread-link > div:hover {
+.Messages-thread > a:hover {
   scale: 1.05;
   transition: 0.5s;
 }
 
-.Messages-thread-link > div > div {
+.Messages-thread > a > div { /* Name + message time */
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: var(--blue);
 }
 
-.Messages-thread-time {
+.Messages-thread > a > div > p:nth-child(2) { /* Message time */
   font-style: italic;
   font-size: 0.75rem;
 }
 
-.Messages-thread-link > div > p {
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
+.Messages-thread > a > p { /* Message body */
+  padding-top: 0.5rem;
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 1; /* Only show 1 line of text */
+  font-size: 0.75rem;
 }
