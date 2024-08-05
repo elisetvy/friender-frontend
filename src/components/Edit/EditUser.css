@@ -11,12 +11,14 @@
   padding: 2rem;
 }
 
-.EditUser-form > div { /* Row of labels + input */
+.EditUser-form > div {
+  /* Row of labels + input */
   display: flex;
   gap: 1rem;
 }
 
-.EditUser-form > :nth-last-child(2) { /* Bio label + input */
+.EditUser-form > :nth-last-child(2) {
+  /* Bio label + input */
   flex-direction: column;
   gap: 0;
 }
@@ -32,6 +34,10 @@
 }
 
 @media (width <= 768px) {
+  .EditUser-form {
+    grid-column: 1 / span 12;
+  }
+
   .EditUser-form > div {
     flex-direction: column;
     gap: 0;
@@ -42,7 +48,8 @@
   }
 }
 
-.EditUser-form > div > div { /* Each group of label + input */
+.EditUser-form > div > div {
+  /* Each group of label + input */
   width: 100%;
 }
 
@@ -67,7 +74,8 @@
   opacity: 25%;
 }
 
-.EditUser-form .error, .EditUser-form .alert {
+.EditUser-form .error,
+.EditUser-form .alert {
   margin-bottom: 1rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -83,7 +91,8 @@
 .EditUser-form > .buttons {
 }
 
-.cancel, .save {
+.cancel,
+.save {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   background: var(--purple);
