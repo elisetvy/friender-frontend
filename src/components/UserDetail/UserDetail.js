@@ -45,7 +45,7 @@ function UserDetail({ currUser }) {
       }
     }
     getUser();
-  }, []);
+  }, [username]);
 
   if (isLoading) {
     return <Loading />;
