@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import Loading from "../Loading/Loading";
-import MessagesContainer from "../Messages/Messages";
+import Messages from "../Messages/Messages";
 
 import API from "../../api";
 
@@ -61,7 +61,7 @@ function MessageForm({ currUser, sendMessage }) {
           </Link>
         </div>
         <div className="MessageForm-messages">
-          <MessagesContainer currUser={currUser} sender={currUser.username} receiver={receiver} />
+          <Messages currUser={currUser} sender={currUser.username} receiver={receiver} />
         </div>
         <div className="MessageForm-currUser">
           <Link to={`/users/${currUser.username}`}>
