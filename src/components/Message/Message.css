@@ -4,34 +4,23 @@
 
 .currUser {
   justify-content: end;
-  text-align: right;;
+  text-align: right;
 }
 
-.user {
+.receiver {
   justify-content: start;
-  text-align: left;;
+  text-align: left;
 }
 
-.Message-block {
-  width: 75%;
-  display: flex;
-}
-
-.Message-block > div {
-  padding: 0.5rem 0.5rem;
-  border-radius: 0.5rem;
-  display: flex;
+.currUser-color,
+.receiver-color {
+  max-width: 75%;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--fuschia);
   color: var(--white);
 }
 
-.currUser-color {
-background: var(--fuschia);
-}
-
-.user-color {
+.receiver-color {
   background: var(--blue);
-}
-
-.Message-block > div > div {
-  font-size: 0.8rem;
 }

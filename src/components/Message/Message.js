@@ -5,14 +5,12 @@ function Message({ message, currUser }) {
   const { sender, body } = message;
 
   return (
-    <div className={`Message ${sender === currUser.username ? "currUser" : "user"}`}>
-      <div className={`Message-block ${sender === currUser.username ? "currUser" : "user"}`}>
-        <div className={`${sender === currUser.username ? "currUser-color" : "user-color"}`}>
-          <div>{body}</div>
-        </div>
+    <div className={`Message ${sender === currUser.username ? "currUser" : "receiver"}`}>
+      <div className={`${sender === currUser.username ? "currUser-color" : "receiver-color"}`}>
+        <div>{body}</div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Message;
