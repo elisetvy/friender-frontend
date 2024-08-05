@@ -7,7 +7,7 @@ import Loading from './components/Loading/Loading';
 import Home from './components/Home/Home';
 import Nav from './components/Nav/Nav';
 import Register from './components/Register/Register';
-import LoginForm from './components/Login/LoginForm';
+import Login from './components/Login/Login';
 import Carousel from './components/Carousel/Carousel';
 import UserDetail from './components/UserDetail/UserDetail';
 import EditUser from './components/Edit/EditUser';
@@ -116,7 +116,7 @@ function App() {
         {currUser && <Nav currUser={currUser} logOut={logout}></Nav>}
         <Routes>
           {!currUser ? <Route path="/" element={<Home />} /> : <Route path="*" element={<Navigate to="/users" />} />}
-          {!currUser && <Route path="/login" element={<LoginForm login={login} />} />}
+          {!currUser && <Route path="/login" element={<Login login={login} />} />}
           {!currUser && <Route path="/register" element={<Register register={register} />} />}
           {allUsers && currUser && <Route path="/users" element={<Carousel users={allUsers}
             currUser={currUser} logout={logout} />} />}
