@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-import "./MessageForm.css";
-import API from "../../api";
 import Loading from "../Loading/Loading";
 import MessagesContainer from "../Messages/MessagesContainer";
+
+import API from "../../api";
+
+import "./MessageForm.css";
 
 /** Form to send a message. */
 function MessageForm({ currUser, sendMessage }) {
@@ -23,7 +25,7 @@ function MessageForm({ currUser, sendMessage }) {
         setReceiverUser(u);
         setLoading(false);
       } catch (err) {
-        console.log("Error retreiving receiver!");
+        console.log("Error retrieving receiver!");
       }
     }
     getReceiver();
@@ -52,29 +54,27 @@ function MessageForm({ currUser, sendMessage }) {
   return (
     <div className="MessageForm">
       <form onSubmit={handleSubmit}>
-        <Link to={`/users/${receiverUser.username}`}>
-          <div className="MessageForm-user">
+        <div className="MessageForm-receiver">
+          <Link to={`/users/${receiverUser.username}`}>
             <img src={receiverUser.photo} alt={receiverUser.username} />
             <p>{receiverUser.username[0].toUpperCase() + receiverUser.username.slice(1)}</p>
-          </div>
-        </Link>
+          </Link>
+        </div>
         <div className="MessageForm-messages">
           <MessagesContainer currUser={currUser} sender={currUser.username} receiver={receiver} />
         </div>
-        <div>
-          <div className="MessageForm-currUser">
-            <Link to={`/users/${currUser.username}`}>
-              <img src={currUser.photo} alt={currUser.username} />
-            </Link>
-            <input name="receiver"
-              required
-              value={message.body}
-              type="text"
-              placeholder="What's on your mind..."
-              onChange={handleChange}
-            />
-            <button><i className="bi bi-send"></i></button>
-          </div>
+        <div className="MessageForm-currUser">
+          <Link to={`/users/${currUser.username}`}>
+            <img src={currUser.photo} alt={currUser.username} />
+          </Link>
+          <input name="receiver"
+            required
+            value={message.body}
+            type="text"
+            placeholder="What's on your mind..."
+            onChange={handleChange}
+          />
+          <button><i className="bi bi-send"></i></button>
         </div>
         {/* {error && <p className="mt-4 text-red-400 font-bold">{error}</p>} */}
       </form>

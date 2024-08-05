@@ -7,9 +7,11 @@
 .MessageForm > form {
   padding: 2rem;
   height: 32rem;
-  grid-column: 2 / span 1;
-  background: var(--white);
   border-radius: 0.5rem;
+  background: var(--white);
+  grid-column: 2 / span 1;
+  display: grid;
+  gap: 2rem;
 }
 
 @media (width < 992px) {
@@ -18,55 +20,61 @@
   }
 }
 
-.MessageForm-user {
-  margin-bottom: 1rem;
+.MessageForm-receiver a {
+  width: fit-content;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   color: var(--blue);
 }
 
-.MessageForm-user > img {
+.MessageForm-receiver img {
   height: 36px;
   width: 36px;
   border-radius: 50%;
 }
 
-.MessageForm-user > img:hover {
+.MessageForm-receiver > a:hover {
   scale: 1.05;
   transition: 0.5s;
 }
 
 .MessageForm-messages {
-  margin-bottom: 1rem;
+  overflow: auto;
   display: flex;
   flex-direction: column-reverse;
-  flex-grow: 2;
-  overflow: auto;
+  padding-right: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--fuschia) var(--white);
 }
 
 .MessageForm-currUser {
-  flex-grow: 1;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
+.MessageForm-currUser > a {
+  height: 36px;
+  width: 36px;
+}
+
 .MessageForm-currUser img {
-  width: 46px;
+  object-fit: cover;
   border-radius: 50%;
 }
 
 .MessageForm-currUser img:hover {
-scale: 1.05;
-transition: 0.5s;
+  scale: 1.05;
+  transition: 0.5s;
 }
 
 .MessageForm-currUser input {
-  background: var(--white);
+  flex-grow: 2;
   margin: 0;
-  padding: 0.5rem;
+  height: 100%;
   border-radius: 0.25rem;
+  background: var(--white);
   border: 1px solid var(--fuschia);
   color: var(--fuschia);
 }
@@ -77,8 +85,8 @@ transition: 0.5s;
 
 .MessageForm-currUser button {
   height: 100%;
+  padding: 0 1rem;
   border: 1px solid var(--fuschia);
-  padding: 0.5rem 1rem;
   border-radius: 0.25rem;
 }
 
