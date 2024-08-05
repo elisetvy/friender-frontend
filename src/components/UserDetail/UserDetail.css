@@ -64,7 +64,7 @@
   padding: 1rem 0 0;
 }
 
-.back {
+/* .back {
   padding: 0 2rem;
   grid-column: 2 / span 1;
   display: flex;
@@ -82,4 +82,4 @@
   border-radius: 100%;
   background: var(--fuschia);
   color: var(--white);
-}
+} */

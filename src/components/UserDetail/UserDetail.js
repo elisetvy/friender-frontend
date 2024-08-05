@@ -67,7 +67,7 @@ function UserDetail({ currUser }) {
           <Link to={`/users/${currUser.username}/edit`}><div className="Edit-button">Edit Your Profile</div></Link>
         } */}
 
-          <button className="back" onClick={() => navigate(-1)}><i className="bi bi-arrow-return-left"></i></button>
+          {/* <button className="back" onClick={() => navigate(-1)}><i className="bi bi-arrow-return-left"></i></button> */}
     </div>
   );
 }
