@@ -10,7 +10,7 @@ import Register from './components/Register/Register';
 import LoginForm from './components/Login/LoginForm';
 import Carousel from './components/Carousel/Carousel';
 import UserDetail from './components/UserDetail/UserDetail';
-import EditUserForm from './components/Edit/EditUserForm';
+import EditUser from './components/Edit/EditUser';
 import EditPasswordForm from './components/Edit/EditPasswordForm';
 import Matches from './components/Matches/Matches';
 import MessageForm from './components/MessageForm/MessageForm';
@@ -121,7 +121,7 @@ function App() {
           {allUsers && currUser && <Route path="/users" element={<Carousel users={allUsers}
             currUser={currUser} logout={logout} />} />}
           {allUsers && currUser && <Route path="/users/:username" element={<UserDetail currUser={currUser} />} />}
-          {allUsers && currUser && <Route path={`/users/${currUser.username}/edit`} element={<EditUserForm currUser={currUser} update={update} />} />}
+          {allUsers && currUser && <Route path={`/users/${currUser.username}/edit`} element={<EditUser currUser={currUser} update={update} />} />}
           {allUsers && currUser && <Route path={`/users/${currUser.username}/change-password`} element={<EditPasswordForm currUser={currUser} update={update} />} />}
           {allUsers && currUser && <Route path={`/users/${currUser.username}/messages`} element={<Messages currUser={currUser} />} />}
           {allUsers && currUser && <Route path={`/users/${currUser.username}/matches`} element={<Matches currUser={currUser} users={allUsers} />} />}
