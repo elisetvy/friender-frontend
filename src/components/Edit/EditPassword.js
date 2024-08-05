@@ -38,7 +38,7 @@ function EditPassword({ currUser, update }) {
 
   return (
     <div className="EditPassword">
-      <form onSubmit={handleSubmit}>
+      <form className="EditPassword-form" onSubmit={handleSubmit}>
         <label>Old Password</label>
         <input name="password"
           required
@@ -59,9 +59,9 @@ function EditPassword({ currUser, update }) {
         />
         {error && <p className="error">{error}</p>}
         {alert && <p className="alert">{alert}</p>}
-        <div className="Buttons">
-          <Link className="Cancel" to={`/users/${currUser.username}`}>Cancel</Link>
-          <button className="Save">Save</button>
+        <div className="buttons">
+          <Link className="cancel" to={`/users/${currUser.username}`}>Cancel</Link>
+          <button className="save">Save</button>
         </div>
       </form>
     </div>
