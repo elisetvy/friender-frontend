@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import haversineDistance from "haversine-distance";
+
+import Loading from "../Loading/Loading";
+
 import calculateAge from "../../utils";
+import API from "../../api";
 
 import "./UserDetail.css";
-import API from "../../api";
-import Loading from "../Loading/Loading";
 
 /** Card rendered on user page. */
 function UserDetail({ currUser }) {
@@ -43,7 +45,7 @@ function UserDetail({ currUser }) {
       }
     }
     getUser();
-  }, [username]);
+  }, []);
 
   if (isLoading) {
     return <Loading />;
@@ -51,13 +53,12 @@ function UserDetail({ currUser }) {
 
   return (
     <div className="UserDetail">
-      <div>
-        <div className="UserDetail-content">
+        <div className="UserDetail-card">
           <img src={user.photo} alt={user.username} />
-          <div className="UserDetail-text">
+          <div className="UserDetail-card-text">
             <div>
               <div className="UserDetail-name">{user.name[0].toUpperCase() + user.name.slice(1)}, {user.age}</div>
-              {user.username !== currUser.username && <small>{user.distance < 1 ? "Less than 1 mile away" : user.distance === 1 ? "1 mile away" : `${user.distance.toLocaleString('en-US')} miles away`}</small>}
+              {user.username !== currUser.username && <p className="UserDetail-distance">{user.distance < 1 ? "Less than 1 mile away" : user.distance === 1 ? "1 mile away" : `${user.distance.toLocaleString('en-US')} miles away`}</p>}
             </div>
             <div className="UserDetail-bio">{user.bio}</div>
           </div>
@@ -65,10 +66,8 @@ function UserDetail({ currUser }) {
         {/* {user.username === currUser.username &&
           <Link to={`/users/${currUser.username}/edit`}><div className="Edit-button">Edit Your Profile</div></Link>
         } */}
-      </div>
-        <div className="Back">
-          <button onClick={() => navigate(-1)}><i className="bi bi-arrow-return-left"></i></button>
-        </div>
+
+          <button className="back" onClick={() => navigate(-1)}><i className="bi bi-arrow-return-left"></i></button>
     </div>
   );
 }
