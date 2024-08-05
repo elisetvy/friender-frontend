@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import Loading from "../Loading/Loading";
-import MessagesContainer from "../Messages/MessagesContainer";
+import MessagesContainer from "../Messages/Messages";
 
 import API from "../../api";
 

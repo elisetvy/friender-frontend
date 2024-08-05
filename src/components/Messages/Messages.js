@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 import Loading from "../Loading/Loading";
+import Message from "../Message/Message";
 
 import API from "../../api";
 
 import "./Messages.css";
 
-/** Component displaying message threads. */
-function Messages({ currUser }) {
+/** Container displaying Message components. */
+function MessagesContainer({ sender, receiver, currUser }) {
   const [messages, setMessages] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -18,7 +18,7 @@ function Messages({ currUser }) {
       let messages;
 
       try {
-        messages = await API.getUserMessages(currUser.username);
+        messages = await API.getMessages(sender, receiver);
 
         setMessages(messages);
         setIsLoading(false);
@@ -29,36 +29,18 @@ function Messages({ currUser }) {
     getMessages();
   }, []);
 
-  /** Calculate days between timestamp and now. */
-  function daysAgo(timestamp) {
-    const time = new Date().getTime() - new Date(timestamp).getTime();
-    const days = Math.floor(time / (1000 * 3600 * 24));
-
-    return days;
-  }
-
   if (isLoading) {
     return <Loading />;
   }
 
   return (
-    <div className="Messages">
-      <div className="Messages-thread">
-        {messages.length !== 0
-          ? messages.map(message => (
-            <Link key={message.id} to={`/users/${currUser.username}/messages/${message.username}`}>
-                <div>
-                  <p>{message.username}</p>
-                  <p >{daysAgo(message.timestamp) < 1 ? "Today" : daysAgo(message.timestamp) === 1 ? "1 day ago" : `${daysAgo(message.timestamp)} days ago`}</p>
-                </div>
-                <p>{message.body}</p>
-            </Link>
-          ))
-          : <p>No messages.</p>
-        }
-      </div>
+    <div className="MessagesContainer">
+      {messages.length === 0
+        ? <p>No messages!</p>
+        : messages.map(message => <Message currUser={currUser} key={message.id} message={message} />)
+      }
     </div>
   );
 }
 
-export default Messages;
+export default MessagesContainer;

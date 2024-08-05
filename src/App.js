@@ -13,8 +13,8 @@ import UserDetail from './components/UserDetail/UserDetail';
 import EditUser from './components/Edit/EditUser';
 import EditPasswordForm from './components/Edit/EditPasswordForm';
 import Matches from './components/Matches/Matches';
+import MessageThreads from './components/MessageThreads/MessageThreads';
 import MessageForm from './components/MessageForm/MessageForm';
-import Messages from './components/Messages/Messages';
 
 import calculateAge from './utils';
 import API from './api';
@@ -123,7 +123,7 @@ function App() {
           {allUsers && currUser && <Route path="/users/:username" element={<UserDetail currUser={currUser} />} />}
           {allUsers && currUser && <Route path={`/users/${currUser.username}/edit`} element={<EditUser currUser={currUser} update={update} />} />}
           {allUsers && currUser && <Route path={`/users/${currUser.username}/change-password`} element={<EditPasswordForm currUser={currUser} update={update} />} />}
-          {allUsers && currUser && <Route path={`/users/${currUser.username}/messages`} element={<Messages currUser={currUser} />} />}
+          {allUsers && currUser && <Route path={`/users/${currUser.username}/messages`} element={<MessageThreads currUser={currUser} />} />}
           {allUsers && currUser && <Route path={`/users/${currUser.username}/matches`} element={<Matches currUser={currUser} users={allUsers} />} />}
           {allUsers && currUser && <Route path={`/users/${currUser.username}/messages/:receiver`} element={<MessageForm currUser={currUser} sendMessage={sendMessage} />} />}
           <Route path="*" element={<Navigate to="/" />} />
