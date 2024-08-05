@@ -71,8 +71,9 @@
 
 .MessageForm-currUser input {
   flex-grow: 2;
-  margin: 0;
   height: 100%;
+  margin: 0;
+  padding: 0.5rem;
   border-radius: 0.25rem;
   background: var(--white);
   border: 1px solid var(--fuschia);
