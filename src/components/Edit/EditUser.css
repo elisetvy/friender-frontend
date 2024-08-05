@@ -1,53 +1,59 @@
-.EditUserForm {
+.EditUser {
   padding: 2rem;
-}
-
-.EditUserForm > div:first-child {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
 
-.EditUserForm > div > form {
+.EditUser-form {
   grid-column: 3 / span 3;
   background: var(--white);
   border-radius: 0.5rem;
   padding: 2rem;
 }
 
-.section {
+.EditUser-form > div { /* Row of labels + input */
   display: flex;
   gap: 1rem;
 }
 
+.EditUser-form > :nth-last-child(2) { /* Bio label + input */
+  flex-direction: column;
+  gap: 0;
+}
+
 @media (width <= 1200px) {
-  .EditUserForm > div:first-child {
+  .EditUser {
     grid-template-columns: repeat(12, 1fr);
   }
 
-  form {
+  .EditUser-form {
     grid-column: 2 / span 10;
   }
 }
 
 @media (width <= 768px) {
-  .section {
+  .EditUser-form > div {
     flex-direction: column;
     gap: 0;
   }
+
+  .EditUser-form > div:last-child {
+    gap: 1rem;
+  }
 }
 
-.section div {
+.EditUser-form > div > div { /* Each group of label + input */
   width: 100%;
 }
 
-label {
+.EditUser-form label {
   width: inherit;
   margin-bottom: 0.5rem;
   font-weight: bold;
   color: var(--purple);
 }
 
-input {
+.EditUser-form input {
   width: 100%;
   margin-bottom: 1rem;
   border-radius: 0.5rem;
@@ -61,63 +67,58 @@ input {
   opacity: 25%;
 }
 
-.ChangePassword {
-  padding: 2rem;
-  text-align: center;
-}
-
-.ChangePassword > a {
-  color: var(--fuschia);
-}
-
-.ChangePassword > a:hover {
-  color: var(--white);
-}
-
-.error {
+.EditUser-form .error, .EditUser-form .alert {
   margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
   background: var(--red);
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  color: var(--white);
   text-align: center;
+  color: var(--white);
 }
 
-.alert {
-  margin-bottom: 1rem;
+.EditUser-form .alert {
   background: var(--green);
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  color: var(--white);
-  text-align: center;
 }
 
-.Buttons {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: end;
-  gap: 0.5rem;
+.EditUser-form > .buttons {
 }
 
-.Cancel {
-  background: var(--purple);
+.cancel, .save {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  color: var(--white);
+  background: var(--purple);
   text-align: center;
+  color: var(--white);
 }
 
-.Cancel:hover,
-.Save:hover {
+.cancel:hover,
+.save:hover {
   color: var(--white);
   scale: 1.05;
   transition: 0.5s;
 }
 
-.Save {
+.save {
   background: var(--fuschia);
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  color: var(--white);
+}
+
+.changePassword {
+  grid-column: 3 / span 3;
+  padding: 2rem;
   text-align: center;
+}
+
+@media (width <= 1200px) {
+  .changePassword {
+    grid-column: 2 / span 10;
+  }
+}
+
+.changePassword a {
+  color: var(--fuschia);
+}
+
+.changePassword > a:hover {
+  color: var(--white);
+  transition: 0.5s;
 }

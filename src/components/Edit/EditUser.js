@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import "./EditUserForm.css";
 import API from "../../api";
 
+import "./EditUser.css";
+
 /** Form to edit user info. */
-function EditUserForm({ currUser, update }) {
+function EditUser({ currUser, update }) {
   const initialFormData = {
     username: currUser.username,
     password: "",
@@ -57,10 +58,9 @@ function EditUserForm({ currUser, update }) {
   }
 
   return (
-    <div className="EditUserForm">
-      <div>
-        <form onSubmit={handleSubmit} encType="multipart/form-data">
-          <div className="section">
+    <div className="EditUser">
+        <form className="EditUser-form" onSubmit={handleSubmit} encType="multipart/form-data">
+          <div>
             <div>
               <label>Username</label>
               <input name="username"
@@ -85,7 +85,7 @@ function EditUserForm({ currUser, update }) {
               />
             </div>
           </div>
-          <div className="section">
+          <div>
             <div>
               <label>Name</label>
               <input name="name"
@@ -105,7 +105,7 @@ function EditUserForm({ currUser, update }) {
               />
             </div>
           </div>
-          <div className="section">
+          <div>
             <div>
               <label>Date of Birth</label>
               <input name="dob"
@@ -156,18 +156,17 @@ function EditUserForm({ currUser, update }) {
           </div>
           {error && <p className="error">{error}</p>}
           {alert && <p className="alert">{alert}</p>}
-          <div className="Buttons">
-            <Link className="Cancel" to={`/users/${currUser.username}`}>Cancel</Link>
-            <button className="Save">Save</button>
+          <div className="buttons">
+            <Link className="cancel" to={`/users/${currUser.username}`}>Cancel</Link>
+            <button className="save">Save</button>
           </div>
         </form>
-      </div>
-      <div className="ChangePassword">
+        <div className="changePassword">
         <Link to={`/users/${currUser.username}/change-password`}>Click here to change your password.</Link>
-      </div>
+        </div>
     </div>
 
   );
 }
 
-export default EditUserForm;
+export default EditUser;
