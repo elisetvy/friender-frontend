@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 
-import "./MessagesContainer.css";
-import API from "../../api";
 import Loading from "../Loading/Loading";
 import Message from "../Message/Message";
+
+import API from "../../api";
+
+import "./MessagesContainer.css";
 
 /** Container displaying Message components. */
 function MessagesContainer({ sender, receiver, currUser }) {
