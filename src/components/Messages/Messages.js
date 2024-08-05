@@ -8,7 +8,7 @@ import API from "../../api";
 import "./Messages.css";
 
 /** Container displaying Message components. */
-function MessagesContainer({ sender, receiver, currUser }) {
+function Messages({ sender, receiver, currUser }) {
   const [messages, setMessages] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -43,4 +43,4 @@ function MessagesContainer({ sender, receiver, currUser }) {
   );
 }
 
-export default MessagesContainer;
+export default Messages;
