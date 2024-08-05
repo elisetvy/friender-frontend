@@ -3,10 +3,10 @@ import { useNavigate, Link } from "react-router-dom";
 
 import Nav from "../Nav/Nav";
 
-import "./LoginForm.css";
+import "./Login.css";
 
 /** Form to log in. */
-function LoginForm({ login }) {
+function Login({ login }) {
 
   const navigate = useNavigate();
 
@@ -78,4 +78,4 @@ function LoginForm({ login }) {
   );
 }
 
-export default LoginForm;
+export default Login;
