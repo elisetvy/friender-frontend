@@ -7,6 +7,7 @@
 
 .Register {
   height: 100vh;
+  padding: 2rem;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   align-items: center;
@@ -18,9 +19,9 @@
   justify-content: center;
 }
 
-@media (width <= 768px) {
+@media (width <= 992px) {
   .Register-Form {
-    grid-column: 2 / span 5;
+    grid-column: 1 / span 7;
   }
 }
 
