@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./EditPassword.css";
 
 /** Form to change password. */
-function EditPasswordForm({ currUser, update }) {
+function EditPassword({ currUser, update }) {
 
   const initialFormData = {
     password: "",
@@ -68,4 +68,4 @@ function EditPasswordForm({ currUser, update }) {
   );
 }
 
-export default EditPasswordForm;
+export default EditPassword;
