@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import haversineDistance from "haversine-distance";
 
 import Loading from "../Loading/Loading";
@@ -63,9 +63,9 @@ function UserDetail({ currUser }) {
             <div className="UserDetail-bio">{user.bio}</div>
           </div>
         </div>
-        {/* {user.username === currUser.username &&
-          <Link to={`/users/${currUser.username}/edit`}><div className="Edit-button">Edit Your Profile</div></Link>
-        } */}
+        {user.username === currUser.username &&
+          <Link className="edit" to={`/users/${currUser.username}/edit`}>Edit Your Profile</Link>
+        }
 
           {/* <button className="back" onClick={() => navigate(-1)}><i className="bi bi-arrow-return-left"></i></button> */}
     </div>

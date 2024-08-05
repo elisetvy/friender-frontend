@@ -21,7 +21,7 @@
   color: var(--fuschia);
 }
 
-@media (width <= 992px) {
+@media (width <= 1200px) {
   .UserDetail {
     padding: 2rem 14rem;
     grid-template-columns: repeat(3, 1fr);
@@ -32,7 +32,7 @@
   }
 }
 
-@media (width <= 786px) {
+@media (width <= 992px) {
   .UserDetail {
     padding: 2rem;
   }
@@ -62,6 +62,27 @@
 
 .UserDetail-bio {
   padding: 1rem 0 0;
+}
+
+.edit {
+  margin: 1rem 6rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  grid-column: 2 / span 1;
+  background: var(--fuschia);
+  color: var(--white);
+}
+
+@media (width <= 1200px) {
+  .edit {
+    grid-column: 1 / span 3;
+  }
+}
+
+.edit:hover {
+  transition: 0.5s;
+  scale: 1.05;
+  color: var(--white);
 }
 
 /* .back {
